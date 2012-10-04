@@ -12,12 +12,16 @@ public class Combat
 	public static void main(String[] args)
 	{
 		String nom = "bobo";
-		String profession = "Gladiateur";
+		byte profession = 1; //1 pour avoir la profession Gladiateur
 		
-		NouvPersonnageMenu perso;
 		
-		perso = new NouvPersonnageMenu(nom, profession);
+		NouvPersonnageMenu perso = new NouvPersonnageMenu(nom, profession);
 
+		System.out.println(perso.getNomPersonnage());
+		System.out.println(perso.getNomProfession());
+		
+		/* 0 pour un emplacement libre , 1 pour un obstacle, 2 pour  l'emplcement 
+		 du joueur, 3+ pour le(s) monstre(s)*/
 		byte[][] map={
 				 {1,1,1,1,1,1},
 				 {1,2,0,0,0,1},
@@ -26,9 +30,10 @@ public class Combat
 				 {1,0,0,0,0,1},
 				 {1,0,0,0,0,1},
 				 {1,1,1,1,1,1}
-		 };
-		System.out.println(perso.getNom());
-		System.out.println(perso.getProfession().getNom());
+		 }; 
+		
+		
+
 
 	}
 }

@@ -6,10 +6,38 @@
  */
 public class StatsProfession
 {
+    //Stats pour le gladiateur
+    String gladiateur = "Gladiateur";
+    int puissanceGladiateur=8;
+    int defenseGladiateur=5;
+    int pointDeVieGladiateur=45;
+    int pointDeMouvementGladiateur=4;
+    
+    // Stats pour le templier
+    String templier = "Templier";
+    int puissanceTemplier=7;
+    int defenseTemplier=6;
+    int pointDeVieTemplier=50;
+    int pointDeMouvementTemplier=4;
+    
+    //Stats pour le Rodeur
+    String rodeur = "Rôdeur";
+    int puissanceRodeur=8;
+    int defenseRodeur=4;
+    int pointDeVieRodeur=40;
+    int pointDeMouvementRodeur=3;
+    
+    //Stats pour Sorcier
+    String sorcier="Sorcier";
+    int puissanceSorcier=8;
+    int defenseSorcier=4;
+    int pointDeVieSorcier=40;
+    int pointDeMouvementSorcier=4;
+    
 	/**
-	 * nom de la profession
+	 * idProfession de la profession
 	 */
-	private final String nom;
+	private final byte idProfession;
 	
 	/**
 	 * puissance de base
@@ -33,56 +61,85 @@ public class StatsProfession
 
 	/**
 	 * Fixe les stats de base du perso pour la profession choisie
-	 * @param nom
+	 * @param idProfession
 	 */
 
-	public StatsProfession(String nom)
+	public StatsProfession(byte idProfession)
 	{
 		super();
-		this.nom = nom;
-		if (nom == "Gladiateur")
+		this.idProfession = idProfession;
+		if (idProfession == 1)
 		{
-			// FIXME définir les valeurs par défaut sous forme de constantes
-			this.puissance = 8;
-			this.defense = 5;
-			this.pv = 45;
-			this.pm = 4;
+			this.puissance = puissanceGladiateur;
+			this.defense = defenseGladiateur;
+			this.pv = pointDeVieGladiateur;
+			this.pm = pointDeMouvementGladiateur;
 		}
-		else if (nom == "Templier")
+		else if (idProfession == 2)
 		{
-			// FIXME définir les valeurs par défaut sous forme de constantes
-			this.puissance = 7;
-			this.defense = 6;
-			this.pv = 50;
-			this.pm = 4;
+			this.puissance = puissanceTemplier;
+			this.defense = defenseTemplier;
+			this.pv = pointDeVieTemplier;
+			this.pm = pointDeMouvementTemplier;
 		}
-		else if (nom == "Rodeur")
+		else if (idProfession == 3)
 		{
-			// FIXME définir les valeurs par défaut sous forme de constantes
-			this.puissance = 8;
-			this.defense = 4;
-			this.pv = 40;
-			this.pm = 3;
+			this.puissance = puissanceRodeur;
+			this.defense = defenseRodeur;
+			this.pv = pointDeVieRodeur;
+			this.pm = pointDeMouvementRodeur;
 		}
 		else
 		{
-			// FIXME définir les valeurs par défaut sous forme de constantes
-			this.puissance = 8;
-			this.defense = 4;
-			this.pv = 40;
-			this.pm = 4;
+			this.puissance = puissanceSorcier;
+			this.defense = defenseSorcier;
+			this.pv = pointDeVieSorcier;
+			this.pm = pointDeMouvementSorcier;
 		}
+		
 		
 		// FIXME méthodes ?
 	}
 
-
-	/**
-	 * @return le nom de la profession
-	 */
-	public String getNom()
-	{
-		return nom;
+	//Obtenir une valeur
+	public byte getIdProfession() {
+	    return idProfession;
 	}
+
+	public int getPuissance() {
+	    return puissance;
+	}
+
+	public int getDefense() {
+	    return defense;
+	}
+
+	public int getPv() {
+	    return pv;
+	}
+
+	public int getPm() {
+	    return pm;
+	}
+
+	
+	// Changement de valeur
+	public void setPuissance(int puissance) {
+	    this.puissance = puissance;
+	}
+
+	public void setDefense(int defense) {
+	    this.defense = defense;
+	}
+
+	public void setPv(int pv) {
+	    this.pv = pv;
+	}
+
+	public void setPm(int pm) {
+	    this.pm = pm;
+	}
+	
+	
 	
 }

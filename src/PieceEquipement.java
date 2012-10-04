@@ -15,7 +15,7 @@ public class PieceEquipement
 	/**
 	 * l'emplacement de la piece d'equipement sur le personnage
 	 */
-	private final int type;
+	private final byte type;
 
 	/**
 	 * bonus que donne la piece en puissance
@@ -40,7 +40,7 @@ public class PieceEquipement
 	 * @param bonusDefense (bonus que donne la piece en defense)
 	 * @param bonusPointsMouvement (bonus que donne la piece en PointsMouvement)
 	 */
-	public PieceEquipement(String nom, int type, int bonusPuissance, int bonusDefense,
+	public PieceEquipement(String nom, byte type, int bonusPuissance, int bonusDefense,
 			int bonusPointsMouvement)
 	{
 		super();
@@ -62,18 +62,11 @@ public class PieceEquipement
 	/**
 	 * @return l'emplacement occupé par la piece d'equipement
 	 */
-	public String getEmplacement()
+	public byte getType()
 	{
-		return emplacement;
+		return type;
 	}
-
-	/**
-	 * @return l'ID de la piece d'equipement
-	 */
-	public int getIdPiece()
-	{
-		return idPiece;
-	}
+	
 
 	/**
 	 * @return le bonus de puissance de la piece d'equipement

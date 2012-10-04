@@ -30,6 +30,7 @@ public class EquipementPerso
 	 * attribut correspondant aux bottes équipées
 	 */
 	private PieceEquipement bottes;
+	
 
 	/**
 	 * crée l'objet equipementPerso avec les 5 pieces d'equipement

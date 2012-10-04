@@ -24,9 +24,28 @@ public class Coordonees
 	public Coordonees(int x, int y)
 	{
 		super();
-		this.X = x;
-		this.Y = y;
+		this.x = x;
+		this.x = y;
+	}
+
+	
+	//Obtenir les coordonees
+	public int getX() {
+	    return x;
+	}
+
+	public int getY() {
+	    return y;
+	}
+
+	//Changer les coordonees
+	public void setX(int x) {
+	    this.x = x;
+	}
+
+	public void setY(int y) {
+	    this.y = y;
 	}
 	
-	// FIXME méthodes ? 
+	
 }

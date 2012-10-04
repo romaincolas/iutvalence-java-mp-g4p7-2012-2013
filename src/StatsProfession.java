@@ -1,6 +1,9 @@
- /**
+// FIXME déplacer dans un paquetage
+
+// FIXME compléter et corriger le commentaire
+/**
   * @author colasr
-  * parametres de bases de chaque statsProfession
+  * Stats de base de chaque Profession
   */
 public class StatsProfession
 {
@@ -30,15 +33,17 @@ public class StatsProfession
 	private int pm;
 
 	/**
-	 * constructeur des 4 statsProfession de base
+	 * Fixe les stats de base du perso pour la profession choisie
 	 * @param nom
 	 */
+
 	public StatsProfession(String nom)
 	{
 		super();
 		this.nom = nom;
 		if (nom == "Gladiateur")
 		{
+			// FIXME définir les valeurs par défaut sous forme de constantes
 			this.puissance = 8;
 			this.defense = 5;
 			this.pv = 45;
@@ -46,6 +51,7 @@ public class StatsProfession
 		}
 		else if (nom == "Templier")
 		{
+			// FIXME définir les valeurs par défaut sous forme de constantes
 			this.puissance = 7;
 			this.defense = 6;
 			this.pv = 50;
@@ -53,6 +59,7 @@ public class StatsProfession
 		}
 		else if (nom == "Rodeur")
 		{
+			// FIXME définir les valeurs par défaut sous forme de constantes
 			this.puissance = 8;
 			this.defense = 4;
 			this.pv = 40;
@@ -60,12 +67,16 @@ public class StatsProfession
 		}
 		else
 		{
+			// FIXME définir les valeurs par défaut sous forme de constantes
 			this.puissance = 8;
 			this.defense = 4;
 			this.pv = 40;
 			this.pm = 4;
 		}
+		
+		// FIXME méthodes ?
 	}
+
 
 	/**
 	 * @return le nom de la profession
@@ -74,7 +85,5 @@ public class StatsProfession
 	{
 		return nom;
 	}
-	
-	
 	
 }

@@ -3,32 +3,32 @@
  * @author colasr
  * determine l'equipement total sur le perso
  */
-public class equipementPerso extends pieceEquipement
+public class EquipementPerso extends PieceEquipement
 {
 	/**
 	 * attribut correspondant au casque équipé
 	 */
-	private pieceEquipement casque;
+	private PieceEquipement casque;
 	
 	/**
 	 * attribut correspondant aux gants équipés
 	 */
-	private pieceEquipement gants;
+	private PieceEquipement gants;
 	
 	/**
 	 * attribut correspondant au plastron équipé
 	 */
-	private pieceEquipement plastron;
+	private PieceEquipement plastron;
 	
 	/**
 	 * attribut correspondant aux jambieres équipées
 	 */
-	private pieceEquipement jambieres;
+	private PieceEquipement jambieres;
 	
 	/**
 	 * attribut correspondant aux bottes équipées
 	 */
-	private pieceEquipement bottes;
+	private PieceEquipement bottes;
 
 	/**
 	 * crée l'objet equipementPerso avec les 5 pieces d'equipement
@@ -38,8 +38,8 @@ public class equipementPerso extends pieceEquipement
 	 * @param jambieres
 	 * @param bottes
 	 */
-	public equipementPerso(pieceEquipement casque, pieceEquipement gants, pieceEquipement plastron,
-			pieceEquipement jambieres, pieceEquipement bottes)
+	public EquipementPerso(PieceEquipement casque, PieceEquipement gants, PieceEquipement plastron,
+			PieceEquipement jambieres, PieceEquipement bottes)
 	{
 		super();
 		this.casque = casque;

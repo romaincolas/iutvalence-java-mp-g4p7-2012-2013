@@ -2,7 +2,7 @@
  * @author colasr
  * Classe de création du personnage Hors-combat (menu)
  */
-public class nouvPersonnageMenu extends statsProfession
+public class NouvPersonnageMenu extends StatsProfession
 {
 
 	/**
@@ -12,9 +12,27 @@ public class nouvPersonnageMenu extends statsProfession
 	
 	
 	/**
+	 * @return the nom
+	 */
+	public String getNom()
+	{
+		return nom;
+	}
+
+
+	/**
+	 * @return the profession
+	 */
+	public StatsProfession getProfession()
+	{
+		return profession;
+	}
+
+
+	/**
 	 * classe du personnage
 	 */
-	private final statsProfession profession;
+	private final StatsProfession profession;
 	
 	/**
 	 * experience du personnage (si egal ou sup à 4*niveau, UP)
@@ -34,12 +52,12 @@ public class nouvPersonnageMenu extends statsProfession
 	/**
 	 * nombre de victoires
 	 */
-	private int nb_victoire;
+	private int nbVictoire;
 	
 	/**
 	 * nombre de defaites
 	 */
-	private int nb_defaite;
+	private int nbDefaite;
 	
 	/**
 	 * points d'action du personnage
@@ -50,17 +68,17 @@ public class nouvPersonnageMenu extends statsProfession
 	/**
 	 * crée un nouveau personnage de niveau 1 + crée l'objet statsProfession correspondant
 	 * @param nom
-	 * @param nom_profession
+	 * @param nomProfession
 	 */
-	public nouvPersonnageMenu(String nom, String nom_profession)
+	public NouvPersonnageMenu(String nom, String nomProfession)
 	{
-		super(nom_profession);
+		super(nomProfession);
 		this.nom = nom;
-		this.profession_perso = new statsProfession(nom_profession);
+		this.profession = new StatsProfession(nomProfession);
 		this.experience = 0;
 		this.niveau = 1;
 		this.argent = 50;
-		this.nb_victoire = 0;
-		this.nb_defaite = 0;
+		this.nbVictoire = 0;
+		this.nbDefaite = 0;
 	}
 }

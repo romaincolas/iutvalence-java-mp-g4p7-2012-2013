@@ -2,17 +2,17 @@
  * @author colasr
  * classe des differentes pieces d'equipement (BDD?)
  */
-public class pieceEquipement
+public class PieceEquipement
 {
 	private final String nom;
 	
 	private final String emplacement;
 	
-	private final int id_piece;
+	private final int idPiece;
 	
-	private final int bonus_puissance;
+	private final int bonusPuissance;
 	
-	private final int bonus_defense;
+	private final int bonusDefense;
 	
-	private final int bonus_pm;
+	private final int bonusPm;
 }

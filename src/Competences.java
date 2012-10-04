@@ -2,7 +2,7 @@
  * @author colasr
  * crée l'objet competences (a gerer aprés avec la classe competencesEquipees)
  */
-public class competences
+public class Competences
 {
 	private String nom;
 	
@@ -10,9 +10,9 @@ public class competences
 	
 	private int consomation;
 	
-	private int bonus_puissance;
+	private int bonusPuissance;
 	
-	private int bonus_defense;
+	private int bonusDefense;
 	
 	private int duree;
 }

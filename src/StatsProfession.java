@@ -2,7 +2,7 @@
   * @author colasr
   * parametres de bases de chaque statsProfession
   */
-public class statsProfession
+public class StatsProfession
 {
 	/**
 	 * nom de la profession
@@ -33,7 +33,7 @@ public class statsProfession
 	 * constructeur des 4 statsProfession de base
 	 * @param nom
 	 */
-	public statsProfession(String nom)
+	public StatsProfession(String nom)
 	{
 		super();
 		this.nom = nom;
@@ -65,6 +65,14 @@ public class statsProfession
 			this.pv = 40;
 			this.pm = 4;
 		}
+	}
+
+	/**
+	 * @return le nom de la profession
+	 */
+	public String getNom()
+	{
+		return nom;
 	}
 	
 	

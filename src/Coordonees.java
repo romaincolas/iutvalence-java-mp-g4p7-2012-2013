@@ -2,7 +2,7 @@
  * @author colasr
  * classe coordonées (X,Y)
  */
-public class coordonees
+public class Coordonees
 {
 	/**
 	 * coordonée X (abscisses)
@@ -15,11 +15,11 @@ public class coordonees
 	private int Y;
 
 	/**
-	 * crée les coordonées d'un objet (perso / enemis / competences)
+	 * crée les coordonées d'un objet (perso / ennemis / competences)
 	 * @param x
 	 * @param y
 	 */
-	public coordonees(int x, int y)
+	public Coordonees(int x, int y)
 	{
 		super();
 		this.X = x;

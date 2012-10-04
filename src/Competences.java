@@ -1,9 +1,8 @@
 // FIXME déplacer dans un paquetage
 
-// FIXME corriger le commentaire
 /**
- * @author colasr
  * description des competences
+ * @author colasr
  */
 public class Competences
 
@@ -17,8 +16,10 @@ public class Competences
 	// FIXME écrire un commentaire
 	private int consomation;
 
+	// FIXME écrire un commentaire
 	private int bonusPuissance;
 
+	// FIXME écrire un commentaire
 	private int bonusDefense;
 	
 	// FIXME écrire un commentaire

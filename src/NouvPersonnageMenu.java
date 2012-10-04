@@ -3,8 +3,8 @@
 // FIXME détailler le commentaire
 // FIXME me justifier l'extension de la class statsProfession
 /**
- * @author colasr
  * Classe de création du personnage Hors-combat (menu)
+ * @author colasr
  */
 public class NouvPersonnageMenu extends StatsProfession
 {
@@ -52,29 +52,26 @@ public class NouvPersonnageMenu extends StatsProfession
 	 */
 	private int argent;
 	
-	// FIXME respecter les conventions d'écriture
 	/**
 	 * nombre de victoires
 	 */
 	private int nbVictoire;
 	
-	// FIXME respecter les conventions d'écriture
 	/**
 	 * nombre de defaites
 	 */
 	private int nbDefaite;
 	
-	// FIXME initialisation de l'attribut dans le constructeur
 	/**
 	 * points d'action du personnage
 	 */
-	private final int pa = 5;
+	private final int pa;
 	
-	// FIXME corriger le commentaire
 	/**
-	 * crée un nouveau personnage de niveau 1 + crée l'objet statsProfession correspondant
-	 * @param nom
-	 * @param nomProfession
+	 * crée un nouveau personnage de niveau 1 + lui assigne des statistiques de base en fonction de 
+	 * sa profession.
+	 * @param nom (le nom du personnage)
+	 * @param nomProfession (le nom de sa profession)
 	 */
 
 	public NouvPersonnageMenu(String nom, String nomProfession)
@@ -88,5 +85,6 @@ public class NouvPersonnageMenu extends StatsProfession
 		this.argent = 50;
 		this.nbVictoire = 0;
 		this.nbDefaite = 0;
+		this.pa = 5;
 	}
 }

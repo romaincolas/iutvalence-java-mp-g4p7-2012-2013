@@ -1,29 +1,25 @@
-// FIXME déplacer dans un paquetage
 
-// FIXME corriger le commentaire
 /**
+ * gere les coordonées sur la map (X,Y) (sert pour les gestions de colision / les deplacements / 
+ * les competences)
  * @author colasr
- * gere les coordonées des objets sur la map (X,Y) 
  */
 public class Coordonees
 {
 	/**
 	 * coordonnée X (abscisse)
 	 */
-	// FIXME respecter les conventions d'écriture
-	private int X;
+	private int x;
 	
 	/**
 	 * coordonnée Y (ordonnée)
 	 */
-	// FIXME respecter les conventions d'écriture
-	private int Y;
+	private int y;
 
-	// FIXME completer et corriger le commentaire
 	/**
 	 * crée les coordonées d'un objet (perso / ennemis / competences)
-	 * @param x
-	 * @param y
+	 * @param x (abscisse)
+	 * @param y (ordonnée)
 	 */
 	public Coordonees(int x, int y)
 	{

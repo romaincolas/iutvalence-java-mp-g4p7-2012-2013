@@ -1,10 +1,9 @@
 // FIXME déplacer dans un paquetage
 
-// FIXME compléter et corriger le commentaire
 /**
-  * @author colasr
-  * Stats de base de chaque Profession
-  */
+ * Stats de base de chaque Profession
+ * @author colasr
+ */
 public class StatsProfession
 {
 	/**

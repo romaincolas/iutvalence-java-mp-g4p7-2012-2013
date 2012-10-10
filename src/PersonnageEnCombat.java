@@ -7,12 +7,74 @@
  * competences), ses competences (permet de poutrer le monstre)
  * @author colasr
  */
-
 public class PersonnageEnCombat
 {
-	// FIXME attributs ?
+	/**
+	 * nom du personnage
+	 */
+	private final String nom;
+
 	
-	// FIXME constructeurs ?
+	/**
+	 * id de la profession ( 1=Gladiateur/2=Templier/3=Rodeur/4=Sorcier )
+	 */
+	private final byte idProfession;
 	
-	// FIXME méthodes ?
+	/**
+	 * Toutes les stats du personnage
+	 */
+	private final Stats stats;
+	
+	private Coordonees coordonees;
+	
+	
+	/**
+	 * Crée un personnage avec toutes les info utile pour un combat 
+	 * @param nom
+	 * @param idProfession
+	 * @param  stats
+	 * @param coordonees
+	 */	
+	public PersonnageEnCombat (String nom, byte idProfession, Coordonees coordonees) {
+	    this.nom = nom;
+	    this.idProfession  = idProfession;
+	    this.stats = new Stats(idProfession);
+	    this.coordonees = coordonees;
+	}
+
+	/**
+	 * donne le nom du personnage
+	 */	
+	public String getNom() {
+	    return nom;
+	}
+	
+	/**
+	 * donne l'id de la profession ( 1=Gladiateur/2=Templier/3=Rodeur/4=Sorcier )
+	 */
+	public byte getIdProfession() {
+	    return idProfession;
+	}
+
+	/**
+	 * donne l'objet stats avec toutes les stats du perso
+	 */
+	public Stats getStats() {
+	    return stats;
+	}
+
+	/**
+	 * donne  les coordonees actuel du personnage dans un objet Coordonees
+	 */
+	public Coordonees getCoordonees() {
+	    return coordonees;
+	}
+
+	/**
+	 * positionne le perso à de nouvelles coordonees
+	 */
+	public void setCoordonees(Coordonees coordonees) {
+	    this.coordonees = coordonees;
+	}
+
 }

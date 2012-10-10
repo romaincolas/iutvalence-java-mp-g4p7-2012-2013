@@ -6,8 +6,12 @@
  * Classe de création du personnage Hors-combat (menu)
  * @author colasr
  */
-public class NouvPersonnageMenu extends StatsProfession
+public class NouvPersonnageMenu
 {
+    String gladiateur = "Gladiateur";
+    String templier = "Templier";
+    String rodeur = "Rôdeur"; 
+    String sorcier="Sorcier";
 	/**
 	 * nom du personnage
 	 */
@@ -15,10 +19,9 @@ public class NouvPersonnageMenu extends StatsProfession
 
 
 	/**
-	 * profession du personnage (StatsProfession contient toutes les stats de base de la 
-	 * profession)
+	 * id de la profession ( 1=Gladiateur/2=Templier/3=Rodeur/4=Sorcier )
 	 */
-	private final StatsProfession profession;
+	private final byte profession;
 	
 	/**
 	 * experience du personnage (si egal ou sup à 4*niveau, UP)
@@ -46,28 +49,20 @@ public class NouvPersonnageMenu extends StatsProfession
 	private int nbDefaite;
 	
 	/**
-	 * points d'action du personnage
-	 */
-	private final int pa;
-	
-	/**
 	 * crée un nouveau personnage de niveau 1 + lui assigne des statistiques de base en fonction de 
 	 * sa profession.
 	 * @param nom (le nom du personnage)
 	 * @param Profession (la profession 1=Gladiateur/2=Templier/3=Rodeur/4=Sorcier)
 	 */
-	public NouvPersonnageMenu(String nom, byte Profession)
+	public NouvPersonnageMenu(String nom, byte profession)
 	{
-		// FIXME définir les valeurs par défaut sous forme de constantes
-		super(Profession);
 		this.nom = nom;
-		this.profession = new StatsProfession(Profession);
+		this.profession = profession;
 		this.experience = 0;
 		this.niveau = 1;
 		this.argent = 50;
 		this.nbVictoire = 0;
 		this.nbDefaite = 0;
-		this.pa = 5;
 	}
 
 	public String getNomPersonnage() {
@@ -75,15 +70,15 @@ public class NouvPersonnageMenu extends StatsProfession
 	}
 	
 	public String getNomProfession() {
-	    if (profession.getIdProfession() == 1){
+	    if (getProfession() == 1){
 		return gladiateur;
 	    }
 	    
-	    else if (profession.getIdProfession() == 2){
+	    else if (getProfession() == 2){
 		return templier;
 	    }
 	    
-	    else if (profession.getIdProfession() == 3){
+	    else if (getProfession() == 3){
 		return rodeur;
 	    }
 	    
@@ -92,7 +87,7 @@ public class NouvPersonnageMenu extends StatsProfession
 	    }
 	}
 
-	public StatsProfession getProfession() {
+	public byte getProfession() {
 	    return profession;
 	}
 
@@ -114,10 +109,6 @@ public class NouvPersonnageMenu extends StatsProfession
 
 	public int getNbDefaite() {
 	    return nbDefaite;
-	}
-
-	public int getPa() {
-	    return pa;
 	}
 
 	public void setExperience(int experience) {

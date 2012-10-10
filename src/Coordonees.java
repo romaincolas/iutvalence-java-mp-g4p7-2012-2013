@@ -17,7 +17,7 @@ public class Coordonees
 	private int y;
 
 	/**
-	 * crée les coordonées d'un objet (perso / ennemis / competences)
+	 * crÃ©e les coordonées d'un objet (perso / ennemis / competences)
 	 * @param x (abscisse)
 	 * @param y (ordonnée)
 	 */
@@ -25,7 +25,7 @@ public class Coordonees
 	{
 		super();
 		this.x = x;
-		this.x = y;
+		this.y = y;
 	}
 
 	
@@ -46,6 +46,21 @@ public class Coordonees
 	public void setY(int y) {
 	    this.y = y;
 	}
-	
+
+	/**
+	 * ajout la valeur du param x à la position actuel en x
+	 * @param x (abscisse)
+	 */
+	public void changePosX(int x) {
+		this.x = this.x + x;
+	}
+
+	/**
+	 * ajout la valeur du param y à la position actuel en y 
+	 * @param y (ordonnée)
+	 */
+	public void changePosY(int y) {
+		this.y = this.y + y;
+	}
 	
 }

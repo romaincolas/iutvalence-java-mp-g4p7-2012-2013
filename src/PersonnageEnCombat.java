@@ -27,6 +27,8 @@ public class PersonnageEnCombat
 	
 	private Coordonees coordonees;
 	
+	private final Competences[] competences;
+	
 	
 	/**
 	 * Crée un personnage avec toutes les info utile pour un combat 
@@ -35,11 +37,12 @@ public class PersonnageEnCombat
 	 * @param  stats
 	 * @param coordonees
 	 */	
-	public PersonnageEnCombat (String nom, byte idProfession, Coordonees coordonees) {
+	public PersonnageEnCombat (String nom, byte idProfession, Coordonees coordonees, Competences[] competences) {
 	    this.nom = nom;
 	    this.idProfession  = idProfession;
 	    this.stats = new Stats(idProfession);
 	    this.coordonees = coordonees;
+	    this.competences=competences;
 	}
 
 	/**
@@ -69,12 +72,32 @@ public class PersonnageEnCombat
 	public Coordonees getCoordonees() {
 	    return coordonees;
 	}
+	
+	public Competences[] getCompetences() {
+		return competences;
+	}
 
+	/**
+	 * ajout x à la position actuel du personnage 
+	 */
+	public void changePosX(int x) {
+		this.coordonees.changePosX(x);
+	}
+
+	/**
+	 * ajout x à la position actuel du personnage 
+	 */
+	public void changePosY(int y) {
+		this.coordonees.changePosY(y);
+	}
+	
 	/**
 	 * positionne le perso à de nouvelles coordonees
 	 */
 	public void setCoordonees(Coordonees coordonees) {
 	    this.coordonees = coordonees;
 	}
+
+
 
 }

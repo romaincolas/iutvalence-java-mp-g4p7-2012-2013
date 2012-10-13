@@ -1,14 +1,21 @@
+package combat;
+import javax.swing.JFrame;
 /**
  * @author colasr
  * Classe principale, fait tourner le jeu
  */
 public class Combat
 {
-	public static Coordonees InitPositionJoueur(byte[][] map) {
+	/**
+	 * Cherche la position d'un acteur en fonction de son numero (numActeur !=  0 et 1)
+	 * @param map 
+	 * @param numActeur
+	 */
+	public static Coordonees CherchePositionActeur(byte[][] map, byte numActeur) {
 		int x,y;
 		for (x=0; x<map.length;x++) {
 		    for(y=0; y<map[x].length; y++) {
-			if (map[x][y]==2){
+			if (map[x][y]==numActeur){
 			    return new Coordonees(x,y);
 			    }
 			}	    
@@ -41,10 +48,17 @@ public class Combat
 		String nom = "bobo";
 		byte profession = 1; //1 pour avoir la profession Gladiateur
 		
-		Competences[] comp={new Competences("Attaque", 1, 1, 0, 0, 1)};
+		Competences[] comp={new Competences("Attaque", 1, 1, 5, 0, 1, 5)};
 		
-		PersonnageEnCombat persoEnCombat = new PersonnageEnCombat(nom, profession, InitPositionJoueur(map),comp);
-
+		Acteur persoEnCombat = new PersonnageEnCombat(nom, new Stats(profession), CherchePositionActeur(map, (byte)2), profession, comp);
+		
+		JFrame fenetre = new JFrame();
+		
+		fenetre.setTitle("Combat");
+		fenetre.setSize(map[1].length*120, map.length*90);
+		fenetre.setLocationRelativeTo(null);
+		fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		fenetre.setVisible(true);
 		
 
 	}

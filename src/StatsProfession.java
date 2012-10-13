@@ -7,28 +7,24 @@
 public class StatsProfession
 {
     //Stats pour le gladiateur
-    String gladiateur = "Gladiateur";
     int puissanceGladiateur=8;
     int defenseGladiateur=5;
     int pointDeVieGladiateur=45;
     int pointDeMouvementGladiateur=4;
     
     // Stats pour le templier
-    String templier = "Templier";
     int puissanceTemplier=7;
     int defenseTemplier=6;
     int pointDeVieTemplier=50;
     int pointDeMouvementTemplier=4;
     
     //Stats pour le Rodeur
-    String rodeur = "Rôdeur";
     int puissanceRodeur=8;
     int defenseRodeur=4;
     int pointDeVieRodeur=40;
     int pointDeMouvementRodeur=3;
     
     //Stats pour Sorcier
-    String sorcier="Sorcier";
     int puissanceSorcier=8;
     int defenseSorcier=4;
     int pointDeVieSorcier=40;
@@ -42,22 +38,7 @@ public class StatsProfession
 	/**
 	 * puissance de base
 	 */
-	private int puissance;
-
-	/**
-	 * defense de base
-	 */
-	private int defense;
-	
-	/**
-	 * Pv de base
-	 */
-	private int pv;
-	
-	/**
-	 * Pm de base
-	 */
-	private int pm;
+	private Stats stats;
 
 	/**
 	 * Fixe les stats de base du perso pour la profession choisie
@@ -70,35 +51,22 @@ public class StatsProfession
 		this.idProfession = idProfession;
 		if (idProfession == 1)
 		{
-			this.puissance = puissanceGladiateur;
-			this.defense = defenseGladiateur;
-			this.pv = pointDeVieGladiateur;
-			this.pm = pointDeMouvementGladiateur;
+		    this.stats = new Stats(puissanceGladiateur, defenseGladiateur, pointDeVieGladiateur, pointDeMouvementGladiateur);
 		}
 		else if (idProfession == 2)
 		{
-			this.puissance = puissanceTemplier;
-			this.defense = defenseTemplier;
-			this.pv = pointDeVieTemplier;
-			this.pm = pointDeMouvementTemplier;
+		    this.stats = new Stats(puissanceTemplier, defenseTemplier, pointDeVieTemplier, pointDeMouvementTemplier);
 		}
 		else if (idProfession == 3)
 		{
-			this.puissance = puissanceRodeur;
-			this.defense = defenseRodeur;
-			this.pv = pointDeVieRodeur;
-			this.pm = pointDeMouvementRodeur;
+		    this.stats = new Stats(puissanceRodeur, defenseRodeur, pointDeVieRodeur, pointDeMouvementRodeur);
 		}
 		else
 		{
-			this.puissance = puissanceSorcier;
-			this.defense = defenseSorcier;
-			this.pv = pointDeVieSorcier;
-			this.pm = pointDeMouvementSorcier;
+		    this.stats = new Stats(puissanceSorcier, defenseSorcier, pointDeVieSorcier, pointDeMouvementSorcier);
 		}
 		
 		
-		// FIXME méthodes ?
 	}
 
 	//Obtenir une valeur
@@ -107,39 +75,20 @@ public class StatsProfession
 	}
 
 	public int getPuissance() {
-	    return puissance;
+	    return stats.getPuissance();
 	}
 
 	public int getDefense() {
-	    return defense;
+	    return stats.getDefense();
 	}
 
-	public int getPv() {
-	    return pv;
+	public int getPointDeVie() {
+	    return stats.getPointsDeVie();
 	}
 
-	public int getPm() {
-	    return pm;
+	public int getPointDeMouvement() {
+	    return stats.getPointsDeMouvement();
 	}
-
-	
-	// Changement de valeur
-	public void setPuissance(int puissance) {
-	    this.puissance = puissance;
-	}
-
-	public void setDefense(int defense) {
-	    this.defense = defense;
-	}
-
-	public void setPv(int pv) {
-	    this.pv = pv;
-	}
-
-	public void setPm(int pm) {
-	    this.pm = pm;
-	}
-	
 	
 	
 }

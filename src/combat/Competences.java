@@ -1,3 +1,4 @@
+package combat;
 // FIXME déplacer dans un paquetage
 
 /**
@@ -24,13 +25,16 @@ public class Competences
 	
 	private final int duree;
 	
-	public Competences (String nom, int portee, int consomation, int bonusPuissance, int bonusDefense, int duree) {
+	private int nbDeLancement;
+	
+	public Competences (String nom, int portee, int consomation, int bonusPuissance, int bonusDefense, int duree, int nbDeLancement) {
 		this.nom = nom;
 		this.portee = portee;
 		this.consomation= consomation;
 		this.bonusPuissance=bonusPuissance;
 		this.bonusDefense=bonusDefense;
 		this.duree=duree;
+		this.nbDeLancement=nbDeLancement;
 	}
 
 	
@@ -53,6 +57,23 @@ public class Competences
 	public int getBonusDefense() {
 		return bonusDefense;
 	}
+
+
+	public int getDuree() {
+		return duree;
+	}
+
+
+	public int getNbDeLancement() {
+		return nbDeLancement;
+	}
+
+
+	public void utilisationCompetences() {
+		this.nbDeLancement = this.nbDeLancement-1;
+	}
+	
+	
 	
 	
 }

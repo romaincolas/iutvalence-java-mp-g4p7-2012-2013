@@ -1,3 +1,4 @@
+package combat;
 
 
 public class Stats {

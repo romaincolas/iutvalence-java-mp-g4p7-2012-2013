@@ -1,4 +1,5 @@
 package combat;
+
 import javax.swing.JFrame;
 /**
  * @author colasr
@@ -10,8 +11,10 @@ public class Combat
 	 * Cherche la position d'un acteur en fonction de son numero (numActeur !=  0 et 1)
 	 * @param map 
 	 * @param numActeur
+	 * @return les coordonees de depart de l'acteur sur la carte de base
 	 */
-	public static Coordonees CherchePositionActeur(byte[][] map, byte numActeur) {
+	public static Coordonees CherchePositionActeur(byte[][] map, byte numActeur)
+	{
 		int x,y;
 		for (x=0; x<map.length;x++) {
 		    for(y=0; y<map[x].length; y++) {
@@ -38,7 +41,7 @@ public class Combat
 		byte[][] map={
 				 {1,1,1,1,1,1},
 				 {1,0,0,0,0,1},
-				 {1,0,0,0,0,1},
+				 {1,0,3,0,0,1},
 				 {1,0,1,1,0,1},
 				 {1,0,0,0,0,1},
 				 {1,0,0,0,2,1},
@@ -48,10 +51,10 @@ public class Combat
 		String nom = "bobo";
 		byte profession = 1; //1 pour avoir la profession Gladiateur
 		
-		Competences[] comp={new Competences("Attaque", 1, 1, 5, 0, 1, 5)};
+		Competences[] comp={new Competences("Attaque", 1, 1, 5, 0, (byte)1)};
 		
 		Acteur persoEnCombat = new PersonnageEnCombat(nom, new Stats(profession), CherchePositionActeur(map, (byte)2), profession, comp);
-		
+				
 		JFrame fenetre = new JFrame();
 		
 		fenetre.setTitle("Combat");
@@ -63,9 +66,4 @@ public class Combat
 
 	}
 }
-
-/**
- * retourne la position du perso dans un objet Coordonees (cherche 2) 
- *@param map (tableau  double)
- */	
 

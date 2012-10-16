@@ -1,50 +1,51 @@
 package combat;
 
 
-public class Stats {
+public class Stats
+{
     //Stats pour le gladiateur
-    int puissanceGladiateur=8;
-    int defenseGladiateur=5;
-    int pointDeVieGladiateur=45;
-    int pointDeMouvementGladiateur=4;
+    private final static int puissanceGladiateur=8;
+    private final static int defenseGladiateur=5;
+    private final static int pointDeVieGladiateur=45;
+    private final static int pointDeMouvementGladiateur=4;
     
     // Stats pour le templier
-    int puissanceTemplier=7;
-    int defenseTemplier=6;
-    int pointDeVieTemplier=50;
-    int pointDeMouvementTemplier=4;
+    private final static int puissanceTemplier=7;
+    private final static int defenseTemplier=6;
+    private final static int pointDeVieTemplier=50;
+    private final static int pointDeMouvementTemplier=4;
     
-    //Stats pour le Rodeur
-    int puissanceRodeur=8;
-    int defenseRodeur=4;
-    int pointDeVieRodeur=40;
-    int pointDeMouvementRodeur=3;
+    //Stats pour le rodeur
+    private final static int puissanceRodeur=8;
+    private final static int defenseRodeur=4;
+    private final static int pointDeVieRodeur=40;
+    private final static int pointDeMouvementRodeur=3;
     
-    //Stats pour Sorcier
-    int puissanceSorcier=8;
-    int defenseSorcier=4;
-    int pointDeVieSorcier=40;
-    int pointDeMouvementSorcier=4;
+    //Stats pour le sorcier
+    private final static int puissanceSorcier=8;
+    private final static int defenseSorcier=4;
+    private final static int pointDeVieSorcier=40;
+    private final static int pointDeMouvementSorcier=4;
     
 	/**
 	 * puissance
 	 */
-	private int puissance;
+	private final int puissance;
 
 	/**
 	 * defense
 	 */
-	private int defense;
+	private final int defense;
 	
 	/**
 	 * points de vie
 	 */
-	private int pointDeVie;
+	private final int pointDeVie;
 	
 	/**
 	 * points de mouvement
 	 */
-	private int pointDeMouvement;
+	private final int pointDeMouvement;
 	
 	public Stats (int puissance, int defense, int pointDeVie, int pointDeMouvement)
 	{
@@ -55,7 +56,8 @@ public class Stats {
 	}
 	
 	
-	public Stats (byte  idProfession) {
+	public Stats (byte  idProfession)
+	{
 	    
 		if (idProfession == 1)
 		{
@@ -89,40 +91,23 @@ public class Stats {
 		}
 	}
 	
-	public int getPuissance() {
+	public int getPuissance()
+	{
 	    return puissance;
 	}
 
-	public int getDefense() {
+	public int getDefense()
+	{
 	    return defense;
 	}
 
-	public int getPointDeVie() {
+	public int getPointDeVie()
+	{
 	    return pointDeVie;
 	}
 
-	public int getPointDeMouvement() {
+	public int getPointDeMouvement()
+	{
 	    return pointDeMouvement;
 	}
-
-	
-
-	public void setPuissance(int puissance) {
-	    this.puissance = puissance;
-	}
-
-	public void setDefense(int defense) {
-	    this.defense = defense;
-	}
-
-	public void setPointDeVie(int pointDeVie) {
-	    this.pointDeVie = pointDeVie;
-	}
-
-	public void setPointDeMouvement(int pointDeMouvement) {
-	    this.pointDeMouvement = pointDeMouvement;
-	}
-
-	
-
 }

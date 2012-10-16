@@ -1,4 +1,4 @@
-// FIXME déplacer dans un paquetage
+// FIXME renommer le paquetage
 
 /**
  * classe permettant la gestion de l'equipement équipé sur le personnage

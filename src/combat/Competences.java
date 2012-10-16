@@ -8,71 +8,114 @@ package combat;
 public class Competences
 
 {
-	// FIXME écrire un commentaire
+	/**
+	 * nom de la competence
+	 */
 	private final String nom;
 
-	// FIXME écrire un commentaire
+	/**
+	 * portÃ©e de la competence (en nombre de case)
+	 */
 	private final int portee;
 	
-	// FIXME écrire un commentaire
+	/**
+	 * consomation de la competence en points d'action
+	 */
 	private final int consomation;
 
-	// FIXME écrire un commentaire
+	/**
+	 * bonus de puissance donnÃ© par la competence
+	 */
 	private final int bonusPuissance;
 
-	// FIXME écrire un commentaire
+	/**
+	 * bonus de defense donnÃ© par la competence
+	 */
 	private final int bonusDefense;
+
+	/**
+	 * nombre d'utilisation maximum de la competence en un combat
+	 */
+	private byte nombreUtilisation;
 	
-	private final int duree;
-	
-	private int nbDeLancement;
-	
-	public Competences (String nom, int portee, int consomation, int bonusPuissance, int bonusDefense, int duree, int nbDeLancement) {
+	/**
+	 * Cree une competence
+	 * @param nom
+	 * @param portee
+	 * @param consomation
+	 * @param bonusPuissance
+	 * @param bonusDefense
+	 * @param nombreUtilisation 
+	 */
+	public Competences(String nom, int portee, int consomation, int bonusPuissance, int bonusDefense, byte nombreUtilisation)
+	{
 		this.nom = nom;
 		this.portee = portee;
 		this.consomation= consomation;
 		this.bonusPuissance=bonusPuissance;
 		this.bonusDefense=bonusDefense;
-		this.duree=duree;
-		this.nbDeLancement=nbDeLancement;
+		this.nombreUtilisation=nombreUtilisation;
 	}
 
 	
-	public String getNom() {
-		return nom;
+	/**
+	 * @return nom (le nom de la competence)
+	 */
+	public String getNom() 
+	{
+		return this.nom;
 	}
 
-	public int getPortee() {
-		return portee;
+	/**
+	 * @return portee (portee de la competence)
+	 */
+	public int getPortee()
+	{
+		return this.portee;
 	}
 
-	public int getConsomation() {
-		return consomation;
+	/**
+	 * @return consomation (consomation en point d'action)
+	 */
+	public int getConsomation() 
+	{
+		return this.consomation;
 	}
 
-	public int getBonusPuissance() {
-		return bonusPuissance;
+	/**
+	 * @return bonuspuissance
+	 */
+	public int getBonusPuissance()
+	{
+		return this.bonusPuissance;
 	}
 
-	public int getBonusDefense() {
-		return bonusDefense;
-	}
-
-
-	public int getDuree() {
-		return duree;
-	}
-
-
-	public int getNbDeLancement() {
-		return nbDeLancement;
-	}
-
-
-	public void utilisationCompetences() {
-		this.nbDeLancement = this.nbDeLancement-1;
-	}
 	
+	/**
+	 * @return bonusdefense
+	 */
+	public int getBonusDefense() 
+	{
+		return this.bonusDefense;
+	}
+
+
+	/**
+	 * @return nombreUtilisation (nombre d'utilisation de la competence pour 1 combat)
+	 */
+	public int getNombreUtilisation() 
+	{
+		return this.nombreUtilisation;
+	}
+
+
+	/**
+	 * décroit le nombre d'utilisation de la competence de 1
+	 */
+	public void utilisationCompetences()
+	{
+		this.nombreUtilisation = (byte) (this.nombreUtilisation - 1);
+	}
 	
 	
 	

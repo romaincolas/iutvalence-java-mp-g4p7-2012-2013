@@ -1,4 +1,5 @@
-package combat;
+// FIXME renommer le paquetage (fr.iutvalence.java.projets.(nom))
+package fr.iutvalence.java.projets.combat;
 
 
 
@@ -15,7 +16,9 @@ public class Acteur
 	/**
 	 * points d'action par defaut de tout les acteurs
 	 */
+	// FIXME respecter les conventions d'écriture
 	private final static int pointDActionDefaut = 5;
+	
 	/**
 	 * nom du personnage
 	 */
@@ -35,12 +38,14 @@ public class Acteur
 	 * nombre de points d'action actuels (lors du tour, réinitialisé a 5 lors 
 	 * de la fin du tour)
 	 */
+	// FIXME renommer l'attribut
 	private int pointDAction;
 	
 	/**
 	 * nombre de points de mouvement actuels (lors du tour, réinitialisé aux points de
 	 * mouvement de base de l'acteur lors de la fin du tour)
 	 */
+	// FIXME renommer l'attribut
 	private int pointDeMouvement;
 	
 	/**
@@ -49,7 +54,7 @@ public class Acteur
 	 */
 	private final int numActeur;
 	
-	
+	// FIXME compléter le commentaire
 	/**
 	 * Crée un acteur avec toutes les info utile pour un combat 
 	 * @param nom
@@ -68,6 +73,7 @@ public class Acteur
 
 	}
 
+	// FIXME compléter le commentaire
 	/**
 	 * @return le nom de l'acteur
 	 */	
@@ -76,6 +82,7 @@ public class Acteur
 	    return this.nom;
 	}
 
+	// FIXME compléter le commentaire
 	/**
 	 * @return l'objet stats avec toutes les stats de l'acteur
 	 */
@@ -84,6 +91,7 @@ public class Acteur
 	    return this.stats;
 	}
 
+	// FIXME compléter le commentaire
 	/**
 	 * @return les coordonees actuel de l'acteur dans un objet Coordonees
 	 */
@@ -92,6 +100,9 @@ public class Acteur
 	    return this.coordonees;
 	}
 
+	
+	// FIXME cette méthode est inutile (cf. setCoordonnees)	
+	// FIXME compléter le commentaire
 	/**
 	 * ajout x à la position actuel del'acteur 
 	 * @param x (x a ajouter)
@@ -101,6 +112,8 @@ public class Acteur
 		this.coordonees.changePosX(x);
 	}
 
+	// FIXME cette méthode est inutile (cf. setCoordonnees)
+	// FIXME compléter le commentaire
 	/**
 	 * ajout y à la position actuel de l'acteur 
 	 * @param y (y a ajouter)
@@ -114,6 +127,7 @@ public class Acteur
 	 * positionne l'acteur à de nouvelles coordonees
 	 * @param coordonees
 	 */
+	// FIXME renommer la méthode
 	public void setCoordonees(Coordonees coordonees)
 	{
 	    this.coordonees = coordonees;

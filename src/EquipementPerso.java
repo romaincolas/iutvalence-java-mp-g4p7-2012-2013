@@ -32,6 +32,7 @@ public class EquipementPerso
 	private PieceEquipement bottes;
 	
 
+	// FIXME compléter le commentaire
 	/**
 	 * crée l'objet equipementPerso avec les 5 pieces d'equipement
 	 * @param casque
@@ -51,6 +52,7 @@ public class EquipementPerso
 		this.bottes = bottes;
 	}
 
+	// FIXME compléter le commentaire
 	/**
 	 * @return les stats du casque equipe sur le personnage
 	 */
@@ -59,6 +61,7 @@ public class EquipementPerso
 		return casque;
 	}
 
+	// FIXME compléter le commentaire
 	/**
 	 * @return les stats des gants equipe sur le personnage
 	 */
@@ -67,6 +70,7 @@ public class EquipementPerso
 		return gants;
 	}
 
+	// FIXME compléter le commentaire
 	/**
 	 * @return les stats du plastron equipe sur le personnage
 	 */
@@ -75,6 +79,7 @@ public class EquipementPerso
 		return plastron;
 	}
 
+	// FIXME compléter le commentaire
 	/**
 	 * @return les stats des jambieres equipees sur le personnage
 	 */
@@ -83,6 +88,8 @@ public class EquipementPerso
 		return jambieres;
 	}
 
+	
+	// FIXME compléter le commentaire
 	/**
 	 * @return les stats des bottes equipe sur le personnage
 	 */
@@ -91,6 +98,7 @@ public class EquipementPerso
 		return bottes;
 	}
 
+	// FIXME compléter le commentaire
 	/**
 	 * @param casque (le casque a équiper)
 	 */
@@ -99,6 +107,7 @@ public class EquipementPerso
 		this.casque = casque;
 	}
 
+	// FIXME compléter le commentaire
 	/**
 	 * @param gants (les gants a équiper)
 	 */
@@ -107,6 +116,7 @@ public class EquipementPerso
 		this.gants = gants;
 	}
 
+	// FIXME compléter le commentaire
 	/**
 	 * @param plastron (le plastron a équiper)
 	 */
@@ -115,6 +125,7 @@ public class EquipementPerso
 		this.plastron = plastron;
 	}
 
+	// FIXME compléter le commentaire
 	/**
 	 * @param jambieres (les jambieres a équiper)
 	 */
@@ -123,6 +134,7 @@ public class EquipementPerso
 		this.jambieres = jambieres;
 	}
 
+	// FIXME compléter le commentaire
 	/**
 	 * @param bottes (les jambieres a équiper)
 	 */
@@ -131,5 +143,5 @@ public class EquipementPerso
 		this.bottes = bottes;
 	}
 	
-	
+	// FIXME redéfinir toString
 }

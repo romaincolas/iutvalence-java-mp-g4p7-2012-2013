@@ -1,5 +1,8 @@
-package combat;
+// FIXME renommer le paquetage (fr.iutvalence.java.projets.(nom))
+package fr.iutvalence.java.projets.combat;
 
+
+// FIXME cette classe ne doit pas contenir de main et ne pas être dépendante de l'affichage : à reprendre entièrement
 import javax.swing.JFrame;
 /**
  * @author colasr
@@ -16,10 +19,13 @@ public class Combat
 	public static Coordonees CherchePositionActeur(byte[][] map, byte numActeur)
 	{
 		int x,y;
-		for (x=0; x<map.length;x++) {
-		    for(y=0; y<map[x].length; y++) {
-			if (map[x][y]==numActeur){
-			    return new Coordonees(x,y);
+		for (x=0; x<map.length;x++)
+		{
+		    for(y=0; y<map[x].length; y++)
+		    {
+		    	if (map[x][y]==numActeur)
+				{
+			    	return new Coordonees(x,y);
 			    }
 			}	    
 		}

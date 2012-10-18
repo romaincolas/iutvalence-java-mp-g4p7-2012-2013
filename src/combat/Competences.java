@@ -1,6 +1,7 @@
+// FIXME renommer le paquetage (fr.iutvalence.java.projets.(nom))
 package combat;
-// FIXME déplacer dans un paquetage
 
+// FIXME détailler le commentaire
 /**
  * description des competences
  * @author colasr
@@ -14,30 +15,33 @@ public class Competences
 	private final String nom;
 
 	/**
-	 * portÃ©e de la competence (en nombre de case)
+	 * portée de la competence (en nombre de cases)
 	 */
 	private final int portee;
 	
 	/**
-	 * consomation de la competence en points d'action
+	 * consommation de la competence en points d'action
 	 */
+	// FIXME renommer l'attribut (orthographe)
 	private final int consomation;
 
 	/**
-	 * bonus de puissance donnÃ© par la competence
+	 * bonus de puissance donné par la competence
 	 */
 	private final int bonusPuissance;
 
 	/**
-	 * bonus de defense donnÃ© par la competence
+	 * bonus de defense donné par la competence
 	 */
 	private final int bonusDefense;
 
 	/**
-	 * nombre d'utilisation maximum de la competence en un combat
+	 * nombre d'utilisations maximum de la competence en un combat
 	 */
+	// FIXME renommer l'attribut
 	private byte nombreUtilisation;
 	
+	// FIXME compléter et détailler le commentaire
 	/**
 	 * Cree une competence
 	 * @param nom
@@ -57,7 +61,7 @@ public class Competences
 		this.nombreUtilisation=nombreUtilisation;
 	}
 
-	
+	// FIXME compléter le commentaire
 	/**
 	 * @return nom (le nom de la competence)
 	 */
@@ -66,6 +70,7 @@ public class Competences
 		return this.nom;
 	}
 
+	// FIXME compléter le commentaire
 	/**
 	 * @return portee (portee de la competence)
 	 */
@@ -74,14 +79,17 @@ public class Competences
 		return this.portee;
 	}
 
+	// FIXME compléter le commentaire
 	/**
 	 * @return consomation (consomation en point d'action)
 	 */
+	// FIXME renommer la méthode (orthographe)
 	public int getConsomation() 
 	{
 		return this.consomation;
 	}
 
+	// FIXME compléter le commentaire
 	/**
 	 * @return bonuspuissance
 	 */
@@ -90,7 +98,7 @@ public class Competences
 		return this.bonusPuissance;
 	}
 
-	
+	// FIXME compléter le commentaire
 	/**
 	 * @return bonusdefense
 	 */
@@ -100,9 +108,11 @@ public class Competences
 	}
 
 
+	// FIXME compléter le commentaire
 	/**
 	 * @return nombreUtilisation (nombre d'utilisation de la competence pour 1 combat)
 	 */
+	// FIXME renommer la méthode
 	public int getNombreUtilisation() 
 	{
 		return this.nombreUtilisation;

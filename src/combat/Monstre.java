@@ -1,18 +1,20 @@
+// FIXME renommer le paquetage (fr.iutvalence.java.projets.(nom))
 package combat;
 
 
 /**
- * correspond a la description d'un monstre (contient toutes les informations utiles au combat)
+ * correspond à la description d'un monstre (contient toutes les informations utiles au combat)
  * @author colasr
  */
 public class Monstre extends Acteur
 {
 	
 	/**
-	 * competence du monstre (competence unique ( != du perso))
+	 * competences du monstre (competence unique ( != du perso))
 	 */
 	private final Competences competences;
 	
+	// FIXME compléter le commentaire
 	/**
 	 * cree un monstre avec toutes les infos utiles pour le combat
 	 * @param nom
@@ -27,6 +29,7 @@ public class Monstre extends Acteur
 		this.competences = competences;
 	}
 
+	// FIXME compléter le commentaire
 	/**
 	 * @return la competence du monstre
 	 */

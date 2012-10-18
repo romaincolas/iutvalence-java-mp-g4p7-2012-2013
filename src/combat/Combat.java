@@ -1,5 +1,8 @@
+// FIXME renommer le paquetage (fr.iutvalence.java.projets.(nom))
 package combat;
 
+
+// FIXME cette classe ne doit pas contenir de main et ne pas être dépendante de l'affichage : à reprendre entièrement
 import javax.swing.JFrame;
 /**
  * @author colasr

@@ -12,6 +12,8 @@ public class PieceEquipement
 	 */
 	private final String nom;
 
+	
+	// FIXME définir des constantes dans une classe appropriée et changer le type de cet attribut
 	/**
 	 * l'emplacement de la piece d'equipement sur le personnage
 	 */
@@ -32,6 +34,8 @@ public class PieceEquipement
 	 */
 	private final int bonusPointsMouvement;
 
+	
+	// FIXME compléter le commentaire
 	/**
 	 * @param nom (nom de la piece d'equipement)
 	 * @param emplacement (l'emplacement de la piece d'equipement sur le personnage)
@@ -51,6 +55,7 @@ public class PieceEquipement
 		this.bonusPointsMouvement = bonusPointsMouvement;
 	}
 
+	// FIXME compléter le commentaire
 	/**
 	 * @return le nom de la piece d'equipement
 	 */
@@ -59,6 +64,7 @@ public class PieceEquipement
 		return nom;
 	}
 
+	// FIXME compléter le commentaire
 	/**
 	 * @return l'emplacement occupé par la piece d'equipement
 	 */
@@ -68,6 +74,7 @@ public class PieceEquipement
 	}
 	
 
+	// FIXME compléter le commentaire
 	/**
 	 * @return le bonus de puissance de la piece d'equipement
 	 */
@@ -76,6 +83,7 @@ public class PieceEquipement
 		return bonusPuissance;
 	}
 
+	// FIXME compléter le commentaire
 	/**
 	 * @return le bonus de defense de la piece d'equipement
 	 */
@@ -84,6 +92,7 @@ public class PieceEquipement
 		return bonusDefense;
 	}
 
+	// FIXME compléter le commentaire
 	/**
 	 * @return le bonus de PointsMouvement de la piece d'equipement
 	 */

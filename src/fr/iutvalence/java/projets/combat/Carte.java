@@ -44,4 +44,50 @@ public class Carte
 		carte[coordonnes.getX()][coordonnes.getY()] = nouvEtat;
 		
 	}
+	
+	public String toString()
+	{
+		int x,y;
+		String carteAscii = "";
+		
+		for (x=0; x<carte.length;x++)
+		{
+			carteAscii = carteAscii + "_";
+		}
+		
+		carteAscii = carteAscii + "\n";
+
+		
+		for (x=0; x<carte.length;x++)
+		{
+			carteAscii = carteAscii + "|";
+		    for(y=0; y<carte[x].length; y++)
+		    {
+		    	if (carte[x][y] == 0)
+		    	{
+					carteAscii = carteAscii + ".";
+		    	}
+		    	else if (carte[x][y] == 1)
+		    	{
+		    		carteAscii = carteAscii + "¤";
+		    	}
+		    	else if (carte[x][y] == 2)
+		    	{
+		    		carteAscii = carteAscii + "☺";
+		    	}
+		    	else
+		    	{
+		    		carteAscii = carteAscii + "☻";
+		    	}
+			}
+			carteAscii = carteAscii + "|\n";
+		}
+		
+		for (x=0; x<carte.length;x++)
+		{
+			carteAscii = carteAscii + "_";
+		}
+		
+		return carteAscii;
+	}
 }

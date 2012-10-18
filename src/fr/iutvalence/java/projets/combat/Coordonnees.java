@@ -1,4 +1,4 @@
-// FIXME renommer le paquetage (fr.iutvalence.java.projets.(nom))
+// FIXME (FIXED) renommer le paquetage (fr.iutvalence.java.projets.(nom))
 package fr.iutvalence.java.projets.combat;
 
 /**
@@ -7,7 +7,7 @@ package fr.iutvalence.java.projets.combat;
  * @author colasr
  */
 // FIXME corriger le nom de la classe (orthographe)
-public class Coordonees
+public class Coordonnees
 {
 	/**
 	 * coordonnée X (abscisse)
@@ -24,16 +24,16 @@ public class Coordonees
 	 * @param x (abscisse)
 	 * @param y (ordonnée)
 	 */
-	public Coordonees(int x, int y)
+	public Coordonnees(int x, int y)
 	{
 		super();
 		this.x = x;
 		this.y = y;
 	}
 
-	// FIXME compléter le commentaire
+	// FIXME (FIXED) compléter le commentaire
 	/**
-	 * retourne la position x de l'acteur
+	 * retourne la position x de l'acteur (sa position horizontale)
 	 * @return x
 	 */
 	public int getX()
@@ -41,9 +41,9 @@ public class Coordonees
 	    return this.x;
 	}
 
-	// FIXME compléter le commentaire
+	// FIXME (FIXED) compléter le commentaire
 	/**
-	 * retourne la position y de l'acteur
+	 * retourne la position y de l'acteur (position verticale)
 	 * @return y
 	 */
 	public int getY()

@@ -1,4 +1,4 @@
-// FIXME renommer le paquetage (fr.iutvalence.java.projets.(nom))
+// FIXME (FIXED) renommer le paquetage (fr.iutvalence.java.projets.(nom))
 package fr.iutvalence.java.projets.combat;
 
 
@@ -14,23 +14,24 @@ public class Monstre extends Acteur
 	 */
 	private final Competences competences;
 	
-	// FIXME compléter le commentaire
+	// FIXME (FIXED) compléter le commentaire
 	/**
 	 * cree un monstre avec toutes les infos utiles pour le combat
-	 * @param nom
-	 * @param stats
-	 * @param coordonees
-	 * @param competences
-	 * @param numMonstre
+	 * @param nom (le nom du monstre)
+	 * @param stats (les statistiques du monstre)
+	 * @param coordonnees (les coordonnees du monstre sur la carte)
+	 * @param competences (l'unique competence du monstre)
+	 * @param numMonstre (le numero du monstre, permet de l'identifier et de le positionner sur la carte)
 	 */
-	public Monstre(String nom, Stats stats, Coordonees coordonees, Competences competences, byte numMonstre)
+	public Monstre(String nom, Stats stats, Coordonnees coordonnees, Competences competences, int numMonstre)
 	{
-		super(nom, stats, coordonees, numMonstre);
+		super(nom, stats, coordonnees, numMonstre);
 		this.competences = competences;
 	}
 
-	// FIXME compléter le commentaire
+	// FIXME (FIXED) compléter le commentaire
 	/**
+	 * donne la competence unique du monstre
 	 * @return la competence du monstre
 	 */
 	public Competences getCompetences()

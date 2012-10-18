@@ -1,4 +1,4 @@
-// FIXME renommer le paquetage (fr.iutvalence.java.projets.(nom))
+// FIXME (FIXED) renommer le paquetage (fr.iutvalence.java.projets.(nom))
 package fr.iutvalence.java.projets.combat;
 
 
@@ -7,54 +7,55 @@ package fr.iutvalence.java.projets.combat;
  * @author colasr
  *
  */
-// FIXME écrire un commentaire
+// FIXME (FIXED) écrire un commentaire
 public class PersonnageEnCombat extends Acteur
 {
 	
 	/**
 	 * indice de la profession
 	 */
-	// FIXME écrire un commentaire
-	private final byte idProfession;
+	// FIXME (FIXED) écrire un commentaire
+	private final int idProfession;
 	
 	/**
 	 * liste de toutes les competences utilisable par le personnage
 	 */
-	// FIXME écrire un commentaire
+	// FIXME (FIXED) écrire un commentaire
 	private Competences[] competences;
 	
 	/**
 	 * Cree un personnage
 	 * @param nom
 	 * @param stats
-	 * @param coordonees
+	 * @param coordonnees
 	 * @param idProfession
 	 * @param competences
 	 */
-	// FIXME écrire un commentaire
-	public PersonnageEnCombat(String nom, Stats stats, Coordonees coordonees, byte idProfession, Competences[] competences)
+	// FIXME (FIXED) écrire un commentaire
+	public PersonnageEnCombat(String nom, Stats stats, Coordonnees coordonnees, int idProfession, Competences[] competences)
 	{
-		super(nom, stats, coordonees, (byte)2);
+		super(nom, stats, coordonnees, 2);
 		this.idProfession=idProfession;
 		this.competences = competences;
 	}
 
 	
 	/**
+	 * donne l'indice de la profession (1-gladiateur, 2-templier, 3-rodeur, 4-sorcier)
 	 * @return indice profession
 	 */
-	// FIXME écrire un commentaire
-	public byte getIdProfession()
+	// FIXME (FIXED) écrire un commentaire
+	public int getIdProfession()
 	{
 		return this.idProfession;
 	}
 
 	/***
-	 * Cherche une cometences dans la liste
+	 * Cherche une competences dans la liste de competence
 	 * @param numCompetences
-	 * @return competences recherché
+	 * @return competences recherchée
 	 */
-	// FIXME écrire un commentaire
+	// FIXME (FIXED) écrire un commentaire
 	public Competences getCompetences(int numCompetences)
 	{
 		return this.competences[numCompetences];
@@ -64,7 +65,7 @@ public class PersonnageEnCombat extends Acteur
 	 * consomme une utilisation de la competence entre en param
 	 * @param numCompetences
 	 */
-	// FIXME écrire un commentaire
+	// FIXME (FIXED) écrire un commentaire
 	public void utilisationCompetences(int numCompetences)
 	{
 		this.competences[numCompetences].utilisationCompetences();

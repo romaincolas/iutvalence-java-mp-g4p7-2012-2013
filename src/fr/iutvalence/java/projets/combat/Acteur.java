@@ -1,4 +1,4 @@
-// FIXME (FIXED) renommer le paquetage (fr.iutvalence.java.projets.(nom))
+
 package fr.iutvalence.java.projets.combat;
 
 /**
@@ -15,7 +15,7 @@ public class Acteur
 	/**
 	 * points d'action par defaut de tout les acteurs
 	 */
-	// FIXME (FIXED) respecter les conventions d'écriture
+	// FIXME (NOT FIXED) respecter les conventions d'écriture
 	private final static int POINTACTIONDEFAUT = 5;
 
 	/**
@@ -36,14 +36,12 @@ public class Acteur
 	/**
 	 * nombre de points d'action actuels (lors du tour, réinitialisé a 5 lors de la fin du tour)
 	 */
-	// FIXME (FIXED) renommer l'attribut
 	private int pointDActionActuels;
 
 	/**
 	 * nombre de points de mouvement actuels (lors du tour, réinitialisé aux points de mouvement de base de l'acteur
 	 * lors de la fin du tour)
 	 */
-	// FIXME (FIXED) renommer l'attribut
 	private int pointDeMouvementActuels;
 
 	/**
@@ -52,7 +50,6 @@ public class Acteur
 	 */
 	private final int numActeur;
 
-	// FIXME (FIXED) compléter le commentaire
 	/**
 	 * Crée un acteur avec toutes les info utile pour un combat (ses coordonées sur la carte, ses statistiques, son
 	 * numero d'acteur lui permettant d'etre identifié)
@@ -76,7 +73,6 @@ public class Acteur
 		this.numActeur = numActeur;
 	}
 
-	// FIXME (FIXED) compléter le commentaire
 	/**
 	 * donne le nom de l'acteur
 	 * 
@@ -87,7 +83,6 @@ public class Acteur
 		return this.nom;
 	}
 
-	// FIXME (FIXED) compléter le commentaire
 	/**
 	 * retourne les statistiques de l'acteur (puissance / defense / ...)
 	 * 
@@ -98,7 +93,6 @@ public class Acteur
 		return this.stats;
 	}
 
-	// FIXME (FIXED) compléter le commentaire
 	/**
 	 * donne la position actuelle de l'acteur sur la carte
 	 * 
@@ -108,14 +102,5 @@ public class Acteur
 	{
 		return this.position;
 	}
-
-	// FIXME (FIXED) cette méthode est inutile (cf. setCoordonnees)
-	// FIXME (FIXED) compléter le commentaire
-
-	// FIXME (FIXED) cette méthode est inutile (cf. setCoordonnees)
-	// FIXME (FIXED) compléter le commentaire
-
-	// FIXME (FIXED, methode supprimée car changement de la position grace aux methodes ChangePos dans la classe
-	// Coordonees) renommer la méthode
 
 }

@@ -5,14 +5,18 @@ package fr.iutvalence.java.projets.combat;
  */
 public class Carte
 {
+	// FIXME écrire un commentaire
+	// FIXME visibilité ?
 	int[][] carte;
 
+	// FIXME écrire un commentaire
 	public Carte(int[][] carte)
 	{
 		super();
 		this.carte = carte;
 	}
 
+	// FIXME compléter le commentaire
 	/**
 	 * Cherche la position d'un acteur en fonction de son numero (numActeur != 0 et 1)
 	 * 
@@ -36,6 +40,7 @@ public class Carte
 		return new Coordonnees(0, 0);
 	}
 
+	// FIXME compléter le commentaire
 	/**
 	 * Change l'etat d'un coordonnees de la carte
 	 * 
@@ -49,6 +54,9 @@ public class Carte
 
 	}
 
+	/**
+	 * @see java.lang.Object#toString()
+	 */
 	public String toString()
 	{
 		int x, y;

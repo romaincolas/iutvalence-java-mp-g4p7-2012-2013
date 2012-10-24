@@ -1,4 +1,3 @@
-// FIXME (FIXED) renommer le paquetage (fr.iutvalence.java.projets.(nom))
 package fr.iutvalence.java.projets.combat;
 
 /**
@@ -7,20 +6,17 @@ package fr.iutvalence.java.projets.combat;
  * @author colasr
  * 
  */
-// FIXME (FIXED) écrire un commentaire
 public class PersonnageEnCombat extends Acteur
 {
 
 	/**
 	 * indice de la profession
 	 */
-	// FIXME (FIXED) écrire un commentaire
 	private final int idProfession;
 
 	/**
 	 * liste de toutes les competences utilisable par le personnage
 	 */
-	// FIXME (FIXED) écrire un commentaire
 	private Competences[] competences;
 
 	/**
@@ -32,7 +28,7 @@ public class PersonnageEnCombat extends Acteur
 	 * @param idProfession
 	 * @param competences
 	 */
-	// FIXME (FIXED) écrire un commentaire
+	// FIXME compléter le commentaire
 	public PersonnageEnCombat(String nom, Stats stats, Coordonnees coordonnees, int idProfession,
 			Competences[] competences)
 	{
@@ -46,7 +42,6 @@ public class PersonnageEnCombat extends Acteur
 	 * 
 	 * @return indice profession
 	 */
-	// FIXME (FIXED) écrire un commentaire
 	public int getIdProfession()
 	{
 		return this.idProfession;
@@ -58,7 +53,7 @@ public class PersonnageEnCombat extends Acteur
 	 * @param numCompetences
 	 * @return competences recherchée
 	 */
-	// FIXME (FIXED) écrire un commentaire
+	// FIXME compléter le commentaire
 	public Competences getCompetences(int numCompetences)
 	{
 		return this.competences[numCompetences];
@@ -69,7 +64,7 @@ public class PersonnageEnCombat extends Acteur
 	 * 
 	 * @param numCompetences
 	 */
-	// FIXME (FIXED) écrire un commentaire
+	// FIXME compléter le commentaire
 	public void utilisationCompetences(int numCompetences)
 	{
 		this.competences[numCompetences].utilisationCompetences();

@@ -9,7 +9,6 @@ package fr.iutvalence.java.projets.combat;
  */
 // FIXME réfléchir à utiliser l'héritage pour différencier les personnages et se passer de Stats
 
-// FIXME (FIXED) écrire un commentaire
 public class Stats
 {
 
@@ -17,125 +16,107 @@ public class Stats
 	/**
 	 * Puissance de base du Gladiateur
 	 */
-	// FIXME (FIXED) écrire un commentaire
-	// FIXME (FIXED) si c'est une constante, la définir comme telle
+	// FIXME respecter les conventions d'écriture
 	private final static int PUISSANCEGLADIATEUR = 8;
 
 	/**
 	 * Defence de base du Gladiateur
 	 */
-	// FIXME (FIXED) écrire un commentaire
-	// FIXME (FIXED) si c'est une constante, la définir comme telle
+	// FIXME respecter les conventions d'écriture	
 	private final static int DEFENSEGLADIATEUR = 5;
 
 	/**
 	 * Point de vie de base du Gladiateur
 	 */
-	// FIXME (FIXED) écrire un commentaire
-	// FIXME (FIXED) si c'est une constante, la définir comme telle
+	// FIXME respecter les conventions d'écriture
 	private final static int POINTDEVIEGLADIATEUR = 45;
 
 	/**
 	 * Point de mouvement de base du Gladiateur
 	 */
-	// FIXME (FIXED) écrire un commentaire
-	// FIXME (FIXED) si c'est une constante, la définir comme telle
+	// FIXME respecter les conventions d'écriture
 	private final static int POINTDEMOUVEMENTGLADIATEUR = 4;
 
 	// Stats pour le templier
 	/**
 	 * Puissance du de base du templier
 	 */
-	// FIXME (FIXED) écrire un commentaire
-	// FIXME (FIXED) si c'est une constante, la définir comme telle
+	// FIXME respecter les conventions d'écriture
 	private final static int PUISSANCETEMPLIER = 7;
 
 	/**
 	 * Defence de base du templier
 	 */
-	// FIXME (FIXED) écrire un commentaire
-	// FIXME (FIXED) si c'est une constante, la définir comme telle
+	// FIXME respecter les conventions d'écriture
 	private final static int DEFENSETEMPLIER = 6;
 
 	/**
 	 * Point de vie de base du templier
 	 */
-	// FIXME (FIXED) écrire un commentaire
-	// FIXME (FIXED) si c'est une constante, la définir comme telle
+	// FIXME respecter les conventions d'écriture
 	private final static int POINTDEVIETEMPLIER = 50;
 
 	/**
 	 * Point de mouvement de base du templier
 	 */
-	// FIXME (FIXED) écrire un commentaire
-	// FIXME (FIXED) si c'est une constante, la définir comme telle
+	// FIXME respecter les conventions d'écriture
 	private final static int POINTDEMOUVEMENTTEMPLIER = 4;
 
 	// Stats pour le rodeur
 	/**
 	 * Puissance du de base du rodeur
 	 */
-	// FIXME (FIXED) écrire un commentaire
-	// FIXME (FIXED) si c'est une constante, la définir comme telle
+	// FIXME respecter les conventions d'écriture
 	private final static int PUISSANCERODEUR = 8;
 
 	/**
 	 * Defence de base du rodeur
 	 */
-	// FIXME (FIXED) écrire un commentaire
-	// FIXME (FIXED) si c'est une constante, la définir comme telle
+	// FIXME respecter les conventions d'écriture
 	private final static int DEFENSERODEUR = 4;
 
 	/**
 	 * Point de vie de base du rodeur
 	 */
-	// FIXME (FIXED) écrire un commentaire
-	// FIXME (FIXED) si c'est une constante, la définir comme telle
+	// FIXME respecter les conventions d'écriture
 	private final static int POINTDEVIERODEUR = 40;
 
 	/**
 	 * Point de mouvement de base du rodeur
 	 */
-	// FIXME (FIXED) écrire un commentaire
-	// FIXME (FIXED) si c'est une constante, la définir comme telle
+	// FIXME respecter les conventions d'écriture
 	private final static int POINTDEMOUVEMENTRODEUR = 3;
 
 	// Stats pour le sorcier
 	/**
 	 * Puissance du de base du sorcier
 	 */
-	// FIXME (FIXED) écrire un commentaire
-	// FIXME (FIXED) si c'est une constante, la définir comme telle
+	// FIXME respecter les conventions d'écriture
 	private final static int PUISSANCESORCIER = 8;
 
 	/**
 	 * Defence de base du sorcier
 	 */
-	// FIXME (FIXED) écrire un commentaire
-	// FIXME (FIXED) si c'est une constante, la définir comme telle
+	// FIXME respecter les conventions d'écriture
 	private final static int DEFENSESORCIER = 4;
 
 	/**
 	 * Point de vie de base du sorcier
 	 */
-	// FIXME (FIXED) écrire un commentaire
-	// FIXME (FIXED) si c'est une constante, la définir comme telle
+	// FIXME respecter les conventions d'écriture
 	private final static int POINTDEVIESORCIER = 40;
 
 	/**
 	 * Point de mouvement de base du sorcier
 	 */
-	// FIXME (FIXED) écrire un commentaire
-	// FIXME (FIXED) si c'est une constante, la définir comme telle
+	// FIXME respecter les conventions d'écriture
 	private final static int POINTDEMOUVEMENTSORCIER = 4;
 
-	// FIXME (FIXED) détailler le commentaire
 	/**
 	 * puissance de base de l'acteur, determine le nombre de degats infligé au monstre
 	 */
 	private final int puissance;
 
-	// FIXME (FIXED) détailler le commentaire
 	/**
 	 * defense de base de l'acteur, determine le nombre de degats retiré lors de l'attaque du monstre
 	 */
@@ -144,15 +125,15 @@ public class Stats
 	/**
 	 * points de vie maximums de l'acteur
 	 */
-	// FIXME (FIXED) renommer l'attribut
 	private final int pointsDeVie;
 
 	/**
 	 * points de mouvement maximums de l'acteur
 	 */
-	// FIXME (FIXED) renommer l'attribut
 	private final int pointsDeMouvement;
 
+	
+	// FIXME compléter le commentaire
 	/**
 	 * Cree une liste de stats pour un monstre
 	 * 
@@ -161,7 +142,6 @@ public class Stats
 	 * @param pointDeVie
 	 * @param pointDeMouvement
 	 */
-	// FIXME (FIXED) écrire un commentaire
 	public Stats(int puissance, int defense, int pointDeVie, int pointDeMouvement)
 	{
 		this.puissance = puissance;
@@ -175,7 +155,7 @@ public class Stats
 	 * 
 	 * @param idProfession
 	 */
-	// FIXME (FIXED) écrire un commentaire
+	// FIXME compléter le commentaire
 	public Stats(int idProfession)
 	{
 
@@ -216,7 +196,6 @@ public class Stats
 	 * 
 	 * @return puissance
 	 */
-	// FIXME (FIXED) écrire un commentaire
 	public int getPuissance()
 	{
 		return this.puissance;
@@ -227,7 +206,6 @@ public class Stats
 	 * 
 	 * @return defense
 	 */
-	// FIXME (FIXED) écrire un commentaire
 	public int getDefense()
 	{
 		return this.defense;
@@ -238,8 +216,6 @@ public class Stats
 	 * 
 	 * @return nombre de point de vie
 	 */
-	// FIXME (FIXED) écrire un commentaire
-	// FIXME (FIXED) renommer la méthode
 	public int getPointsDeVie()
 	{
 		return this.pointsDeVie;
@@ -250,8 +226,6 @@ public class Stats
 	 * 
 	 * @return nombre de point de mouvement
 	 */
-	// FIXME (FIXED) écrire un commentaire
-	// FIXME (FIXED) renommer la méthode
 	public int getPointsDeMouvement()
 	{
 		return this.pointsDeMouvement;

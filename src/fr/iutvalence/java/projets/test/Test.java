@@ -1,14 +1,8 @@
-// FIXME (FIXED) renommer le paquetage (fr.iutvalence.java.projets.(nom))
 package fr.iutvalence.java.projets.test;
 
-// FIXME cette classe ne doit pas contenir de main et ne pas être dépendante de l'affichage : à reprendre entièrement
 
-import fr.iutvalence.java.projets.combat.Acteur;
-import fr.iutvalence.java.projets.combat.Competences;
-import fr.iutvalence.java.projets.combat.Coordonnees;
-import fr.iutvalence.java.projets.combat.PersonnageEnCombat;
-import fr.iutvalence.java.projets.combat.Stats;
 import fr.iutvalence.java.projets.combat.Carte;
+import fr.iutvalence.java.projets.combat.Competences;
 
 /**
  * @author colasr Classe principale, fait tourner le jeu

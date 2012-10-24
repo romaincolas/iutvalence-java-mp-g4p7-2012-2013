@@ -1,4 +1,4 @@
-// FIXME (FIXED) renommer le paquetage (fr.iutvalence.java.projets.(nom))
+
 package fr.iutvalence.java.projets.combat;
 
 /**
@@ -6,7 +6,6 @@ package fr.iutvalence.java.projets.combat;
  * 
  * @author colasr
  */
-// FIXME corriger le nom de la classe (orthographe)
 public class Coordonnees
 {
 	/**
@@ -34,7 +33,6 @@ public class Coordonnees
 		this.y = y;
 	}
 
-	// FIXME (FIXED) compléter le commentaire
 	/**
 	 * retourne la position x de l'acteur (sa position horizontale)
 	 * 
@@ -45,7 +43,6 @@ public class Coordonnees
 		return this.x;
 	}
 
-	// FIXME (FIXED) compléter le commentaire
 	/**
 	 * retourne la position y de l'acteur (position verticale)
 	 * 

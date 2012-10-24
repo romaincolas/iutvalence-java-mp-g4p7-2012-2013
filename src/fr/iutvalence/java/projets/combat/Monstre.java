@@ -1,4 +1,4 @@
-// FIXME (FIXED) renommer le paquetage (fr.iutvalence.java.projets.(nom))
+
 package fr.iutvalence.java.projets.combat;
 
 /**
@@ -14,7 +14,6 @@ public class Monstre extends Acteur
 	 */
 	private final Competences competences;
 
-	// FIXME (FIXED) compléter le commentaire
 	/**
 	 * cree un monstre avec toutes les infos utiles pour le combat
 	 * 
@@ -35,7 +34,6 @@ public class Monstre extends Acteur
 		this.competences = competences;
 	}
 
-	// FIXME (FIXED) compléter le commentaire
 	/**
 	 * donne la competence unique du monstre
 	 * 

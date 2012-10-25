@@ -31,21 +31,18 @@ public class Carte
 	// FIXME compléter le commentaire
 	/**
 	 * Cherche la position d'un acteur en fonction de son numero (numActeur != 0 et 1)
-	 * 
-	 * @param carte
-	 * @param numActeur
-	 * @return les coordonees de depart de l'acteur sur la carte de base
+	 * @param numActeur le numero de l'acteur
+	 * @return les coordonees de l'acteur sur la carte de base
 	 */
-	
 	public Coordonnees CherchePositionActeur(int numActeur)
 	{
 	
 		int x, y;
-		for (x = 0; x < carte.length; x++)
+		for (x = 0; x < this.carte.length; x++)
 		{
-			for (y = 0; y < carte[x].length; y++)
+			for (y = 0; y < this.carte[x].length; y++)
 			{
-				if (carte[x][y] == numActeur)
+				if (this.carte[x][y] == numActeur)
 				{
 					return new Coordonnees(x, y);
 				}
@@ -56,16 +53,8 @@ public class Carte
 
 	// FIXME compléter le commentaire
 	/**
-<<<<<<< HEAD
 	 * actualise la carte et change la position des acteurs.
 	 * @param acteur une liste d'acteurs qui participent au combat
-=======
-	 * Change l'etat d'un coordonnees de la carte
-	 * 
-	 * @param coordonnes
-	 *            (coordonnees de la carte ou changer l'etat)
-	 * @param nouvEtat
->>>>>>> branch 'master' of https://github.com/sebastienjean/iutvalence-java-mp-g4p7-2012-2013.git
 	 */
 	public void ActualiseCarte(Acteur[] acteur)
 	{
@@ -77,8 +66,6 @@ public class Carte
 			this.carte[coordonnees.getX()][coordonnees.getY()]=0;
 			this.carte[acteur[x].getPosition().getX()][acteur[x].getPosition().getY()] = acteur[x].getNumActeur();			
 		}
-
-		carte[coordonnes.getX()][coordonnes.getY()] = nouvEtat;
 	}
 
 	/**
@@ -88,12 +75,10 @@ public class Carte
 	{
 		int x, y;
 		String carteAscii = "";
-
-
 	
-		for (x = 0; x < carte.length; x++)
+		for (y = 0; y < this.carte[0].length; y++)
 		{
-		    for(y=0; y<this.carte[x].length; y++)
+		    for(x = (this.carte.length)-1; x >= 0; x--)
 		    {
 		    	if (this.carte[x][y] == 0)
 		    	{

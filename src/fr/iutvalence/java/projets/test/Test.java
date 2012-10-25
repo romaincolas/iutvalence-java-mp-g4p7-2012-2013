@@ -1,7 +1,6 @@
 package fr.iutvalence.java.projets.test;
 
 
-<<<<<<< HEAD
 // FIXME cette classe ne doit pas contenir de main et ne pas être dépendante de l'affichage : à reprendre entièrement
 
 import fr.iutvalence.java.projets.combat.Acteur;
@@ -12,7 +11,7 @@ import fr.iutvalence.java.projets.combat.Monstre;
 import fr.iutvalence.java.projets.combat.Stats;
 import fr.iutvalence.java.projets.combat.Carte;
 import fr.iutvalence.java.projets.combat.Competences;
-
+import java.util.Scanner;
 /**
  * @author colasr Classe principale, fait tourner le jeu
  */
@@ -30,21 +29,30 @@ public class Test
 	 */
 	public static void main(String[] args)
 	{
+		char touche;
 		String carteAscii;
 		int profession;
 		String nom;
 		// La premiere competences de la liste de cometences à un nombre d'utilisation infinie )
 		Competences[] compPerso={new Competences("Attaque", 1, 1, 5, 0, 1),new Competences("Coup puissant", 1, 2, 15, 0, 5)};
-		Competences compMonstre=new Competences("Attaque",1,1,5,0,1);
+		Competences compMonstre=new Competences("Attaque", 1, 1, 5, 0, 1);
 		int[][] map1={
-				 {1,1,1,1,1,1,1},
-				 {1,2,0,0,0,0,1},
-				 {1,0,0,0,0,0,1},
-				 {1,0,1,1,0,0,1},
-				 {1,0,0,0,0,0,1},
-				 {1,0,0,0,0,0,1},
-				 {1,0,0,0,3,0,1},
-				 {1,1,1,1,1,1,1}
+				 {1,1,1,1,1,1,1,1,1},
+				 {1,2,0,0,0,0,0,0,1},
+				 {1,0,0,0,0,0,0,0,1},
+				 {1,0,1,1,0,0,0,0,1},
+				 {1,0,0,0,0,0,0,5,1},
+				 {1,0,0,0,1,0,1,1,1},
+				 {1,0,0,0,1,0,0,1,1},
+				 {1,0,0,0,0,0,0,1,1},
+				 {1,0,0,0,3,0,0,0,1},
+				 {1,0,0,0,0,0,1,0,1},
+				 {1,0,0,1,0,0,0,0,1},
+				 {1,0,0,0,0,0,0,1,1},
+				 {1,0,0,0,0,0,4,0,1},
+				 {1,0,1,1,0,0,0,0,1},
+				 {1,0,0,0,0,0,0,1,1},
+				 {1,1,1,1,1,1,1,1,1}
 		 };
 		
 		
@@ -60,10 +68,14 @@ public class Test
 		carteAscii = carte.toString();
 		System.out.println(carteAscii);
 		
-		acteur[0].getPosition().changePosY(1);
-		carte.ActualiseCarte(acteur);	
-		carteAscii = carte.toString();
-		System.out.println(carteAscii);
+		while(true)
+		{
+			touche = (char)System.in.read();
+	
+			carte.ActualiseCarte(acteur);
+			carteAscii = carte.toString();
+			System.out.println(carteAscii);
+		}
 
 		// Acteur persoEnCombat = new PersonnageEnCombat(nom, new Stats(profession), Carte.CherchePositionActeur(carte,
 		// 2), profession, comp);

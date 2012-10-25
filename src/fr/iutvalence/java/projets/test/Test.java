@@ -1,7 +1,7 @@
-// FIXME (FIXED) renommer le paquetage (fr.iutvalence.java.projets.(nom))
 package fr.iutvalence.java.projets.test;
 
 
+<<<<<<< HEAD
 // FIXME cette classe ne doit pas contenir de main et ne pas être dépendante de l'affichage : à reprendre entièrement
 
 import fr.iutvalence.java.projets.combat.Acteur;
@@ -11,23 +11,22 @@ import fr.iutvalence.java.projets.combat.PersonnageEnCombat;
 import fr.iutvalence.java.projets.combat.Monstre;
 import fr.iutvalence.java.projets.combat.Stats;
 import fr.iutvalence.java.projets.combat.Carte;
+import fr.iutvalence.java.projets.combat.Competences;
+
 /**
- * @author colasr
- * Classe principale, fait tourner le jeu
+ * @author colasr Classe principale, fait tourner le jeu
  */
 public class Test
 {
 
-	
+	/*
+	 * 0 pour un emplacement libre , 1 pour un obstacle, 2 pour l'emplcement du joueur, 3+ pour le(s) monstre(s)
+	 */
 
-	/* 0 pour un emplacement libre , 1 pour un obstacle, 2 pour  l'emplcement 
-	 du joueur, 3+ pour le(s) monstre(s)*/
-
-
-    
 	/**
 	 * Fait tourner le jeu
-	 * @param args 
+	 * 
+	 * @param args
 	 */
 	public static void main(String[] args)
 	{
@@ -57,6 +56,7 @@ public class Test
 		Acteur[] acteur = {new PersonnageEnCombat(nom,new Stats(profession), carte.CherchePositionActeur(2), profession, compPerso),
 						   new Monstre("Monstro",new Stats(2), carte.CherchePositionActeur(3),compMonstre,3)    
 						  };
+
 		carteAscii = carte.toString();
 		System.out.println(carteAscii);
 		
@@ -64,10 +64,9 @@ public class Test
 		carte.ActualiseCarte(acteur);	
 		carteAscii = carte.toString();
 		System.out.println(carteAscii);
-		
-		//Acteur persoEnCombat = new PersonnageEnCombat(nom, new Stats(profession), Carte.CherchePositionActeur(carte, 2), profession, comp);
-		
+
+		// Acteur persoEnCombat = new PersonnageEnCombat(nom, new Stats(profession), Carte.CherchePositionActeur(carte,
+		// 2), profession, comp);
 
 	}
 }
-

@@ -103,6 +103,15 @@ public class Acteur
 	    return this.position;
 	}
 
+	/**
+	 * donne le numero de l'acteur 2=personnage,3+=les monstres
+	 * @return le numero de l'acteur
+	 */
+	public int getNumActeur()
+	{
+		return this.numActeur;
+	}
+
 	
 	// FIXME (FIXED) cette méthode est inutile (cf. setCoordonnees)
 	// FIXME (FIXED) compléter le commentaire

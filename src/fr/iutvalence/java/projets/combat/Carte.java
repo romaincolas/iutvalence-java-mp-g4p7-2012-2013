@@ -4,8 +4,16 @@ package fr.iutvalence.java.projets.combat;
  */
 public class Carte
 {
+	/**
+	 * La carte (double tableau d'entier)
+	 */
 	int[][] carte;
 
+	/**
+	 * Crée unee carte (double tableau d'entier)
+	 * @param carte (double tableau avec 0 pour zone vide,1 pour obstacle, 
+	 * 2 pour le personnage, 3+ pour les monstres)
+	 */
 	public Carte(int[][] carte)
 	{
 		super();
@@ -18,60 +26,57 @@ public class Carte
 	 * @param numActeur
 	 * @return les coordonees de depart de l'acteur sur la carte de base
 	 */
-	public static Coordonnees CherchePositionActeur(int[][] carte, int numActeur)
+	
+	public Coordonnees CherchePositionActeur(int numActeur)
 	{
 		int x,y;
-		for (x=0; x<carte.length;x++)
+		for (x=0; x<this.carte.length;x++)
 		{
-		    for(y=0; y<carte[x].length; y++)
+		    for(y=0; y<this.carte[x].length; y++)
 		    {
-		    	if (carte[x][y]==numActeur)
+		    	if (this.carte[x][y]==numActeur)
 				{
 			    	return new Coordonnees(x,y);
 			    }
 			}	    
 		}
-		return new Coordonnees(0,0);
+		return new Coordonnees(1,1);
 	}
 	
 	/**
-	 * Change l'etat d'un coordonnees de la carte
-	 * @param coordonnes (coordonnees de la carte ou changer l'etat)
-	 * @param nouvEtat
+	 * actualise la carte et change la position des acteurs.
+	 * @param acteur une liste d'acteurs qui participent au combat
 	 */
-	public void ChangeEtat(Coordonnees coordonnes, int nouvEtat)
+	public void ActualiseCarte(Acteur[] acteur)
 	{
-		carte[coordonnes.getX()][coordonnes.getY()] = nouvEtat;
-		
+		int x;
+		Coordonnees coordonnees;
+		for	(x=0;x<acteur.length;x++)
+		{	
+			coordonnees=CherchePositionActeur(acteur[x].getNumActeur());
+			this.carte[coordonnees.getX()][coordonnees.getY()]=0;
+			this.carte[acteur[x].getPosition().getX()][acteur[x].getPosition().getY()] = acteur[x].getNumActeur();			
+		}
 	}
 	
 	public String toString()
 	{
 		int x,y;
 		String carteAscii = "";
-		
-		for (x=0; x<carte.length;x++)
-		{
-			carteAscii = carteAscii + "_";
-		}
-		
-		carteAscii = carteAscii + "\n";
 
-		
-		for (x=0; x<carte.length;x++)
+		for (x=0; x<this.carte.length;x++)
 		{
-			carteAscii = carteAscii + "|";
-		    for(y=0; y<carte[x].length; y++)
+		    for(y=0; y<this.carte[x].length; y++)
 		    {
-		    	if (carte[x][y] == 0)
+		    	if (this.carte[x][y] == 0)
 		    	{
-					carteAscii = carteAscii + ".";
+					carteAscii = carteAscii + "░";
 		    	}
-		    	else if (carte[x][y] == 1)
+		    	else if (this.carte[x][y] == 1)
 		    	{
-		    		carteAscii = carteAscii + "¤";
+		    		carteAscii = carteAscii + "█";
 		    	}
-		    	else if (carte[x][y] == 2)
+		    	else if (this.carte[x][y] == 2)
 		    	{
 		    		carteAscii = carteAscii + "☺";
 		    	}
@@ -80,12 +85,7 @@ public class Carte
 		    		carteAscii = carteAscii + "☻";
 		    	}
 			}
-			carteAscii = carteAscii + "|\n";
-		}
-		
-		for (x=0; x<carte.length;x++)
-		{
-			carteAscii = carteAscii + "_";
+			carteAscii = carteAscii + "\n";
 		}
 		
 		return carteAscii;

@@ -26,7 +26,6 @@ public class Coordonnees
 	 */
 	public Coordonnees(int x, int y)
 	{
-		super();
 		this.x = x;
 		this.y = y;
 	}

@@ -120,7 +120,7 @@ public class Acteur
 	{
 		if (carte.PresenceObstacle(coor) == false)
 			this.position=coor;
-	}
+	} 
 
 	
 }

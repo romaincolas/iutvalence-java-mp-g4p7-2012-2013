@@ -21,14 +21,43 @@ public class Test
 	 */
 
 	/**
+	 * Deplace un acteur sur une carte en fonction de x y
+	 * 
+	 * @param carte carte ou l'acteur se deplace
+	 * @param acteur Acteur qui subit le deplacement
+	 * @param y Deplcement en y
+	 * @param x Deplcement en x
+	 */
+	public static void DeplacementActeur(Carte carte, Acteur acteur, int y,int x)
+	{
+		//Mouvement d'un acteur
+		Coordonnees mouvementTemp = new Coordonnees(acteur.getPosition());
+		mouvementTemp.changePosX(x);
+		mouvementTemp.changePosY(y);
+		acteur.MouvementDeLActeur(carte, mouvementTemp);		
+		
+	}
+	
+	/**
+	 * @param carte carte du combat
+	 * @param acteur liste des acteurs present sur la carte 
+	 */
+	public static void AfficheCarte(Carte carte,Acteur[] acteur)
+	{
+		String carteAscii;
+		carte.ActualiseCarte(acteur);
+		carteAscii = carte.toString();
+		System.out.println(carteAscii);
+	}
+	
+	/**
 	 * Fait tourner le jeu
 	 * 
 	 * @param args
 	 */
 	public static void main(String[] args)
 	{
-		char touche;
-		String carteAscii;
+		
 		int profession;
 		String nom;
 		// La premiere competences de la liste de cometences à un nombre d'utilisation infinie )
@@ -63,19 +92,11 @@ public class Test
 						   new Monstre("Monstro",new Stats(2), carte.CherchePositionActeur(3),compMonstre,3)    
 						  };
 
-		carteAscii = carte.toString();
-		System.out.println(carteAscii);
+		AfficheCarte(carte,acteur);
 		
-		//Mouvement d'un acteur
-		Coordonnees mouvementTemp = new Coordonnees(acteur[0].getPosition());
-		mouvementTemp.changePosX(-2);
-		mouvementTemp.changePosY(-1);
-		acteur[0].MouvementDeLActeur(carte, mouvementTemp);
-
-		carte.ActualiseCarte(acteur);
-		carteAscii = carte.toString();
-		System.out.println(carteAscii);
-
+		DeplacementActeur(carte,acteur[0],-2,-2);
+		
+		AfficheCarte(carte,acteur);
 		// Acteur persoEnCombat = new PersonnageEnCombat(nom, new Stats(profession), Carte.CherchePositionActeur(carte,
 		// 2), profession, comp);
 

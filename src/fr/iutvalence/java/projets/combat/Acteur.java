@@ -15,7 +15,7 @@ public class Acteur
 	/**
 	 * points d'action par defaut de tout les acteurs
 	 */
-	// FIXME (NOT FIXED) respecter les conventions d'écriture
+	// FIXME (FIXED) respecter les conventions d'écriture
 	private final static int POINTACTIONDEFAUT = 5;
 
 	/**
@@ -109,6 +109,17 @@ public class Acteur
 	public int getNumActeur()
 	{
 		return this.numActeur;
+	}
+	
+	/**
+	 * Verifie le mouvement de l'acteur et le bouge s'il y a pas d'obstacle
+	 * @param carte carte sur lequel l'acteur se déplace
+	 * @param coor coordonnees du mouvement de l'acteur
+	 */
+	public void MouvementDeLActeur(Carte carte, Coordonnees coor)
+	{
+		if (carte.PresenceObstacle(coor) == false)
+			this.position=coor;
 	}
 
 	

@@ -9,26 +9,24 @@ public class Carte
 	/**
 	 * La carte (double tableau d'entier)
 	 */
-
-	// FIXME écrire un commentaire
-	// FIXME visibilité ?
-	int[][] carte;
+	// FIXME (FIXED) écrire un commentaire
+	// FIXME (FIXED) visibilité ?
+	private int[][] carte;
 
 
 	/**
-	 * Crée unee carte (double tableau d'entier)
+	 * Crée une carte (double tableau d'entier)
 	 * @param carte (double tableau avec 0 pour zone vide,1 pour obstacle, 
 	 * 2 pour le personnage, 3+ pour les monstres)
 	 */
-
-	// FIXME écrire un commentaire
+	// FIXME (FIXED) écrire un commentaire
 	public Carte(int[][] carte)
 	{
 		super();
 		this.carte = carte;
 	}
 
-	// FIXME compléter le commentaire
+	// FIXME (FIXED) compléter le commentaire
 	/**
 	 * Cherche la position d'un acteur en fonction de son numero (numActeur != 0 et 1)
 	 * @param numActeur le numero de l'acteur
@@ -51,7 +49,7 @@ public class Carte
 		return null;
 	}
 
-	// FIXME compléter le commentaire
+	// FIXME (FIXED) compléter le commentaire
 	/**
 	 * actualise la carte et change la position des acteurs.
 	 * @param acteur une liste d'acteurs qui participent au combat
@@ -66,6 +64,21 @@ public class Carte
 			this.carte[coordonnees.getX()][coordonnees.getY()]=0;
 			this.carte[acteur[x].getPosition().getX()][acteur[x].getPosition().getY()] = acteur[x].getNumActeur();			
 		}
+	}
+	
+	/**
+	 * Teste la presence d'un obstacle au coordonnees mit en parametre
+	 * @param coordonnees
+	 * @return Si y a un obstacle on retourne vrai sinon faux
+	 */
+	public boolean PresenceObstacle(Coordonnees coordonnees)
+	{
+		if (this.carte[coordonnees.getX()][coordonnees.getY()] == 0)
+		{
+			return false;
+		}
+		else
+			return true;
 	}
 
 	/**

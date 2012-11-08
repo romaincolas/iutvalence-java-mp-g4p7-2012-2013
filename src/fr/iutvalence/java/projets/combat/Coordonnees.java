@@ -31,6 +31,16 @@ public class Coordonnees
 		this.x = x;
 		this.y = y;
 	}
+	
+	/**
+	 * Crée un nouveau objet coordonnees a partir d'un objet coordonnees
+	 * @param coordonnees
+	 */
+	public Coordonnees(Coordonnees coordonnees)
+	{
+		this.x = coordonnees.getX();
+		this.y = coordonnees.getY();
+	}
 
 	/**
 	 * retourne la position x de l'acteur (sa position horizontale)
@@ -74,8 +84,39 @@ public class Coordonnees
 		this.y = this.y - y;
 	}
 
-	// FIXME redéfinir toString
+	// FIXME (FIXED) redéfinir toString
+	public String toString()
+	{
+		String coordonnees = "";
+		coordonnees = "(" + this.x + "," + this.y + ")";
+		return coordonnees;
+	}
 
-	// FIXME redéfinir equals et hashcode
+	// FIXME (FIXED) redéfinir equals et hashcode
+	/**
+	 * Teste l'egalite entre une coordonnee et l'objet
+	 * @param coor
+	 * @return Si les 2 coordonnees sont egales alors on retourne vrai sinon faux
+	 */
+	public boolean equals(Coordonnees coor)
+	{
+		if (coor.x == this.x)
+		{
+			if (coor.y == this.y)
+				return true;
+		}
+		return false;
+	}
 
+	/** (non-Javadoc)
+	 * @see java.lang.Object#hashCode()
+	 */
+	public int hashCode()
+	{
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + x;
+		result = prime * result + y;
+		return result;
+	}
 }

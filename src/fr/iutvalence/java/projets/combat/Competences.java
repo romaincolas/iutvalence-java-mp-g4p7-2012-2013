@@ -40,7 +40,7 @@ public class Competences
 	 */
 	private int nombreUtilisationMaxParCombat;
 
-	// FIXME compléter le commentaire
+	// FIXME (FIXED) compléter le commentaire
 	/**
 	 * Cree une competence avec toutes ses statistiques necessaires pour son utilisation
 	 * 

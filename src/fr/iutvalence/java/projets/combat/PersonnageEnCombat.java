@@ -20,7 +20,7 @@ public class PersonnageEnCombat extends Acteur
 	private Competences[] competences;
 
 	/**
-	 * Cree un personnage
+	 * Cree un objet personnage avec tout attribut necessaire a sa gestion.
 	 * 
 	 * @param nom
 	 * @param stats
@@ -28,7 +28,7 @@ public class PersonnageEnCombat extends Acteur
 	 * @param idProfession
 	 * @param competences
 	 */
-	// FIXME compléter le commentaire
+	// FIXME (FIXED) compléter le commentaire
 	public PersonnageEnCombat(String nom, Stats stats, Coordonnees coordonnees, int idProfession,
 			Competences[] competences)
 	{
@@ -53,7 +53,7 @@ public class PersonnageEnCombat extends Acteur
 	 * @param numCompetences
 	 * @return competences recherchée
 	 */
-	// FIXME compléter le commentaire
+	// FIXME (FIXED) compléter le commentaire
 	public Competences getCompetences(int numCompetences)
 	{
 		return this.competences[numCompetences];
@@ -64,7 +64,7 @@ public class PersonnageEnCombat extends Acteur
 	 * 
 	 * @param numCompetences
 	 */
-	// FIXME compléter le commentaire
+	// FIXME (FIXED) compléter le commentaire
 	public void utilisationCompetences(int numCompetences)
 	{
 		this.competences[numCompetences].utilisationCompetences();

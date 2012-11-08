@@ -1,8 +1,6 @@
 package fr.iutvalence.java.projets.test;
 
 
-// FIXME cette classe ne doit pas contenir de main et ne pas être dépendante de l'affichage : à reprendre entièrement
-
 import fr.iutvalence.java.projets.combat.Acteur;
 import fr.iutvalence.java.projets.combat.Competences;
 import fr.iutvalence.java.projets.combat.Coordonnees;
@@ -68,14 +66,15 @@ public class Test
 		carteAscii = carte.toString();
 		System.out.println(carteAscii);
 		
-		while(true)
-		{
-			touche = (char)System.in.read();
-	
-			carte.ActualiseCarte(acteur);
-			carteAscii = carte.toString();
-			System.out.println(carteAscii);
-		}
+		//Mouvement d'un acteur
+		Coordonnees mouvementTemp = new Coordonnees(acteur[0].getPosition());
+		mouvementTemp.changePosX(-2);
+		mouvementTemp.changePosY(-1);
+		acteur[0].MouvementDeLActeur(carte, mouvementTemp);
+
+		carte.ActualiseCarte(acteur);
+		carteAscii = carte.toString();
+		System.out.println(carteAscii);
 
 		// Acteur persoEnCombat = new PersonnageEnCombat(nom, new Stats(profession), Carte.CherchePositionActeur(carte,
 		// 2), profession, comp);

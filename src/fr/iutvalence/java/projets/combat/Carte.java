@@ -26,6 +26,11 @@ public class Carte
 		this.carte = carte;
 	}
 
+	public int getElement(int x,int y)
+	{
+		return this.carte[x][y];
+	}
+	
 	// FIXME (FIXED) compléter le commentaire
 	/**
 	 * Cherche la position d'un acteur en fonction de son numero (numActeur != 0 et 1)
@@ -115,4 +120,5 @@ public class Carte
 
 		return carteAscii;
 	}
+	
 }

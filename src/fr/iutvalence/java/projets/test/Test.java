@@ -52,14 +52,16 @@ public class Test
 		
 		nom = "bobo";
 		profession = 1; //1 pour avoir la profession Gladiateur
-		Acteur[] acteur = {new PersonnageEnCombat(nom,new Stats(profession), carte.CherchePositionActeur(2), profession, compPerso),
+		Acteur[] acteurs = {new PersonnageEnCombat(nom,new Stats(profession), carte.CherchePositionActeur(2), profession, compPerso),
 						   new Monstre("Monstro",new Stats(2), carte.CherchePositionActeur(3),compMonstre,3)    
 						  };
 
-		GestionCombat.AfficheCarte(carte,acteur);
-		GestionCombat.DeplacementActeur(carte,acteur[0],-2,-2);
+		GestionCombat combat = new GestionCombat(carte, acteurs);
 		
-		GestionCombat.AfficheCarte(carte,acteur);
+		combat.AfficheCarte();
+		combat.DeplacementHaut(2);
+		
+		combat.AfficheCarte();
 		// Acteur persoEnCombat = new PersonnageEnCombat(nom, new Stats(profession), Carte.CherchePositionActeur(carte,
 		// 2), profession, comp);
 

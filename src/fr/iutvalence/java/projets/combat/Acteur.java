@@ -33,6 +33,12 @@ public class Acteur
 	 */
 	private Coordonnees position;
 
+	
+	/**
+	 * Nombre de point de vie actuels de l'acteur
+	 */
+	private int pointDeVieActuels;
+	
 	/**
 	 * nombre de points d'action actuels (lors du tour, réinitialisé a 5 lors de la fin du tour)
 	 */
@@ -68,6 +74,7 @@ public class Acteur
 		this.nom = nom;
 		this.stats = stats;
 		this.position = position;
+		this.pointDeVieActuels = stats.getPointsDeVie(); 
 		this.pointDActionActuels = POINTACTIONDEFAUT;
 		this.pointDeMouvementActuels = stats.getPointsDeMouvement();
 		this.numActeur = numActeur;
@@ -102,6 +109,34 @@ public class Acteur
 	{
 		return this.position;
 	}
+	
+	
+	
+	/**
+	 * @return the pointDeVieActuels
+	 */
+	public int getPointDeVieActuels()
+	{
+		return pointDeVieActuels;
+	}
+
+	/**
+	 * @return the pointDActionActuels
+	 */
+	public int getPointDActionActuels()
+	{
+		return pointDActionActuels;
+	}
+
+	/**
+	 * @return the pointDeMouvementActuels
+	 */
+	public int getPointDeMouvementActuels()
+	{
+		return pointDeMouvementActuels;
+	}
+
+
 	/**
 	 * donne le numero de l'acteur 2=personnage,3+=les monstres
 	 * @return le numero de l'acteur
@@ -109,6 +144,30 @@ public class Acteur
 	public int getNumActeur()
 	{
 		return this.numActeur;
+	}
+	
+	/**
+	 * @param pointDeVieActuels the pointDeVieActuels to set
+	 */
+	public void setPointDeVieActuels(int pointDeVieActuels)
+	{
+		this.pointDeVieActuels = pointDeVieActuels;
+	}
+
+	/**
+	 * @param pointDActionActuels the pointDActionActuels to set
+	 */
+	public void setPointDActionActuels(int pointDActionActuels)
+	{
+		this.pointDActionActuels = pointDActionActuels;
+	}
+
+	/**
+	 * @param pointDeMouvementActuels the pointDeMouvementActuels to set
+	 */
+	public void setPointDeMouvementActuels(int pointDeMouvementActuels)
+	{
+		this.pointDeMouvementActuels = pointDeMouvementActuels;
 	}
 	
 	/**

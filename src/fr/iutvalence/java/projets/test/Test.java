@@ -2,7 +2,7 @@ package fr.iutvalence.java.projets.test;
 
 
 import fr.iutvalence.java.projets.combat.*;
-import java.util.Scanner;
+//import java.util.Scanner;
 /**
  * @author colasr Classe principale, fait tourner le jeu
  */
@@ -17,7 +17,7 @@ public class Test
 	/**
 	 * Fait tourner le jeu
 	 * 
-	 * @param args
+	 * @param args arguement du main
 	 */
 	public static void main(String[] args)
 	{
@@ -30,12 +30,12 @@ public class Test
 		int[][] map1={
 				 {1,1,1,1,1,1,1,1,1},
 				 {1,0,0,0,0,0,0,0,1},
-				 {1,0,0,0,0,0,2,3,1},
+				 {1,0,0,0,0,0,0,3,1},
 				 {1,0,1,1,0,0,4,0,1},
 				 {1,0,0,0,0,0,0,0,1},
 				 {1,0,0,0,1,0,1,1,1},
 				 {1,0,0,0,1,0,0,1,1},
-				 {1,0,0,0,0,0,0,1,1},
+				 {1,0,0,0,2,0,0,1,1},
 				 {1,0,0,0,0,0,0,0,1},
 				 {1,0,0,0,0,0,0,0,1},
 				 {1,0,0,0,0,0,0,0,1},
@@ -56,19 +56,16 @@ public class Test
 						   new Monstre("Monstro",new Stats(2), carte.CherchePositionActeur(3),compMonstre,3),
 						 new Monstre("Monstro",new Stats(2), carte.CherchePositionActeur(4),compMonstre,4)    
 						  };
-		
-		Acteur[] cible;
+
 		
 		GestionCombat combat = new GestionCombat(carte, acteurs);
 		
+		
+		combat.DeplacementDroit(2);
+		combat.DeplacementDroit(2);
 		combat.AfficheCarte();
-		// Acteur persoEnCombat = new PersonnageEnCombat(nom, new Stats(profession), Carte.CherchePositionActeur(carte,
-		// 2), profession, comp);
-		
-		cible = combat.ZoneDePortee(2, compPerso[0]);
-		System.out.println(cible.length);
-
-		
+		combat.DeplacementDroit(2);
+		combat.AfficheCarte();
 
 
 	}

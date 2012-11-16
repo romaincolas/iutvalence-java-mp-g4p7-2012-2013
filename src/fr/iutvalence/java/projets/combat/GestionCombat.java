@@ -6,6 +6,9 @@ package fr.iutvalence.java.projets.combat;
  */
 public class GestionCombat
 {
+	
+
+	
 	/**
 	 * la carte sur lequel la partie se deroule
 	 */
@@ -16,7 +19,6 @@ public class GestionCombat
 	 * Liste des acteurs present sur la carte
 	 */
 	Acteur[] acteurs;
-
 
 	/**
 	 * Cree la partie
@@ -30,20 +32,17 @@ public class GestionCombat
 		this.acteurs = acteurs;
 	}
 	
-	
 
 
 	
-//FONCTION PLUS COMPLEXE	
+//GESTION MOUVEMENT DES ACTEURS
 	/**
 	 * Deplace l'acteur vers le haut
 	 * @param idActeur (numero de l'acteur)
 	 */
 	public void DeplacementHaut(int idActeur)
 	{
-		Coordonnees mouvementTemp = new Coordonnees(this.acteurs[idActeur-2].getPosition());
-		mouvementTemp.changePosY(1);
-		this.acteurs[idActeur-2].MouvementDeLActeur(this.carte, mouvementTemp);
+		this.acteurs[idActeur-2].getPosition().changePosY(1);
 	}
 	/**
 	 * Deplace l'acteur vers le bas
@@ -51,9 +50,7 @@ public class GestionCombat
 	 */
 	public void DeplacementBas(int idActeur)
 	{
-		Coordonnees mouvementTemp = new Coordonnees(this.acteurs[idActeur-2].getPosition());
-		mouvementTemp.changePosY(-1);
-		this.acteurs[idActeur-2].MouvementDeLActeur(this.carte, mouvementTemp);
+		this.acteurs[idActeur-2].getPosition().changePosY(-1);
 	}
 	
 	/**
@@ -62,9 +59,7 @@ public class GestionCombat
 	 */
 	public void DeplacementDroit(int idActeur)
 	{
-		Coordonnees mouvementTemp = new Coordonnees(this.acteurs[idActeur-2].getPosition());
-		mouvementTemp.changePosX(1);
-		this.acteurs[idActeur-2].MouvementDeLActeur(this.carte, mouvementTemp);
+		this.acteurs[idActeur-2].getPosition().changePosX(1);
 	}
 	
 	/**
@@ -73,11 +68,11 @@ public class GestionCombat
 	 */
 	public void DeplacementGauche(int idActeur)
 	{
-		Coordonnees mouvementTemp = new Coordonnees(this.acteurs[idActeur-2].getPosition());
-		mouvementTemp.changePosX(-1);
-		this.acteurs[idActeur-2].MouvementDeLActeur(this.carte, mouvementTemp);
+		this.acteurs[idActeur-2].getPosition().changePosX(-1);
 	}
 	
+	
+	//GESTION DE LA CARTE
 	/**
 	 * Affiche la carte en ascii sur le terminal
 	 */
@@ -90,6 +85,7 @@ public class GestionCombat
 	}
 	
 	
+	//GESTION DES ATTAQUES
 	/**
 	 * Calcule et reduit le nombre de point de vie d'un acteur en fonction de l'action d'un autre acteur
 	 * @param idDefenseur (identifiant du defenseur)

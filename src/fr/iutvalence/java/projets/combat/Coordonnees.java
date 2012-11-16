@@ -32,16 +32,6 @@ public class Coordonnees
 		this.y = y;
 	}
 	
-	/**
-	 * Crée un nouveau objet coordonnees a partir d'un objet coordonnees
-	 * @param coordonnees
-	 */
-	public Coordonnees(Coordonnees coordonnees)
-	{
-		this.x = coordonnees.getX();
-		this.y = coordonnees.getY();
-	}
-	
 
 	/**
 	 * Cree un nouveau objet coordonnees a partie de l'adition de 2 coordonnees
@@ -107,7 +97,7 @@ public class Coordonnees
 	// FIXME (FIXED) redéfinir equals et hashcode
 	/**
 	 * Teste l'egalite entre une coordonnee et l'objet
-	 * @param coor
+	 * @param coor coordonnee a comparer
 	 * @return Si les 2 coordonnees sont egales alors on retourne vrai sinon faux
 	 */
 	public boolean equals(Coordonnees coor)
@@ -127,8 +117,8 @@ public class Coordonnees
 	{
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + x;
-		result = prime * result + y;
+		result = prime * result + this.x;
+		result = prime * result + this.y;
 		return result;
 	}
 }

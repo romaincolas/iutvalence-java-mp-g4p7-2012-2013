@@ -150,6 +150,18 @@ public class Acteur
 		return this.numActeur;
 	}
 	
+	
+	
+	/**
+	 * Change la position
+	 * @param position position a mettre pour l'acteur
+	 */
+	public void setPosition(Coordonnees position)
+	{
+		this.position = position;
+	}
+
+
 	/**
 	 * @param pointDeVieActuels the pointDeVieActuels to set
 	 */
@@ -174,16 +186,7 @@ public class Acteur
 		this.pointDeMouvementActuels = pointDeMouvementActuels;
 	}
 	
-	/**
-	 * Verifie le mouvement de l'acteur et le bouge s'il y a pas d'obstacle
-	 * @param carte carte sur lequel l'acteur se déplace
-	 * @param coor coordonnees du mouvement de l'acteur
-	 */
-	public void MouvementDeLActeur(Carte carte, Coordonnees coor)
-	{
-		if (carte.PresenceObstacle(coor) == false)
-			this.position=coor;
-	} 
+
 
 	
 }

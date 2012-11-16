@@ -136,10 +136,10 @@ public class Stats
 	/**
 	 * Cree une liste de stats pour un monstre
 	 * 
-	 * @param puissance
-	 * @param defense
-	 * @param pointDeVie
-	 * @param pointDeMouvement
+	 * @param puissance puissance des attaques
+	 * @param defense defense face  au attaque
+	 * @param pointDeVie nombre de point de vie
+	 * @param pointDeMouvement nombre de point de mouvement
 	 */
 	public Stats(int puissance, int defense, int pointDeVie, int pointDeMouvement)
 	{
@@ -152,7 +152,7 @@ public class Stats
 	/**
 	 * Cree les stats en fonction de la profession (seulement pour un personnage joueur)
 	 * 
-	 * @param idProfession
+	 * @param idProfession numero  de profession
 	 */
 	// FIXME (FIXED) compléter le commentaire
 	public Stats(int idProfession)

@@ -26,9 +26,17 @@ public class Carte
 		this.carte = carte;
 	}
 
-	public int getElement(int x,int y)
+	/**
+	 * Obtenir l element dans un coordonnees donne
+	 * @param coordonnees ou l'on cherche l element
+	 * @return int numero de l element ou -1 si il est a l'exterieur de la carte
+	 */
+	public int getElement(Coordonnees coordonnees)
 	{
-		return this.carte[x][y];
+		if (coordonnees.getX() <= this.carte.length && 0 < coordonnees.getX() && coordonnees.getY() <= this.carte[coordonnees.getX()].length && 0 < coordonnees.getY())
+			return this.carte[coordonnees.getX()][coordonnees.getY()];
+		else
+			return -1;
 	}
 	
 	// FIXME (FIXED) compléter le commentaire
@@ -73,12 +81,12 @@ public class Carte
 	
 	/**
 	 * Teste la presence d'un obstacle au coordonnees mit en parametre
-	 * @param coordonnees
+	 * @param coordonnees (coordonnees ou l on cherche s il y a un obstacle) 
 	 * @return Si y a un obstacle on retourne vrai sinon faux
 	 */
 	public boolean PresenceObstacle(Coordonnees coordonnees)
 	{
-		if (this.carte[coordonnees.getX()][coordonnees.getY()] == 0)
+		if (getElement(coordonnees) == 0)
 		{
 			return false;
 		}

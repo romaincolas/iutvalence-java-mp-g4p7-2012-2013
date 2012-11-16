@@ -80,6 +80,7 @@ public class Acteur
 		this.numActeur = numActeur;
 	}
 
+	
 	/**
 	 * donne le nom de l'acteur
 	 * 
@@ -113,27 +114,30 @@ public class Acteur
 	
 	
 	/**
-	 * @return the pointDeVieActuels
+	 * Pour obtenir le nombre de point de vie de l'acteur
+	 * @return pointDeVieActuels
 	 */
 	public int getPointDeVieActuels()
 	{
-		return pointDeVieActuels;
+		return this.pointDeVieActuels;
 	}
 
 	/**
-	 * @return the pointDActionActuels
+	 * pour obtenir le nombre  de point d'action du tour
+	 * @return pointDActionActuels
 	 */
 	public int getPointDActionActuels()
 	{
-		return pointDActionActuels;
+		return this.pointDActionActuels;
 	}
 
 	/**
-	 * @return the pointDeMouvementActuels
+	 * nombre de point de mouvement restant pour le tour
+	 * @return pointDeMouvementActuels
 	 */
 	public int getPointDeMouvementActuels()
 	{
-		return pointDeMouvementActuels;
+		return this.pointDeMouvementActuels;
 	}
 
 

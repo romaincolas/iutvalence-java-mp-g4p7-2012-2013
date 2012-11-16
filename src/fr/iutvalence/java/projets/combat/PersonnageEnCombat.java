@@ -22,11 +22,11 @@ public class PersonnageEnCombat extends Acteur
 	/**
 	 * Cree un objet personnage avec tout attribut necessaire a sa gestion.
 	 * 
-	 * @param nom
-	 * @param stats
-	 * @param coordonnees
-	 * @param idProfession
-	 * @param competences
+	 * @param nom (nom du personnage)
+	 * @param stats (objet stats regroupe les stats du personnage)
+	 * @param coordonnees (position du personnage)
+	 * @param idProfession (id de la profession)
+	 * @param competences (liste des competences disponible pour le personnage)
 	 */
 	// FIXME (FIXED) compléter le commentaire
 	public PersonnageEnCombat(String nom, Stats stats, Coordonnees coordonnees, int idProfession,
@@ -49,8 +49,7 @@ public class PersonnageEnCombat extends Acteur
 
 	/***
 	 * Cherche une competences dans la liste de competence
-	 * 
-	 * @param numCompetences
+	 * @param numCompetences numero de la competence dans la liste
 	 * @return competences recherchée
 	 */
 	// FIXME (FIXED) compléter le commentaire
@@ -62,7 +61,7 @@ public class PersonnageEnCombat extends Acteur
 	/**
 	 * consomme une utilisation de la competence entre en param
 	 * 
-	 * @param numCompetences
+	 * @param numCompetences numero de la competence a utilise
 	 */
 	// FIXME (FIXED) compléter le commentaire
 	public void utilisationCompetences(int numCompetences)

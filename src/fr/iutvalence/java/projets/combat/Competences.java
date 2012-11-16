@@ -44,12 +44,12 @@ public class Competences
 	/**
 	 * Cree une competence avec toutes ses statistiques necessaires pour son utilisation
 	 * 
-	 * @param nom
-	 * @param portee
-	 * @param consommation
-	 * @param bonusPuissance
-	 * @param bonusDefense
-	 * @param nombreUtilisation
+	 * @param nom (nom de la competence)
+	 * @param portee (portee maximal)
+	 * @param consommation (consommation par utilisation [0=infinie])
+	 * @param bonusPuissance (puissance a ajoute lors de l'utilisation de la competence)
+	 * @param bonusDefense (defense a ajoute lors de l'utilisation de la competence)
+	 * @param nombreUtilisation  (nombre d utilisation max par partie)
 	 */
 	public Competences(String nom, int portee, int consommation, int bonusPuissance, int bonusDefense,
 			int nombreUtilisation)

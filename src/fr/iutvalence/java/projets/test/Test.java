@@ -25,22 +25,22 @@ public class Test
 		int profession;
 		String nom;
 		// La premiere competences de la liste de cometences à un nombre d'utilisation infinie )
-		Competences[] compPerso={new Competences("Attaque", 1, 1, 5, 0, 1),new Competences("Coup puissant", 1, 2, 15, 0, 5)};
+		Competences[] compPerso={new Competences("Attaque", 1, 1, 5, 0, 1),new Competences("Coup puissant", 1, 2, 15, 0, 5),new Competences("Lance epee", 1, 5, 15, 0, 5)};
 		Competences compMonstre=new Competences("Attaque", 1, 1, 5, 0, 1);
 		int[][] map1={
 				 {1,1,1,1,1,1,1,1,1},
-				 {1,2,0,0,0,0,0,0,1},
 				 {1,0,0,0,0,0,0,0,1},
-				 {1,0,1,1,0,0,0,0,1},
-				 {1,0,0,0,0,0,0,5,1},
+				 {1,0,0,0,0,0,2,3,1},
+				 {1,0,1,1,0,0,4,0,1},
+				 {1,0,0,0,0,0,0,0,1},
 				 {1,0,0,0,1,0,1,1,1},
 				 {1,0,0,0,1,0,0,1,1},
 				 {1,0,0,0,0,0,0,1,1},
-				 {1,0,0,0,3,0,0,0,1},
-				 {1,0,0,0,0,0,1,0,1},
-				 {1,0,0,1,0,0,0,0,1},
+				 {1,0,0,0,0,0,0,0,1},
+				 {1,0,0,0,0,0,0,0,1},
+				 {1,0,0,0,0,0,0,0,1},
 				 {1,0,0,0,0,0,0,1,1},
-				 {1,0,0,0,0,0,4,0,1},
+				 {1,0,0,0,0,0,0,0,1},
 				 {1,0,1,1,0,0,0,0,1},
 				 {1,0,0,0,0,0,0,1,1},
 				 {1,1,1,1,1,1,1,1,1}
@@ -53,17 +53,23 @@ public class Test
 		nom = "bobo";
 		profession = 1; //1 pour avoir la profession Gladiateur
 		Acteur[] acteurs = {new PersonnageEnCombat(nom,new Stats(profession), carte.CherchePositionActeur(2), profession, compPerso),
-						   new Monstre("Monstro",new Stats(2), carte.CherchePositionActeur(3),compMonstre,3)    
+						   new Monstre("Monstro",new Stats(2), carte.CherchePositionActeur(3),compMonstre,3),
+						 new Monstre("Monstro",new Stats(2), carte.CherchePositionActeur(4),compMonstre,4)    
 						  };
-
-		GestionCombat combat = new GestionCombat(carte, acteurs);
 		
-		combat.AfficheCarte();
-		combat.DeplacementHaut(2);
+		Acteur[] cible;
+		
+		GestionCombat combat = new GestionCombat(carte, acteurs);
 		
 		combat.AfficheCarte();
 		// Acteur persoEnCombat = new PersonnageEnCombat(nom, new Stats(profession), Carte.CherchePositionActeur(carte,
 		// 2), profession, comp);
+		
+		cible = combat.ZoneDePortee(2, compPerso[0]);
+		System.out.println(cible.length);
+
+		
+
 
 	}
 }

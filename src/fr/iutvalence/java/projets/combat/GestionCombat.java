@@ -6,17 +6,17 @@ package fr.iutvalence.java.projets.combat;
  */
 public class GestionCombat
 {
-	
 	/**
 	 * la carte sur lequel la partie se deroule
 	 */
 	Carte carte;
 	
+	
 	/**
 	 * Liste des acteurs present sur la carte
 	 */
 	Acteur[] acteurs;
-	
+
 
 	/**
 	 * Cree la partie
@@ -29,8 +29,12 @@ public class GestionCombat
 		this.carte = carte;
 		this.acteurs = acteurs;
 	}
+	
+	
+
 
 	
+//FONCTION PLUS COMPLEXE	
 	/**
 	 * Deplace l'acteur vers le haut
 	 * @param idActeur (numero de l'acteur)
@@ -116,39 +120,41 @@ public class GestionCombat
 	}
 	
 	/**
-	 * @param acteur
-	 * @param competences
-	 * @return
+	 * cree une liste de touts les acteurs qui peuvent etre touche par la competence
+	 * @param numActeur (le numero de l'acteur qui utilise la competences)
+	 * @param competences (la competence utilise)
+	 * @return liste d'acteur (les acteurs a portee)
 	 */
-	public Acteur[] ZoneDePortee(int idActeur, Competences competences)
+	public Acteur[] ZoneDePortee(int numActeur, Competences competences)
 	{
-		Acteur[] lesActeurs = {};
-		int x = 0;
+		Acteur[] lesActeurs = new Acteur[0];
+		Coordonnees positionActeur = this.carte.CherchePositionActeur(numActeur);
+		Coordonnees positionCible;
+		int element;
+		int x;
 		int y;
-		int j;
+		int j = 0;
 		
 		int nombreDActeurs = 0;
 		
 		for (y=-competences.getPortee();y<competences.getPortee()+1;y++)
 		{
-			if (y>0)
-				x = x - 1;
-			else
-				x = x + 1;
-			
-			for(j=-x;j<x+1;y++)
+			for(x=-j;x<j+1;x++)
 			{
-				if (this.carte.getElement(j,y) > 1)
-				{
-					
-					lesActeurs[nombreDActeurs] = this.acteurs[this.carte.getElement(j, y)];
+				positionCible = new Coordonnees(x,y);
+				element = this.carte.getElement(new Coordonnees(positionCible,positionActeur));
+				if (element > 1 && element != numActeur)
+				{	
+					lesActeurs = new Acteur[nombreDActeurs+1];
+					lesActeurs[nombreDActeurs] = (this.acteurs[element-2]);
 					nombreDActeurs++;
 				}
 			}
-			
+			if (y>=0)
+				j = j - 1;
+			else
+				j = j + 1;
 		}
-		
-		
 		return lesActeurs;
 	}
 	

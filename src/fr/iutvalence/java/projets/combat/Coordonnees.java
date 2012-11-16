@@ -41,6 +41,18 @@ public class Coordonnees
 		this.x = coordonnees.getX();
 		this.y = coordonnees.getY();
 	}
+	
+
+	/**
+	 * Cree un nouveau objet coordonnees a partie de l'adition de 2 coordonnees
+	 * @param coordonnees1 premier coordonnees a aditionner
+	 * @param coordonnees2 deuxieme coordonnees a aditionner
+	 */
+	public Coordonnees(Coordonnees coordonnees1, Coordonnees coordonnees2)
+	{
+		this.x = coordonnees1.getX()+coordonnees2.getX();
+		this.y =coordonnees1.getY()+coordonnees2.getY();
+	}
 
 	/**
 	 * retourne la position x de l'acteur (sa position horizontale)

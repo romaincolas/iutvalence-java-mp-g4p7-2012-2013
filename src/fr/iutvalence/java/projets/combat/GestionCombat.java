@@ -138,7 +138,7 @@ public class GestionCombat
 			for(x=-j;x<j+1;x++)
 			{
 				positionCible = new Coordonnees(x,y);
-				element = this.carte.getElement(new Coordonnees(positionCible,positionActeur));
+				element = this.carte.getElement(AdditionneCoordonnees(positionCible,positionActeur));
 				if (element > 1 && element != numActeur)
 				{	
 					lesActeurs = new Acteur[nombreDActeurs+1];
@@ -153,6 +153,29 @@ public class GestionCombat
 		}
 		return lesActeurs;
 	}
+	
+	/**
+	 * Cree un nouveau objet coordonnees a partie de l'adition de 2 coordonnees
+	 * @param coord1 premier coordonnees a aditionner
+	 * @param coord2 deuxieme coordonnees a aditionner
+	 * @return D'addition des 2 coordonnees
+	 */
+	public Coordonnees AdditionneCoordonnees(Coordonnees coord1,Coordonnees coord2)
+	{
+		return new Coordonnees(coord1.getX()+coord2.getX(),coord1.getY()+coord2.getY());
+	}
+	
+	/**
+	 * Cree un nouveau objet coordonnees a partie de la soustraction de 2 coordonnees
+	 * @param coord1 premier coordonnees
+	 * @param coord2 coordonnees a soustraire 
+	 * @return soustre 2 coordonnees
+	 */
+	public Coordonnees SoustractionCoordonnees(Coordonnees coord1,Coordonnees coord2)
+	{
+		return new Coordonnees(coord1.getX()-coord2.getX(),coord1.getY()-coord2.getY());
+	}
+	
 	
 	
 }

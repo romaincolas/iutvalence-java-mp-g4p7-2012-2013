@@ -6,72 +6,106 @@ package fr.iutvalence.java.projets.combat;
  */
 public class GestionCombat
 {
-	
-
-	
 	/**
 	 * la carte sur lequel la partie se deroule
 	 */
 	Carte carte;
 	
+	/**
+	 * Le joueur present sur la carte
+	 */
+	PersonnageEnCombat joueur;
 	
 	/**
-	 * Liste des acteurs present sur la carte
+	 * Liste des monstre present sur la carte
 	 */
-	Acteur[] acteurs;
+	Monstre[] monstres;
 
 	/**
 	 * Cree la partie
 	 * @param carte (la carte sur lequel la partie se deroule)
-	 * @param acteurs (liste des acteurs present sur la carte)
+     * @param joueur (le joueur present sur la carte)
+	 * @param monstres (liste des monstres present sur la carte)
 	 */
-	public GestionCombat(Carte carte, Acteur[] acteurs)
+	public GestionCombat(Carte carte,PersonnageEnCombat joueur, Monstre[] monstres)
 	{
 		super();
 		this.carte = carte;
-		this.acteurs = acteurs;
+		this.joueur = joueur;
+		this.monstres = monstres;
 	}
-	
 
-
-	
-//GESTION MOUVEMENT DES ACTEURS
+// ********** GESTION DES MOUVEMENTS *************** //	
+//JOUEUR
 	/**
 	 * Deplace l'acteur vers le haut
-	 * @param idActeur (numero de l'acteur)
 	 */
-	public void DeplacementHaut(int idActeur)
+	public void DeplacementJoueurHaut()
 	{
-		this.acteurs[idActeur-2].getPosition().changePosY(1);
+		this.joueur.getPosition().changePosY(1);
 	}
 	/**
 	 * Deplace l'acteur vers le bas
-	 * @param idActeur (numero de l'acteur)
 	 */
-	public void DeplacementBas(int idActeur)
+	public void DeplacementJoueurBas()
 	{
-		this.acteurs[idActeur-2].getPosition().changePosY(-1);
+		this.joueur.getPosition().changePosY(-1);
 	}
 	
 	/**
 	 * Deplace l'acteur vers la droit
-	 * @param idActeur (numero de l'acteur)
 	 */
-	public void DeplacementDroit(int idActeur)
+	public void DeplacementJoueurDroit()
 	{
-		this.acteurs[idActeur-2].getPosition().changePosX(1);
+		this.joueur.getPosition().changePosX(1);
 	}
 	
 	/**
 	 * Deplace l'acteur vers la gauche
-	 * @param idActeur (numero de l'acteur)
 	 */
-	public void DeplacementGauche(int idActeur)
+	public void DeplacementJoueurGauche()
 	{
-		this.acteurs[idActeur-2].getPosition().changePosX(-1);
+		this.joueur.getPosition().changePosX(-1);
 	}
 	
 	
+	//MONSTRE
+	/**
+	 * Deplace l'acteur vers le haut
+	 * @param idMonstre (numero de l'acteur)
+	 */
+	public void DeplacementMonstreHaut(int idMonstre)
+	{
+		this.monstres[idMonstre].getPosition().changePosY(1);
+	}
+	/**
+	 * Deplace l'acteur vers le bas
+	 * @param idMonstre (numero de l'acteur)
+	 */
+	public void DeplacementMonstreBas(int idMonstre)
+	{
+		this.monstres[idMonstre].getPosition().changePosY(-1);
+	}
+	
+	/**
+	 * Deplace l'acteur vers la droit
+	 * @param idMonstre (numero de l'acteur)
+	 */
+	public void DeplacementMonstreDroit(int idMonstre)
+	{
+		this.monstres[idMonstre].getPosition().changePosX(1);
+	}
+	
+	/**
+	 * Deplace l'acteur vers la gauche
+	 * @param idMonstre (numero de l'acteur)
+	 */
+	public void DeplacementMonstreGauche(int idMonstre)
+	{
+		this.monstres[idMonstre].getPosition().changePosX(-1);
+	}
+	
+
 	//GESTION DE LA CARTE
 	/**
 	 * Affiche la carte en ascii sur le terminal
@@ -79,71 +113,120 @@ public class GestionCombat
 	public void AfficheCarte()
 	{
 		String carteAscii;
-		this.carte.ActualiseCarte(this.acteurs);
+
+		this.carte.ActualiseCarte(this.monstres, this.joueur);
 		carteAscii = this.carte.toString();
 		System.out.println(carteAscii);
+	}
+	
+	/**
+	 * Teste la presence des monstres sur la carte
+	 * @return vrai si il reste des monstres, 
+	 * faux sinon
+	 */
+	public boolean ResteMonstres()
+	{
+		int i;
+		
+		for(i=0;i<this.monstres.length;i++)
+		{
+			if (this.monstres[i].getPointDeVieActuels() > 0)
+			{
+				return true;
+			}
+		}
+		
+		return false;
 	}
 	
 	
 	//GESTION DES ATTAQUES
 	/**
-	 * Calcule et reduit le nombre de point de vie d'un acteur en fonction de l'action d'un autre acteur
-	 * @param idDefenseur (identifiant du defenseur)
+	 * Calcule et reduit le nombre de point de vie d'un joueur en fonction de l'action d'un monstre
 	 * @param idAttaquant (identifiant de l'attaquant)
-	 * @param competence (competence utilisée par l'attaquant)
 	 */
-	public void ReductionPointDeVie(int idDefenseur, int idAttaquant, Competences competence)
+	public void AttaqueMonstre(int idAttaquant)
 	{
 		int puissanceTotale;
 		int vieDefenseur;
 		int vieDeduite;
-		puissanceTotale = competence.getBonusPuissance() + this.acteurs[idAttaquant-2].getStats().getPuissance();
-		vieDeduite = puissanceTotale-this.acteurs[idDefenseur-2].getStats().getDefense();
+		Monstre monstre = this.monstres[idAttaquant];
+		puissanceTotale = monstre.getCompetences().getBonusPuissance() + this.monstres[idAttaquant].getStats().getPuissance();
+		vieDeduite = puissanceTotale-this.joueur.getStats().getDefense();
 		
 		if (vieDeduite < 0)
 		{
 			vieDeduite = 0;
 		}
 		
-		vieDefenseur = this.acteurs[idDefenseur-2].getPointDeVieActuels() - vieDeduite;
+		vieDefenseur = this.joueur.getPointDeVieActuels() - vieDeduite;
 		
 		if (vieDefenseur < 0)
 		{
 			vieDefenseur = 0;
 		}
 		
-		this.acteurs[idDefenseur-2].setPointDeVieActuels(vieDefenseur);
+		this.joueur.setPointDeVieActuels(vieDefenseur);
+	}
+	
+	/**
+	 * Calcule et reduit le nombre de point de vie d'un joueur en fonction de l'action d'un monstre
+	 * @param idDefenseur (identifiant de l'attaquant)
+	 * @param competence la competence utilisé par le joueur
+	 */
+	public void AttaqueJoueur(int idDefenseur, Competences competence)
+	{
+		int puissanceTotale;
+		int vieDefenseur;
+		int vieDeduite;
+		Monstre monstre = this.monstres[idDefenseur];
+		puissanceTotale = competence.getBonusPuissance() + this.joueur.getStats().getPuissance();
+		vieDeduite = puissanceTotale-monstre.getStats().getDefense();
+		
+		if (vieDeduite < 0)
+		{
+			vieDeduite = 0;
+		}
+		
+		vieDefenseur = monstre.getPointDeVieActuels() - vieDeduite;
+		
+		if (vieDefenseur < 0)
+		{
+			vieDefenseur = 0;
+		}
+		
+		monstre.setPointDeVieActuels(vieDefenseur);
 	}
 	
 	/**
 	 * cree une liste de touts les acteurs qui peuvent etre touche par la competence
-	 * @param numActeur (le numero de l'acteur qui utilise la competences)
 	 * @param competences (la competence utilise)
 	 * @return liste d'acteur (les acteurs a portee)
 	 */
-	public Acteur[] ZoneDePortee(int numActeur, Competences competences)
+	public Monstre[] ZoneDePorteeJoueur(Competences competences)
 	{
-		Acteur[] lesActeurs = new Acteur[0];
-		Coordonnees positionActeur = this.carte.CherchePositionActeur(numActeur);
+		Monstre[] lesMonstres = new Monstre[1];
+		Coordonnees positionJoueur = this.carte.CherchePositionActeur(2);
 		Coordonnees positionCible;
 		int element;
 		int x;
 		int y;
 		int j = 0;
 		
-		int nombreDActeurs = 0;
+		int nombreDeMonstre = 0;
 		
 		for (y=-competences.getPortee();y<competences.getPortee()+1;y++)
 		{
 			for(x=-j;x<j+1;x++)
 			{
 				positionCible = new Coordonnees(x,y);
-				element = this.carte.getElement(AdditionneCoordonnees(positionCible,positionActeur));
-				if (element > 1 && element != numActeur)
+				element = this.carte.getElement(AdditionneCoordonnees(positionCible,positionJoueur));
+				if (element > 2)
 				{	
-					lesActeurs = new Acteur[nombreDActeurs+1];
-					lesActeurs[nombreDActeurs] = (this.acteurs[element-2]);
-					nombreDActeurs++;
+					nombreDeMonstre++;
+					lesMonstres = new Monstre[lesMonstres.length+1];
+					lesMonstres[nombreDeMonstre] = (this.monstres[element-3]);
+					
 				}
 			}
 			if (y>=0)
@@ -151,7 +234,42 @@ public class GestionCombat
 			else
 				j = j + 1;
 		}
-		return lesActeurs;
+		return lesMonstres;
+	}
+	
+	/**
+	 * Cherche si le joueur est a portee d'une attaque d'un monstre 
+	 * @param numMonstre monstre qui attaque
+	 * @return Vrai si le joueur est a portee du monstre
+	 */
+	public boolean ZoneDePorteeMonstre(int numMonstre)
+	{
+		Monstre monstre = this.monstres[numMonstre-3];
+		Coordonnees positionMonstre = this.carte.CherchePositionActeur(numMonstre);
+		Coordonnees positionCible;
+		int element;
+		int x;
+		int y;
+		int j = 0;
+		
+		for (y=-monstre.getCompetences().getPortee();y<monstre.getCompetences().getPortee()+1;y++)
+		{
+			for(x=-j;x<j+1;x++)
+			{
+				positionCible = new Coordonnees(x,y);
+				element = this.carte.getElement(AdditionneCoordonnees(positionCible,positionMonstre));
+				if (element == 2)
+				{	
+					return true;
+				}
+			}
+			if (y>=0)
+				j = j - 1;
+			else
+				j = j + 1;
+		}
+		
+		return false;
 	}
 	
 	/**
@@ -175,6 +293,9 @@ public class GestionCombat
 	{
 		return new Coordonnees(coord1.getX()-coord2.getX(),coord1.getY()-coord2.getY());
 	}
+	
+	//LANCEMENT D UN COMBAT
+	
 	
 	
 	

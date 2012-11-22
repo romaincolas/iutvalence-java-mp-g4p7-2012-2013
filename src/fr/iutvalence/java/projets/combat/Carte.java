@@ -65,18 +65,24 @@ public class Carte
 	// FIXME (FIXED) compléter le commentaire
 	/**
 	 * actualise la carte et change la position des acteurs.
-	 * @param acteur une liste d'acteurs qui participent au combat
+	 * @param monstres une liste des monstres qui participent au combat
+	 * @param joueur le joueur present sur la carte
 	 */
-	public void ActualiseCarte(Acteur[] acteur)
+	public void ActualiseCarte(Monstre[] monstres,PersonnageEnCombat joueur)
 	{
 		int x;
 		Coordonnees coordonnees;
-		for	(x=0;x<acteur.length;x++)
+		for	(x=0;x<monstres.length;x++)
 		{	
-			coordonnees=CherchePositionActeur(acteur[x].getNumActeur());
+			coordonnees=CherchePositionActeur(monstres[x].getNumActeur());
 			this.carte[coordonnees.getX()][coordonnees.getY()]=0;
-			this.carte[acteur[x].getPosition().getX()][acteur[x].getPosition().getY()] = acteur[x].getNumActeur();			
+			this.carte[monstres[x].getPosition().getX()][monstres[x].getPosition().getY()] = monstres[x].getNumActeur();			
 		}
+		
+		coordonnees=CherchePositionActeur(2);
+		this.carte[coordonnees.getX()][coordonnees.getY()]=0;
+		this.carte[joueur.getPosition().getX()][joueur.getPosition().getY()] = joueur.getNumActeur();			
+		
 	}
 	
 	/**

@@ -4,7 +4,8 @@ package fr.iutvalence.java.projets.test;
 import fr.iutvalence.java.projets.combat.*;
 //import java.util.Scanner;
 /**
- * @author colasr Classe principale, fait tourner le jeu
+ *  Classe principale, fait tourner le jeu
+ * @author colasr
  */
 public class Test
 {
@@ -21,6 +22,7 @@ public class Test
 	 */
 	public static void main(String[] args)
 	{
+		final Interface fenetre;
 		
 		int profession;
 		String nom;
@@ -48,6 +50,8 @@ public class Test
 		 };
 		
 		
+		fenetre = new Interface();
+		
 		Carte carte = new Carte(map1);
 
 		
@@ -64,6 +68,5 @@ public class Test
 		
 		combat.AfficheCarte();
 		System.out.println(combat.ZoneDePorteeJoueur(compPerso[0]).length);
-		
 	}
 }

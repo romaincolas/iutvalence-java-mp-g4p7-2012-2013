@@ -24,6 +24,14 @@ public class Carte
 	}
 
 	/**
+	 * Obtenir le tableau d'entier 
+	 * @return le tableau d'entier
+	 */
+	public int[][] getCarte()
+	{
+		return this.carte;
+	}
+	/**
 	 * Obtenir l element dans un coordonnees donne
 	 * @param coordonnees ou l'on cherche l element
 	 * @return int numero de l element ou -1 si il est a l'exterieur de la carte
@@ -34,6 +42,15 @@ public class Carte
 			return this.carte[coordonnees.getX()][coordonnees.getY()];
 		else
 			return -1;
+	}
+	
+	/**
+	 * Donne les coordonnees max en largeur et en hauteur de la carte
+	 * @return les coordonnees max en largeur et en hauteur
+	 */
+	public Coordonnees GetDimension()
+	{
+		return new Coordonnees(this.carte[0].length,this.carte.length);
 	}
 	
 	/**

@@ -50,7 +50,7 @@ public class Test
 		 };
 		
 		
-		fenetre = new Interface();
+		
 		
 		Carte carte = new Carte(map1);
 
@@ -65,6 +65,7 @@ public class Test
 		
 		GestionCombat combat = new GestionCombat(carte, joueur, monstres);
 		
+		fenetre = new Interface(carte);
 		
 		combat.AfficheCarte();
 		System.out.println(combat.ZoneDePorteeJoueur(compPerso[0]).length);

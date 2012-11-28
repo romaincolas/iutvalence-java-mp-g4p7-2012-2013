@@ -41,7 +41,6 @@ public class Test
 				 {1,0,0,0,0,0,0,1,1},
 				 {1,0,0,0,0,0,0,0,1},
 				 {1,0,0,0,0,0,0,0,1},
-				 {1,0,0,0,0,0,0,0,1},
 				 {1,0,0,0,0,0,0,1,1},
 				 {1,0,0,0,0,0,0,0,1},
 				 {1,0,1,1,0,0,0,0,1},
@@ -64,10 +63,10 @@ public class Test
 
 		
 		GestionCombat combat = new GestionCombat(carte, joueur, monstres);
-		
-		fenetre = new Interface(carte);
-		
+		combat.DeplacementJoueurHaut();
 		combat.AfficheCarte();
-		System.out.println(combat.ZoneDePorteeJoueur(compPerso[0]).length);
+		fenetre = new Interface(carte);
+
+		
 	}
 }

@@ -9,8 +9,6 @@ public class Carte
 	/**
 	 * La carte (double tableau d'entier)
 	 */
-	// FIXME (FIXED) écrire un commentaire
-	// FIXME (FIXED) visibilité ?
 	private int[][] carte;
 
 
@@ -19,7 +17,6 @@ public class Carte
 	 * @param carte (double tableau avec 0 pour zone vide,1 pour obstacle, 
 	 * 2 pour le personnage, 3+ pour les monstres)
 	 */
-	// FIXME (FIXED) écrire un commentaire
 	public Carte(int[][] carte)
 	{
 		super();
@@ -39,7 +36,6 @@ public class Carte
 			return -1;
 	}
 	
-	// FIXME (FIXED) compléter le commentaire
 	/**
 	 * Cherche la position d'un acteur en fonction de son numero (numActeur != 0 et 1)
 	 * @param numActeur le numero de l'acteur
@@ -62,7 +58,6 @@ public class Carte
 		return null;
 	}
 
-	// FIXME (FIXED) compléter le commentaire
 	/**
 	 * actualise la carte et change la position des acteurs.
 	 * @param monstres une liste des monstres qui participent au combat

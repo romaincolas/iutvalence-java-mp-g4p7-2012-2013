@@ -15,100 +15,100 @@ public class Stats
 	/**
 	 * Puissance de base du Gladiateur
 	 */
-	// FIXME (FIXED) respecter les conventions d'écriture
+	// FIXME (toujours pas !) respecter les conventions d'écriture
 	private final static int PUISSANCEGLADIATEUR = 8;
 
 	/**
 	 * Defence de base du Gladiateur
 	 */
-	// FIXME (FIXED) respecter les conventions d'écriture	
+	// FIXME (toujours pas !) respecter les conventions d'écriture	
 	private final static int DEFENSEGLADIATEUR = 5;
 
 	/**
 	 * Point de vie de base du Gladiateur
 	 */
-	// FIXME (FIXED) respecter les conventions d'écriture
+	// FIXME (toujours pas !) respecter les conventions d'écriture
 	private final static int POINTDEVIEGLADIATEUR = 45;
 
 	/**
 	 * Point de mouvement de base du Gladiateur
 	 */
-	// FIXME (FIXED) respecter les conventions d'écriture
+	// FIXME (toujours pas !) respecter les conventions d'écriture
 	private final static int POINTDEMOUVEMENTGLADIATEUR = 4;
 
 	// Stats pour le templier
 	/**
 	 * Puissance du de base du templier
 	 */
-	// FIXME (FIXED) respecter les conventions d'écriture
+	// FIXME (toujours pas !) respecter les conventions d'écriture
 	private final static int PUISSANCETEMPLIER = 7;
 
 	/**
 	 * Defence de base du templier
 	 */
-	// FIXME (FIXED) respecter les conventions d'écriture
+	// FIXME (toujours pas !) respecter les conventions d'écriture
 	private final static int DEFENSETEMPLIER = 6;
 
 	/**
 	 * Point de vie de base du templier
 	 */
-	// FIXME (FIXED) respecter les conventions d'écriture
+	// FIXME (toujours pas !) respecter les conventions d'écriture
 	private final static int POINTDEVIETEMPLIER = 50;
 
 	/**
 	 * Point de mouvement de base du templier
 	 */
-	// FIXME (FIXED) respecter les conventions d'écriture
+	// FIXME (toujours pas !) respecter les conventions d'écriture
 	private final static int POINTDEMOUVEMENTTEMPLIER = 4;
 
 	// Stats pour le rodeur
 	/**
 	 * Puissance du de base du rodeur
 	 */
-	// FIXME (FIXED) respecter les conventions d'écriture
+	// FIXME (toujours pas !) respecter les conventions d'écriture
 	private final static int PUISSANCERODEUR = 8;
 
 	/**
 	 * Defence de base du rodeur
 	 */
-	// FIXME (FIXED) respecter les conventions d'écriture
+	// FIXME (toujours pas !) respecter les conventions d'écriture
 	private final static int DEFENSERODEUR = 4;
 
 	/**
 	 * Point de vie de base du rodeur
 	 */
-	// FIXME (FIXED) respecter les conventions d'écriture
+	// FIXME (toujours pas !) respecter les conventions d'écriture
 	private final static int POINTDEVIERODEUR = 40;
 
 	/**
 	 * Point de mouvement de base du rodeur
 	 */
-	// FIXME (FIXED) respecter les conventions d'écriture
+	// FIXME (toujours pas !) respecter les conventions d'écriture
 	private final static int POINTDEMOUVEMENTRODEUR = 3;
 
 	// Stats pour le sorcier
 	/**
 	 * Puissance du de base du sorcier
 	 */
-	// FIXME (FIXED) respecter les conventions d'écriture
+	// FIXME (toujours pas !) respecter les conventions d'écriture
 	private final static int PUISSANCESORCIER = 8;
 
 	/**
 	 * Defence de base du sorcier
 	 */
-	// FIXME (FIXED) respecter les conventions d'écriture
+	// FIXME (toujours pas !) respecter les conventions d'écriture
 	private final static int DEFENSESORCIER = 4;
 
 	/**
 	 * Point de vie de base du sorcier
 	 */
-	// FIXME (FIXED) respecter les conventions d'écriture
+	// FIXME (toujours pas !) respecter les conventions d'écriture
 	private final static int POINTDEVIESORCIER = 40;
 
 	/**
 	 * Point de mouvement de base du sorcier
 	 */
-	// FIXME (FIXED) respecter les conventions d'écriture
+	// FIXME (toujours pas !) respecter les conventions d'écriture
 	private final static int POINTDEMOUVEMENTSORCIER = 4;
 
 	/**
@@ -132,7 +132,6 @@ public class Stats
 	private final int pointsDeMouvement;
 
 	
-	// FIXME (FIXED) compléter le commentaire
 	/**
 	 * Cree une liste de stats pour un monstre
 	 * 
@@ -154,10 +153,9 @@ public class Stats
 	 * 
 	 * @param idProfession numero  de profession
 	 */
-	// FIXME (FIXED) compléter le commentaire
 	public Stats(int idProfession)
 	{
-
+		// FIXME utiliser switch/case
 		if (idProfession == 1)
 		{
 			this.puissance = PUISSANCEGLADIATEUR;
@@ -238,7 +236,5 @@ public class Stats
 		return "Puissance = " + this.puissance + "\nDefense = " + this.defense + "\nPoints de vie = " + this.pointsDeVie
 				+ "\nPoints de mouvement=" + this.pointsDeMouvement;
 	}
-
-	// FIXME (FIXED) redéfinir toString
 	
 }

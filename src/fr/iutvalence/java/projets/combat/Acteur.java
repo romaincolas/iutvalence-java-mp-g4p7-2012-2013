@@ -15,7 +15,7 @@ public class Acteur
 	/**
 	 * points d'action par defaut de tout les acteurs
 	 */
-	// FIXME (FIXED) respecter les conventions d'écriture
+	// FIXME (toujours pas !) respecter les conventions d'écriture
 	private final static int POINTACTIONDEFAUT = 5;
 
 	/**
@@ -161,7 +161,7 @@ public class Acteur
 		this.position = position;
 	}
 
-
+	// FIXME completer
 	/**
 	 * @param pointDeVieActuels the pointDeVieActuels to set
 	 */
@@ -170,6 +170,7 @@ public class Acteur
 		this.pointDeVieActuels = pointDeVieActuels;
 	}
 
+	// FIXME completer
 	/**
 	 * @param pointDActionActuels the pointDActionActuels to set
 	 */
@@ -178,6 +179,7 @@ public class Acteur
 		this.pointDActionActuels = pointDActionActuels;
 	}
 
+	// FIXME completer
 	/**
 	 * @param pointDeMouvementActuels the pointDeMouvementActuels to set
 	 */
@@ -185,8 +187,4 @@ public class Acteur
 	{
 		this.pointDeMouvementActuels = pointDeMouvementActuels;
 	}
-	
-
-
-	
 }

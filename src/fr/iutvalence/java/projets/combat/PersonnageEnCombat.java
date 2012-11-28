@@ -28,7 +28,6 @@ public class PersonnageEnCombat extends Acteur
 	 * @param idProfession (id de la profession)
 	 * @param competences (liste des competences disponible pour le personnage)
 	 */
-	// FIXME (FIXED) compléter le commentaire
 	public PersonnageEnCombat(String nom, Stats stats, Coordonnees coordonnees, int idProfession,
 			Competences[] competences)
 	{
@@ -52,7 +51,6 @@ public class PersonnageEnCombat extends Acteur
 	 * @param numCompetences numero de la competence dans la liste
 	 * @return competences recherchée
 	 */
-	// FIXME (FIXED) compléter le commentaire
 	public Competences getCompetences(int numCompetences)
 	{
 		return this.competences[numCompetences];
@@ -63,7 +61,6 @@ public class PersonnageEnCombat extends Acteur
 	 * 
 	 * @param numCompetences numero de la competence a utilise
 	 */
-	// FIXME (FIXED) compléter le commentaire
 	public void utilisationCompetences(int numCompetences)
 	{
 		this.competences[numCompetences].utilisationCompetences();

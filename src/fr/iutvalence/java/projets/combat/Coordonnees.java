@@ -77,7 +77,6 @@ public class Coordonnees
 		this.y = this.y - y;
 	}
 
-	// FIXME (FIXED) redéfinir toString
 	public String toString()
 	{
 		String coordonnees = "";
@@ -85,7 +84,7 @@ public class Coordonnees
 		return coordonnees;
 	}
 
-	// FIXME (FIXED) redéfinir equals et hashcode
+	// FIXME ce n'est pas une redéfinition de equals (voir http://www.artima.com/lejava/articles/equality.html)	
 	/**
 	 * Teste l'egalite entre une coordonnee et l'objet
 	 * @param coor coordonnee a comparer

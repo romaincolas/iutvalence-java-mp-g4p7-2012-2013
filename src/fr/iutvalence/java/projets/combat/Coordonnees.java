@@ -84,21 +84,25 @@ public class Coordonnees
 		return coordonnees;
 	}
 
-	// FIXME ce n'est pas une redéfinition de equals (voir http://www.artima.com/lejava/articles/equality.html)	
+	// (FIXED) FIXME ce n'est pas une redéfinition de equals (voir http://www.artima.com/lejava/articles/equality.html)	
 	/**
 	 * Teste l'egalite entre une coordonnee et l'objet
-	 * @param coor coordonnee a comparer
+	 * @param object un objet a comparer
 	 * @return Si les 2 coordonnees sont egales alors on retourne vrai sinon faux
 	 */
-	public boolean equals(Coordonnees coor)
+	public boolean equals(Object object)
 	{
-		if (coor.x == this.x)
+		boolean result= false;
+		if (object instanceof Coordonnees)
 		{
-			if (coor.y == this.y)
-				return true;
+			Coordonnees coor = (Coordonnees) object;
+			result = (this.getX() == coor.getX() && this.getY() == coor.getY());
 		}
-		return false;
+		return result;
 	}
+	
+	
+	
 
 	/** (non-Javadoc)
 	 * @see java.lang.Object#hashCode()

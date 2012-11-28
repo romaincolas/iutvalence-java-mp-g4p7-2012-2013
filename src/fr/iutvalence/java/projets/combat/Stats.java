@@ -15,101 +15,101 @@ public class Stats
 	/**
 	 * Puissance de base du Gladiateur
 	 */
-	// FIXME (toujours pas !) respecter les conventions d'écriture
-	private final static int PUISSANCEGLADIATEUR = 8;
+	// (FIXED)FIXME (toujours pas !) respecter les conventions d'écriture
+	private final static int PUISSANCE_GLADIATEUR = 8;
 
 	/**
 	 * Defence de base du Gladiateur
 	 */
-	// FIXME (toujours pas !) respecter les conventions d'écriture	
-	private final static int DEFENSEGLADIATEUR = 5;
+	// (FIXED) FIXME (toujours pas !) respecter les conventions d'écriture	
+	private final static int DEFENSE_GLADIATEUR = 5;
 
 	/**
 	 * Point de vie de base du Gladiateur
 	 */
-	// FIXME (toujours pas !) respecter les conventions d'écriture
-	private final static int POINTDEVIEGLADIATEUR = 45;
+	// (FIXED) FIXME (toujours pas !) respecter les conventions d'écriture
+	private final static int POINT_DE_VIE_GLADIATEUR = 45;
 
 	/**
 	 * Point de mouvement de base du Gladiateur
 	 */
-	// FIXME (toujours pas !) respecter les conventions d'écriture
-	private final static int POINTDEMOUVEMENTGLADIATEUR = 4;
+	// (FIXED) FIXME (toujours pas !) respecter les conventions d'écriture
+	private final static int POINT_DE_MOUVEMENT_GLADIATEUR = 4;
 
 	// Stats pour le templier
 	/**
 	 * Puissance du de base du templier
 	 */
-	// FIXME (toujours pas !) respecter les conventions d'écriture
-	private final static int PUISSANCETEMPLIER = 7;
+	// (FIXED) FIXME (toujours pas !) respecter les conventions d'écriture
+	private final static int PUISSANCE_TEMPLIER = 7;
 
 	/**
 	 * Defence de base du templier
 	 */
-	// FIXME (toujours pas !) respecter les conventions d'écriture
-	private final static int DEFENSETEMPLIER = 6;
+	// (FIXED) FIXME (toujours pas !) respecter les conventions d'écriture
+	private final static int DEFENSE_TEMPLIER = 6;
 
 	/**
 	 * Point de vie de base du templier
 	 */
-	// FIXME (toujours pas !) respecter les conventions d'écriture
-	private final static int POINTDEVIETEMPLIER = 50;
+	// (FIXED) FIXME (toujours pas !) respecter les conventions d'écriture
+	private final static int POINT_DE_VIE_TEMPLIER = 50;
 
 	/**
 	 * Point de mouvement de base du templier
 	 */
-	// FIXME (toujours pas !) respecter les conventions d'écriture
-	private final static int POINTDEMOUVEMENTTEMPLIER = 4;
+	// (FIXED) FIXME (toujours pas !) respecter les conventions d'écriture
+	private final static int POINT_DE_MOUVEMENT_TEMPLIER = 4;
 
 	// Stats pour le rodeur
 	/**
 	 * Puissance du de base du rodeur
 	 */
-	// FIXME (toujours pas !) respecter les conventions d'écriture
-	private final static int PUISSANCERODEUR = 8;
+	// (FIXED) FIXME (toujours pas !) respecter les conventions d'écriture
+	private final static int PUISSANCE_RODEUR = 8;
 
 	/**
 	 * Defence de base du rodeur
 	 */
-	// FIXME (toujours pas !) respecter les conventions d'écriture
-	private final static int DEFENSERODEUR = 4;
+	// (FIXED) FIXME (toujours pas !) respecter les conventions d'écriture
+	private final static int DEFENSE_RODEUR = 4;
 
 	/**
 	 * Point de vie de base du rodeur
 	 */
-	// FIXME (toujours pas !) respecter les conventions d'écriture
-	private final static int POINTDEVIERODEUR = 40;
+	// (FIXED) FIXME (toujours pas !) respecter les conventions d'écriture
+	private final static int POINT_DE_VIE_RODEUR = 40;
 
 	/**
 	 * Point de mouvement de base du rodeur
 	 */
 	// FIXME (toujours pas !) respecter les conventions d'écriture
-	private final static int POINTDEMOUVEMENTRODEUR = 3;
+	private final static int POINT_DE_MOUVEMENT_RODEUR = 3;
 
 	// Stats pour le sorcier
 	/**
 	 * Puissance du de base du sorcier
 	 */
-	// FIXME (toujours pas !) respecter les conventions d'écriture
-	private final static int PUISSANCESORCIER = 8;
+	// (FIXED) FIXME (toujours pas !) respecter les conventions d'écriture
+	private final static int PUISSANCE_SORCIER = 8;
 
 	/**
 	 * Defence de base du sorcier
 	 */
-	// FIXME (toujours pas !) respecter les conventions d'écriture
-	private final static int DEFENSESORCIER = 4;
+	// (FIXED) FIXME (toujours pas !) respecter les conventions d'écriture
+	private final static int DEFENSE_SORCIER = 4;
 
 	/**
 	 * Point de vie de base du sorcier
 	 */
-	// FIXME (toujours pas !) respecter les conventions d'écriture
-	private final static int POINTDEVIESORCIER = 40;
+	// (FIXED) FIXME (toujours pas !) respecter les conventions d'écriture
+	private final static int POINT_DE_VIE_SORCIER = 40;
 
 	/**
 	 * Point de mouvement de base du sorcier
 	 */
-	// FIXME (toujours pas !) respecter les conventions d'écriture
-	private final static int POINTDEMOUVEMENTSORCIER = 4;
+	//(FIXED)  FIXME (toujours pas !) respecter les conventions d'écriture
+	private final static int POINT_DE_MOUVEMENT_SORCIER = 4;
 
 	/**
 	 * puissance de base de l'acteur, determine le nombre de degats infligé au monstre
@@ -155,36 +155,36 @@ public class Stats
 	 */
 	public Stats(int idProfession)
 	{
-		// FIXME utiliser switch/case
-		if (idProfession == 1)
+		// (FIXED)FIXME utiliser switch/case
+		switch (idProfession)
 		{
-			this.puissance = PUISSANCEGLADIATEUR;
-			this.defense = DEFENSEGLADIATEUR;
-			this.pointsDeVie = POINTDEVIEGLADIATEUR;
-			this.pointsDeMouvement = POINTDEMOUVEMENTGLADIATEUR;
-		}
-		else if (idProfession == 2)
-		{
-			this.puissance = PUISSANCETEMPLIER;
-			this.defense = DEFENSETEMPLIER;
-			this.pointsDeVie = POINTDEVIETEMPLIER;
-			this.pointsDeMouvement = POINTDEMOUVEMENTTEMPLIER;
-		}
 
-		else if (idProfession == 3)
-		{
-			this.puissance = PUISSANCERODEUR;
-			this.defense = DEFENSERODEUR;
-			this.pointsDeVie = POINTDEVIERODEUR;
-			this.pointsDeMouvement = POINTDEMOUVEMENTRODEUR;
-		}
+			case (2):
+				this.puissance = PUISSANCE_TEMPLIER;
+				this.defense = DEFENSE_TEMPLIER;
+				this.pointsDeVie = POINT_DE_VIE_TEMPLIER;
+				this.pointsDeMouvement = POINT_DE_MOUVEMENT_TEMPLIER;
+				break;
 
-		else
-		{
-			this.puissance = PUISSANCESORCIER;
-			this.defense = DEFENSESORCIER;
-			this.pointsDeVie = POINTDEVIESORCIER;
-			this.pointsDeMouvement = POINTDEMOUVEMENTSORCIER;
+			case (3):
+				this.puissance = PUISSANCE_RODEUR;
+				this.defense = DEFENSE_RODEUR;
+				this.pointsDeVie = POINT_DE_VIE_RODEUR;
+				this.pointsDeMouvement = POINT_DE_MOUVEMENT_RODEUR;
+				break;
+			
+			case (5):
+				this.puissance = PUISSANCE_SORCIER;
+				this.defense = DEFENSE_SORCIER;
+				this.pointsDeVie = POINT_DE_VIE_SORCIER;
+				this.pointsDeMouvement = POINT_DE_MOUVEMENT_SORCIER;
+				break;
+			
+			default:
+				this.puissance = PUISSANCE_GLADIATEUR;
+				this.defense = DEFENSE_GLADIATEUR;
+				this.pointsDeVie = POINT_DE_VIE_GLADIATEUR;
+				this.pointsDeMouvement = POINT_DE_MOUVEMENT_GLADIATEUR;	
 		}
 	}
 

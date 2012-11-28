@@ -15,8 +15,8 @@ public class Acteur
 	/**
 	 * points d'action par defaut de tout les acteurs
 	 */
-	// FIXME (toujours pas !) respecter les conventions d'écriture
-	private final static int POINTACTIONDEFAUT = 5;
+	// (FIXED)FIXME (toujours pas !) respecter les conventions d'écriture
+	private final static int POINT_ACTION_DEFAUT = 5;
 
 	/**
 	 * nom du personnage
@@ -75,7 +75,7 @@ public class Acteur
 		this.stats = stats;
 		this.position = position;
 		this.pointDeVieActuels = stats.getPointsDeVie(); 
-		this.pointDActionActuels = POINTACTIONDEFAUT;
+		this.pointDActionActuels = POINT_ACTION_DEFAUT;
 		this.pointDeMouvementActuels = stats.getPointsDeMouvement();
 		this.numActeur = numActeur;
 	}
@@ -154,15 +154,16 @@ public class Acteur
 	
 	/**
 	 * Change la position
-	 * @param position position a mettre pour l'acteur
+	 * @param position position a mettre pour l acteur
 	 */
 	public void setPosition(Coordonnees position)
 	{
 		this.position = position;
 	}
 
-	// FIXME completer
+	// (FIXED)FIXME completer
 	/**
+	 * Change le nombre de point de vie de l'acteur
 	 * @param pointDeVieActuels the pointDeVieActuels to set
 	 */
 	public void setPointDeVieActuels(int pointDeVieActuels)
@@ -170,8 +171,9 @@ public class Acteur
 		this.pointDeVieActuels = pointDeVieActuels;
 	}
 
-	// FIXME completer
+	// (FIXED) FIXME completer
 	/**
+	 * Change le nombre de point d action actuels de l acteur
 	 * @param pointDActionActuels the pointDActionActuels to set
 	 */
 	public void setPointDActionActuels(int pointDActionActuels)
@@ -179,8 +181,9 @@ public class Acteur
 		this.pointDActionActuels = pointDActionActuels;
 	}
 
-	// FIXME completer
+	// (FIXED) FIXME completer
 	/**
+	 * Change le nombre de point de mouvement actuels de l acteur
 	 * @param pointDeMouvementActuels the pointDeMouvementActuels to set
 	 */
 	public void setPointDeMouvementActuels(int pointDeMouvementActuels)

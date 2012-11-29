@@ -1,6 +1,7 @@
 package fr.iutvalence.java.projets.combat;
 
 import javax.swing.*;
+
 import java.awt.*;
 
 public class Interface
@@ -36,6 +37,10 @@ public class Interface
 	 */
 	private JButton[] cases; 
 	
+	private JButton attaque;
+	
+	private JButton mouvement;
+	
     /**
      * Bouton qui permet de quitter le jeu
      */
@@ -57,7 +62,11 @@ public class Interface
 		this.fenetre.setTitle("Combat");
 		this.fenetre.setSize(FENETRE_LARGEUR, FENETRE_HAUTEUR);
 		this.fenetre.setLocationRelativeTo(null);
-		this.fenetre.setVisible(true);
+		
+		this.attaque = new JButton("Attaque");
+		this.mouvement = new JButton("Deplacement");
+		this.boutonQuitter = new JButton("Quitter");
+		
 		
 		this.arene = new JPanel(new GridLayout(largeurCarte,hauteurCarte));
 		
@@ -94,18 +103,67 @@ public class Interface
 				}
 				nbCase+=1;
 			}
-		}
+		}		
+		JPanel inter;
+		inter =new JPanel(new GridLayout(0,2));
 		
+		inter.add(this.attaque);
+		inter.add(this.mouvement);
+		inter.add(this.boutonQuitter);
 		
-	
+		this.informations.add(new JLabel("d"));
+		this.informations.add(inter);
 	    
-	    Container conteneurFrame = this.fenetre.getContentPane();
+	    Container conteneurFrame = this.fenetre.getContentPane()
+	    		;
 	    GridLayout disposition = new GridLayout(0, 1);
 	    conteneurFrame.setLayout(disposition);
 	    conteneurFrame.add(this.arene);
 	    conteneurFrame.add(this.informations);
-	    
-	    this.fenetre.add(this.arene);
-	    this.fenetre.add(this.informations);
+
+	    this.fenetre.setVisible(true);
 	}
+	
+	public void ActualiseArene(Carte carte)
+	{
+		int x, y, largeurCarte, hauteurCarte, nbCase;
+		largeurCarte = carte.GetDimension().getX();
+		hauteurCarte = carte.GetDimension().getY();
+		nbCase = 0;
+		
+		for (y = 0; y < largeurCarte; y++)
+		{
+			for (x = hauteurCarte-1; x >= 0; x--)
+			{ 
+				switch (carte.getCarte()[x][y])
+				{
+					case 0:
+						this.cases[nbCase] = new JButton(new ImageIcon("img/herbe.gif"));
+						this.arene.add(this.cases[nbCase]);// Vide;
+						break;
+						
+					case 1:
+						
+						this.cases[nbCase] = new JButton(new ImageIcon("img/trou.gif"));
+						this.arene.add(this.cases[nbCase]);// Trou
+						break;
+						
+					case 2:
+						this.cases[nbCase] = new JButton(new ImageIcon("img/aventurier.gif")); 
+						this.arene.add(this.cases[nbCase]); //Le Joueur
+						break;
+					case -1:
+						this.cases[nbCase] = new JButton(); 
+						this.arene.add(this.cases[nbCase]); //Affiche "F" pour une erreur
+						
+					default:
+						this.cases[nbCase] = new JButton(new ImageIcon("img/monstre.gif"));
+						this.arene.add(this.cases[nbCase]); // Ennemie
+				}
+				nbCase+=1;
+			}
+		}
+		this.fenetre.repaint();
+	}
+	
 }

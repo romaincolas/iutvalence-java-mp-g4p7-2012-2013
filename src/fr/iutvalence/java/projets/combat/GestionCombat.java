@@ -7,7 +7,7 @@ import java.awt.event.*;
  * @author colasr
  * Objet de gestion d'un combat
  */
-public class GestionCombat implements KeyListener
+public class GestionCombat implements ActionListener
 {
 	/**
 	 * la carte sur lequel la partie se deroule
@@ -24,67 +24,102 @@ public class GestionCombat implements KeyListener
 	 */
 	Monstre[] monstres;
 
+	Interface fenetre;
+	
+	boolean finDuTour;
+	
 	/**
 	 * Cree la partie
 	 * @param carte (la carte sur lequel la partie se deroule)
      * @param joueur (le joueur present sur la carte)
 	 * @param monstres (liste des monstres present sur la carte)
 	 */
+	public GestionCombat()
+	{
+		
+	}
+	
 	public GestionCombat(Carte carte,PersonnageEnCombat joueur, Monstre[] monstres)
 	{
 		super();
 		this.carte = carte;
 		this.joueur = joueur;
 		this.monstres = monstres;
+		this.fenetre = new Interface(carte, this);
 	}
-	
-	// ********** GESTION DES KEYSEVENTS ************** //
-	@Override
-	public void keyPressed(KeyEvent arg0)
-	{
-		int entree = arg0.getKeyCode();
-		System.out.println(entree);
-	}
-
-	@Override
-	public void keyReleased(KeyEvent arg0)
-	{	}
-
-	@Override
-	public void keyTyped(KeyEvent arg0)
-	{	}
 
 // ********** GESTION DES MOUVEMENTS *************** //	
 //JOUEUR
 	/**
-	 * Deplace l'acteur vers le haut
+	 * Deplace l'acteur vers le haut seulement si il lui reste des points de mouvement ou si il n'y a pas d'obstacle
 	 */
 	private void DeplacementJoueurHaut()
 	{
-		this.joueur.getPosition().changePosY(1);
+		if (this.joueur.getPointDeMouvementActuels()>0)
+		{
+			this.joueur.getPosition().changePosY(1);
+			if (this.carte.getElement(this.joueur.getPosition()) != 0)
+			{
+			this.joueur.getPosition().changePosY(-1);
+			}
+		
+			else
+				this.joueur.setPointDeMouvementActuels(this.joueur.getPointDeMouvementActuels()-1);
+		}
 	}
 	/**
-	 * Deplace l'acteur vers le bas
+	 * Deplace l'acteur vers le bas seulement si il lui reste des points de mouvement ou si il n'y a pas d'obstacle
 	 */
 	private void DeplacementJoueurBas()
 	{
-		this.joueur.getPosition().changePosY(-1);
+		if (this.joueur.getPointDeMouvementActuels()>0)
+		{
+			this.joueur.getPosition().changePosY(-1);
+			if (this.carte.getElement(this.joueur.getPosition()) != 0)
+			{
+				this.joueur.getPosition().changePosY(1);
+			}
+		
+			else
+				this.joueur.setPointDeMouvementActuels(this.joueur.getPointDeMouvementActuels()-1);
+		}
 	}
 	
 	/**
-	 * Deplace l'acteur vers la droit
+	 * Deplace l'acteur vers la droit seulement si il lui reste des points de mouvement ou si il n'y a pas d'obstacle
 	 */
 	private void DeplacementJoueurDroit()
 	{
-		this.joueur.getPosition().changePosX(1);
+		if (this.joueur.getPointDeMouvementActuels()>0)
+		{
+			this.joueur.getPosition().changePosX(1);
+			if (this.carte.getElement(this.joueur.getPosition()) != 0)
+			{
+				this.joueur.getPosition().changePosX(-1);
+			}
+		
+			else
+				this.joueur.setPointDeMouvementActuels(this.joueur.getPointDeMouvementActuels()-1);
+		}
 	}
 	
 	/**
-	 * Deplace l'acteur vers la gauche
+	 * Deplace l'acteur vers la gauche seulement si il lui reste des points de mouvement ou si il n'y a pas d'obstacle
 	 */
 	private void DeplacementJoueurGauche()
 	{
-		this.joueur.getPosition().changePosX(-1);
+		if (this.joueur.getPointDeMouvementActuels()>0)
+		{
+			this.joueur.getPosition().changePosX(-1);
+			if (this.carte.getElement(this.joueur.getPosition()) != 0)
+			{
+				this.joueur.getPosition().changePosX(1);
+			}
+		
+			else
+				this.joueur.setPointDeMouvementActuels(this.joueur.getPointDeMouvementActuels()-1);
+		}
+				
 	}
 	
 	
@@ -314,6 +349,9 @@ public class GestionCombat implements KeyListener
 	}
 	
 	
+	/**
+	 * Joue tous les monstres
+	 */
 	private void tourMonstres()
 	{
 		int numMonstre = 0;
@@ -327,24 +365,99 @@ public class GestionCombat implements KeyListener
 		}
 	}
 	
+	/**
+	 * Lanceletour du joueur
+	 */
 	private void tourJoueur()
 	{
-		while(true);
+		int i = 0;
+		this.finDuTour = true;
+		
+		while(this.finDuTour){
+			System.out.println();
+		}
+		this.joueur.setPointDeMouvementActuels(this.joueur.getStats().getPointsDeMouvement());
 	}
 	
 	
 	//LANCEMENT D UN COMBAT
+	/**
+	 * Lancement d'un combat en arene
+	 */
 	public void lancement()
 	{
-		final Interface fenetre;
-		fenetre = new Interface(this.carte);
-		
 		while(ResteMonstres() && this.joueur.getPointDeVieActuels() > 0)
 		{
-			
 			tourJoueur();
 			tourMonstres();
-			System.out.println(this.joueur.getPointDeVieActuels());
+			this.fenetre.afficheActionBase();
+			this.fenetre.afficheInfoActeur(this.joueur);
+			this.fenetre.actualiseFenetre();
+			
 		}
+		
+		 System.exit(0);
 	}
+	
+	public void actionPerformed(ActionEvent e)
+	{
+		  if (e.getActionCommand().equals("Attaque")) {
+		      this.fenetre.afficheActionCompetence(this.joueur);
+		      this.fenetre.actualiseFenetre();
+		    }	
+		  
+		  else if (e.getActionCommand().equals("Deplacement")) {
+		      this.fenetre.afficheActionMouvement();
+		      this.fenetre.actualiseFenetre();
+		    }
+		  
+		  else if (e.getActionCommand().equals("Retoure")) {
+		      this.fenetre.afficheActionBase();
+		      this.fenetre.actualiseFenetre();
+		    }
+		  
+		  else if (e.getActionCommand().equals("Haut")) {
+		      this.DeplacementJoueurHaut();
+		      this.carte.ActualiseCarte(this.monstres, this.joueur);
+		      this.fenetre.afficheInfoActeur(this.joueur);
+		      this.fenetre.actualiseArene(this.carte);
+		      this.fenetre.actualiseFenetre();
+		    }
+		  
+		  else if (e.getActionCommand().equals("Gauche")) {
+		      this.DeplacementJoueurGauche();
+		      this.carte.ActualiseCarte(this.monstres, this.joueur);
+		      this.fenetre.afficheInfoActeur(this.joueur);
+		      this.fenetre.actualiseArene(this.carte);
+		      this.fenetre.actualiseFenetre();
+		    }
+		  
+		  else if (e.getActionCommand().equals("Bas")) {
+		      this.DeplacementJoueurBas();
+		      this.carte.ActualiseCarte(this.monstres, this.joueur);
+		      this.fenetre.afficheInfoActeur(this.joueur);
+		      this.fenetre.actualiseArene(this.carte);
+		      this.fenetre.actualiseFenetre();
+		    }
+		  
+		  else if (e.getActionCommand().equals("Droite")) {
+		      this.DeplacementJoueurDroit();
+		      this.carte.ActualiseCarte(this.monstres, this.joueur);
+		      this.fenetre.afficheInfoActeur(this.joueur);
+		      this.fenetre.actualiseArene(this.carte);
+		      this.fenetre.actualiseFenetre();
+		    }
+		  
+		  else if (e.getActionCommand().equals("Fin du tour")) {
+			  
+		      this.fenetre.supprimeAction();
+		      this.fenetre.actualiseFenetre();
+		      this.finDuTour = false;
+		    }
+		  
+		  else if (e.getActionCommand().equals("Quitter")){
+			  System.exit(0);
+		    }
+	}
+	
 }

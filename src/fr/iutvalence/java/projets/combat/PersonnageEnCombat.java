@@ -55,6 +55,15 @@ public class PersonnageEnCombat extends Acteur
 	{
 		return this.competences[numCompetences];
 	}
+	
+	/**
+	 * obtien le nombre de competences du personnage
+	 * @return le nombre de competences
+	 */
+	public  int GetNombreCompetences()
+	{
+		return this.competences.length;
+	}
 
 	/**
 	 * consomme une utilisation de la competence entre en param

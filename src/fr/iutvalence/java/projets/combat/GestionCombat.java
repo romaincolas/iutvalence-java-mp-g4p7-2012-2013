@@ -28,6 +28,9 @@ public class GestionCombat implements ActionListener
 	
 	boolean finDuTour;
 	
+	int numCombetenceUtilise;
+	int numMonstreVise; 
+	
 	/**
 	 * Cree la partie
 	 * @param carte (la carte sur lequel la partie se deroule)
@@ -45,6 +48,8 @@ public class GestionCombat implements ActionListener
 		this.carte = carte;
 		this.joueur = joueur;
 		this.monstres = monstres;
+		this.numCombetenceUtilise = 0;
+		this.numMonstreVise = 0;
 		this.fenetre = new Interface(carte, this);
 	}
 
@@ -458,6 +463,26 @@ public class GestionCombat implements ActionListener
 		  else if (e.getActionCommand().equals("Quitter")){
 			  System.exit(0);
 		    }
+		  
+		  else {
+			  int numComp;
+			  int numMonstre;
+			  for(numComp = 0;numComp<this.joueur.GetNombreCompetences();numComp++)
+			  {
+				  if(e.getActionCommand().equals(this.joueur.getCompetences(numComp).getNom()))
+				  {
+					  this.numCombetenceUtilise = numComp;
+				  }
+			  }
+			  
+			  for(numMonstre = 0;numMonstre<this.joueur.GetNombreCompetences();numMonstre++)
+			  {
+				  if(e.getActionCommand().equals(this.monstres[numMonstre+3].getNom()))
+				  {
+					  this.numMonstreVise = numMonstre;
+				  }
+			  }
+		  }
 	}
 	
 }

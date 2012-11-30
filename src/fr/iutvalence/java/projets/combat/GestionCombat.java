@@ -29,7 +29,7 @@ public class GestionCombat implements ActionListener
 	boolean finDuTour;
 	
 	int numCombetenceUtilise;
-	int numMonstreVise; 
+	int numMonstreAPortee;
 	
 	/**
 	 * Cree la partie
@@ -48,8 +48,8 @@ public class GestionCombat implements ActionListener
 		this.carte = carte;
 		this.joueur = joueur;
 		this.monstres = monstres;
-		this.numCombetenceUtilise = 0;
-		this.numMonstreVise = 0;
+		this.numCombetenceUtilise = -1;
+		this.numMonstreAPortee = -1;
 		this.fenetre = new Interface(carte, this);
 	}
 
@@ -201,7 +201,7 @@ public class GestionCombat implements ActionListener
 	
 	//GESTION DES ATTAQUES
 	/**
-	 * Calcule et reduit le nombre de point de vie d'un joueur en fonction de l'action d'un monstre
+	 * Calcule et reduit le nombre de point de vie d'un joueur en fonction de l'action d'un monstre (0 mini)
 	 * @param idAttaquant (identifiant de l'attaquant)
 	 */
 	private void AttaqueMonstre(int idAttaquant)
@@ -229,7 +229,7 @@ public class GestionCombat implements ActionListener
 	}
 	
 	/**
-	 * Calcule et reduit le nombre de point de vie d'un joueur en fonction de l'action d'un monstre
+	 * Calcule et reduit le nombre de point de vie d'un joueur en fonction de l'action d'un monstre (0 mini)
 	 * @param idDefenseur (identifiant de l'attaquant)
 	 * @param competence la competence utilisé par le joueur
 	 */
@@ -254,17 +254,21 @@ public class GestionCombat implements ActionListener
 			vieDefenseur = 0;
 		}
 		
+		
+		
 		monstre.setPointDeVieActuels(vieDefenseur);
 	}
 	
 	/**
-	 * cree une liste de touts les acteurs qui peuvent etre touche par la competence
+	 * cree une liste de touts les monstres qui peuvent etre touche par la competence
+	 * si les points du vie du monstre est > a 0
 	 * @param competences (la competence utilise)
 	 * @return liste d'acteur (les acteurs a portee)
 	 */
 	private Monstre[] ZoneDePorteeJoueur(Competences competences)
 	{
-		Monstre[] lesMonstres = new Monstre[1];
+		Monstre[] lesMonstres = new Monstre[60];
+		Monstre[] lesMonstresARetourne;
 		Coordonnees positionJoueur = this.carte.CherchePositionActeur(2);
 		Coordonnees positionCible;
 		int element;
@@ -279,13 +283,12 @@ public class GestionCombat implements ActionListener
 			for(x=-j;x<j+1;x++)
 			{
 				positionCible = new Coordonnees(x,y);
-				element = this.carte.getElement(AdditionneCoordonnees(positionCible,positionJoueur));
-				if (element > 2)
+				positionCible = new Coordonnees(AdditionneCoordonnees(positionCible,positionJoueur).getX(),AdditionneCoordonnees(positionCible,positionJoueur).getY());
+				element = this.carte.getElement(positionCible);
+				if (element > 2 && this.monstres[nombreDeMonstre].getPointDeVieActuels() > 0)
 				{	
+					lesMonstres[nombreDeMonstre] = (this.monstres[nombreDeMonstre]);
 					nombreDeMonstre++;
-					lesMonstres = new Monstre[lesMonstres.length+1];
-					lesMonstres[nombreDeMonstre] = (this.monstres[element-3]);
-					
 				}
 			}
 			if (y>=0)
@@ -293,11 +296,18 @@ public class GestionCombat implements ActionListener
 			else
 				j = j + 1;
 		}
-		return lesMonstres;
+		lesMonstresARetourne = new Monstre[nombreDeMonstre];
+		for (x=0;x<nombreDeMonstre;x++)
+		{
+			lesMonstresARetourne[x] = lesMonstres[x];
+		}
+			
+		
+		return lesMonstresARetourne;
 	}
 	
 	/**
-	 * Cherche si le joueur est a portee d'une attaque d'un monstre 
+	 * Cherche si le joueur est a portee d'une attaque d'un monstre
 	 * @param numMonstre monstre qui attaque
 	 * @return Vrai si le joueur est a portee du monstre
 	 */
@@ -378,10 +388,44 @@ public class GestionCombat implements ActionListener
 		int i = 0;
 		this.finDuTour = true;
 		
+		//******DEBUT DU TOUR DU JOUEUR******//
 		while(this.finDuTour){
-			System.out.println();
+			
+			//*****DETECTION D'UNE ATTAQUE SUR UN MONSTRE*****//
+			if(this.numMonstreAPortee >= 0 && this.numCombetenceUtilise>=0)
+			{
+				//test si le nombre de pa est suffisant
+				this.joueur.setPointDActionActuels(this.joueur.getPointDActionActuels()- this.joueur.getCompetences(this.numCombetenceUtilise).getConsommation());
+				if(this.joueur.getPointDActionActuels() >= 0)
+				{
+					//faire l'attque
+					this.AttaqueJoueur(this.numMonstreAPortee, this.joueur.getCompetences(this.numCombetenceUtilise));
+					
+					if(this.monstres[this.numMonstreAPortee].getPointDeVieActuels() == 0)
+					{
+						this.fenetre.actualiseArene();
+					}
+				}
+				
+				else
+					//annuler l'attaque
+					this.joueur.setPointDActionActuels(this.joueur.getPointDActionActuels()+ this.joueur.getCompetences(this.numCombetenceUtilise).getConsommation());
+				
+				
+				//retoure a la fenetre de base
+				this.fenetre.afficheActionBase();
+				this.fenetre.afficheInfoMonstre(this.monstres[this.numMonstreAPortee]);
+				this.fenetre.actualiseFenetre();
+				
+				//on desactive les variables de detection
+				this.numMonstreAPortee = -1;
+				this.numCombetenceUtilise = -1;
+			}
 		}
+		
+		//****FIN DU TOUR DU JOUEUR*****//
 		this.joueur.setPointDeMouvementActuels(this.joueur.getStats().getPointsDeMouvement());
+		this.joueur.setPointDActionActuels(5);
 	}
 	
 	
@@ -396,7 +440,7 @@ public class GestionCombat implements ActionListener
 			tourJoueur();
 			tourMonstres();
 			this.fenetre.afficheActionBase();
-			this.fenetre.afficheInfoActeur(this.joueur);
+			this.fenetre.afficheInfoJoueur(this.joueur);
 			this.fenetre.actualiseFenetre();
 			
 		}
@@ -407,8 +451,11 @@ public class GestionCombat implements ActionListener
 	public void actionPerformed(ActionEvent e)
 	{
 		  if (e.getActionCommand().equals("Attaque")) {
-		      this.fenetre.afficheActionCompetence(this.joueur);
-		      this.fenetre.actualiseFenetre();
+			  if (this.joueur.getPointDActionActuels() > 0)
+			  {
+				  this.fenetre.afficheActionCompetence();
+				  this.fenetre.actualiseFenetre();
+			  }
 		    }	
 		  
 		  else if (e.getActionCommand().equals("Deplacement")) {
@@ -416,7 +463,7 @@ public class GestionCombat implements ActionListener
 		      this.fenetre.actualiseFenetre();
 		    }
 		  
-		  else if (e.getActionCommand().equals("Retoure")) {
+		  else if (e.getActionCommand().equals("Retour")) {
 		      this.fenetre.afficheActionBase();
 		      this.fenetre.actualiseFenetre();
 		    }
@@ -424,32 +471,32 @@ public class GestionCombat implements ActionListener
 		  else if (e.getActionCommand().equals("Haut")) {
 		      this.DeplacementJoueurHaut();
 		      this.carte.ActualiseCarte(this.monstres, this.joueur);
-		      this.fenetre.afficheInfoActeur(this.joueur);
-		      this.fenetre.actualiseArene(this.carte);
+		      this.fenetre.afficheInfoJoueur(this.joueur);
+		      this.fenetre.actualiseArene();
 		      this.fenetre.actualiseFenetre();
 		    }
 		  
 		  else if (e.getActionCommand().equals("Gauche")) {
 		      this.DeplacementJoueurGauche();
 		      this.carte.ActualiseCarte(this.monstres, this.joueur);
-		      this.fenetre.afficheInfoActeur(this.joueur);
-		      this.fenetre.actualiseArene(this.carte);
+		      this.fenetre.afficheInfoJoueur(this.joueur);
+		      this.fenetre.actualiseArene();
 		      this.fenetre.actualiseFenetre();
 		    }
 		  
 		  else if (e.getActionCommand().equals("Bas")) {
 		      this.DeplacementJoueurBas();
 		      this.carte.ActualiseCarte(this.monstres, this.joueur);
-		      this.fenetre.afficheInfoActeur(this.joueur);
-		      this.fenetre.actualiseArene(this.carte);
+		      this.fenetre.afficheInfoJoueur(this.joueur);
+		      this.fenetre.actualiseArene();
 		      this.fenetre.actualiseFenetre();
 		    }
 		  
 		  else if (e.getActionCommand().equals("Droite")) {
 		      this.DeplacementJoueurDroit();
 		      this.carte.ActualiseCarte(this.monstres, this.joueur);
-		      this.fenetre.afficheInfoActeur(this.joueur);
-		      this.fenetre.actualiseArene(this.carte);
+		      this.fenetre.afficheInfoJoueur(this.joueur);
+		      this.fenetre.actualiseArene();
 		      this.fenetre.actualiseFenetre();
 		    }
 		  
@@ -471,15 +518,20 @@ public class GestionCombat implements ActionListener
 			  {
 				  if(e.getActionCommand().equals(this.joueur.getCompetences(numComp).getNom()))
 				  {
+					  Monstre[] monstreAPortee = this.ZoneDePorteeJoueur(this.joueur.getCompetences(numComp));
 					  this.numCombetenceUtilise = numComp;
+					  
+					  this.fenetre.afficheActionChoixMonstre(monstreAPortee);
+					  this.fenetre.afficheInfoCompetence(this.joueur.getCompetences(numComp));
+					  this.fenetre.actualiseFenetre();
 				  }
 			  }
 			  
-			  for(numMonstre = 0;numMonstre<this.joueur.GetNombreCompetences();numMonstre++)
+			  for(numMonstre = 0;numMonstre<this.monstres.length;numMonstre++)
 			  {
-				  if(e.getActionCommand().equals(this.monstres[numMonstre+3].getNom()))
+				  if(e.getActionCommand().equals(this.monstres[numMonstre].getNom()))
 				  {
-					  this.numMonstreVise = numMonstre;
+					  this.numMonstreAPortee = numMonstre;
 				  }
 			  }
 		  }

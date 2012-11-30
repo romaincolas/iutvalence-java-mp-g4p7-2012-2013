@@ -12,8 +12,8 @@ public class Partie
 		String nom;
 		Monstre[] touche;
 		// La premiere competences de la liste de competences à un nombre d'utilisation infinie )
-		Competences[] compPerso={new Competences("Attaque", 1, 1, 5, 0, 1),new Competences("Coup puissant", 1, 2, 15, 0, 5),new Competences("Lance epee", 1, 5, 15, 0, 5)};
-		Competences compMonstre=new Competences("Attaque", 1, 1, 5, 0, 1);
+		Competences[] compPerso={new Competences("Frappe", 1, 1, 5, 0, 1),new Competences("Coup puissant", 1, 2, 15, 0, 5),new Competences("Lance epee", 2, 5, 15, 0, 5)};
+		Competences compMonstre=new Competences("Frappe", 1, 1, 5, 0, 1);
 		int[][] map1={
 				 {1,1,1,1,1,1,1,1,1},
 				 {1,0,0,0,0,2,3,0,1},
@@ -21,7 +21,7 @@ public class Partie
 				 {1,0,1,1,0,0,0,0,1},
 				 {1,0,0,0,0,0,0,0,1},
 				 {1,0,0,0,1,1,1,1,1},
-				 {1,0,0,0,1,0,5,1,1},
+				 {1,0,0,0,1,0,0,1,1},
 				 {1,0,0,0,0,0,0,1,1},
 				 {1,0,0,0,0,0,0,0,1},
 				 {1,0,0,0,0,0,0,0,1},

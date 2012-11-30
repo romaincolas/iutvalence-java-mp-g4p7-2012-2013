@@ -63,7 +63,7 @@ public class Interface
 	
 	private JButton boutonQuitter;
 	
-	private JButton boutonRetoure;
+	private JButton boutonRetour;
 	
 	private GestionCombat combat;
 
@@ -111,8 +111,8 @@ public class Interface
 		JButton boutonFinTour = new JButton("Fin du tour");
 		boutonFinTour.addActionListener(this.combat);
 		
-		JButton boutonRetoure = new JButton("Retoure");
-		boutonRetoure.addActionListener(this.combat);
+		JButton boutonRetour = new JButton("Retour");
+		boutonRetour.addActionListener(this.combat);
 		
 		JButton boutonQuitter = new JButton("Quitter");
 		boutonQuitter.addActionListener(this.combat);
@@ -126,7 +126,7 @@ public class Interface
 		this.boutonGauche = boutonGauche;
 		this.boutonFinTour = boutonFinTour;
 		this.boutonQuitter = boutonQuitter;
-		this.boutonRetoure = boutonRetoure;
+		this.boutonRetour = boutonRetour;
 		
 		//**********************CREE LA CARTE*********************///
 		this.arene = new JPanel(new GridLayout(largeurCarte,hauteurCarte));
@@ -169,7 +169,7 @@ public class Interface
 		
 		//***********CREE LES INFORMATIONS ET LES ACTIONS EN BAS DE FENETRE************//
 		afficheActionBase();
-		afficheInfoActeur(combat.joueur);
+		afficheInfoJoueur(combat.joueur);
 		
 		infoEtAction.add(this.info);
 		infoEtAction.add(this.action);
@@ -235,25 +235,47 @@ public class Interface
 	 * Affiche les competences disponibles d'un joueur
 	 * @param joueur (le joueur dont  les competences doivent etre affiché )
 	 */
-	public void afficheActionCompetence(PersonnageEnCombat joueur)
+	public void afficheActionCompetence()
 	{
+		JButton bouton;
 		int nbComp = 0;
 		GridLayout dispositionAction = new GridLayout(0, 3);
 		Container conteneurAction = new Container(); 
 		conteneurAction.setLayout(dispositionAction);
 		
-		for(nbComp=0;nbComp<joueur.GetNombreCompetences();nbComp++)
+		for(nbComp=0;nbComp<this.combat.joueur.GetNombreCompetences();nbComp++)
 		{
-			this.boutonCompetence.setLabel(joueur.getCompetences(nbComp).getNom());
-			conteneurAction.add(this.boutonCompetence);
+			bouton = new JButton(this.combat.joueur.getCompetences(nbComp).getNom());
+			bouton.addActionListener(this.combat);
+			conteneurAction.add(bouton);
 		}
 		
-		conteneurAction.add(this.boutonRetoure);
+		conteneurAction.add(this.boutonRetour);
 		
 		this.action = conteneurAction;
+	}
+	
+	public void afficheActionChoixMonstre(Monstre[] monstreAPortee)
+	{
+		int numMonstre;
+		JButton bouton;
+		GridLayout dispositionAction = new GridLayout(0, 3);
+		Container conteneurAction = new Container(); 
+		conteneurAction.setLayout(dispositionAction);
 		
-		this.action.setEnabled(false);
-		this.info.setEnabled(false);
+		if (monstreAPortee.length > 1)
+		{
+			for(numMonstre=0;numMonstre<monstreAPortee.length;numMonstre++)
+			{
+				bouton = new JButton(monstreAPortee[numMonstre].getNom());
+				bouton.addActionListener(this.combat);
+				conteneurAction.add(bouton);
+			}
+		
+			conteneurAction.add(this.boutonRetour);
+		
+			this.action = conteneurAction;
+		}
 	}
 	
 	public void afficheActionMouvement()
@@ -271,37 +293,72 @@ public class Interface
 		conteneurAction.add(new JLabel());
 		conteneurAction.add(new JLabel());
 		conteneurAction.add(new JLabel());
-		conteneurAction.add(this.boutonRetoure);
+		conteneurAction.add(this.boutonRetour);
 		
 		this.action = conteneurAction;
 		
 	}
 	
 	/**
-	 * 
-	 * Affiche les informations sur un acteur
-	 * @param acteur Information de l'acteur a afficher
+	 * Affiche les informations sur le joueur
+	 * @param joueur Information du joueur a afficher
 	 */
-	public void afficheInfoActeur(Acteur acteur)
+	public void afficheInfoJoueur(PersonnageEnCombat joueur)
 	{
 		GridLayout dispositionPanelInfo = new GridLayout(0, 1);
 		Container conteneurPanelInfo = new Container(); 
 		conteneurPanelInfo.setLayout(dispositionPanelInfo);
 		
-		conteneurPanelInfo.add(new JLabel("Nom : " + acteur.getNom()));
-		conteneurPanelInfo.add(new JLabel("Point d'action : " + acteur.getPointDActionActuels()));
-		conteneurPanelInfo.add(new JLabel("Point de vie : " + acteur.getPointDeVieActuels()));
-		conteneurPanelInfo.add(new JLabel("Point de Mouvement : " + acteur.getPointDeMouvementActuels()));
+		conteneurPanelInfo.add(new JLabel("Nom : " + joueur.getNom()));
+		conteneurPanelInfo.add(new JLabel("Point d'action : " + joueur.getPointDActionActuels()));
+		conteneurPanelInfo.add(new JLabel("Point de vie : " + joueur.getPointDeVieActuels()));
+		conteneurPanelInfo.add(new JLabel("Point de Mouvement : " + joueur.getPointDeMouvementActuels()));
 		
 		this.info = conteneurPanelInfo;
 		this.info.repaint();
 	}
 	
-	public void actualiseArene(Carte carte)
+	/**
+	 * Affiche les informations sur un monstre
+	 * @param monstre Information du monstre
+	 */
+	public void afficheInfoMonstre(Monstre monstre)
+	{
+		GridLayout dispositionPanelInfo = new GridLayout(0, 1);
+		Container conteneurPanelInfo = new Container(); 
+		conteneurPanelInfo.setLayout(dispositionPanelInfo);
+		
+		conteneurPanelInfo.add(new JLabel("Nom : " + monstre.getNom()));
+		conteneurPanelInfo.add(new JLabel("Point de vie : " + monstre.getPointDeVieActuels()));
+		
+		this.info = conteneurPanelInfo;
+		this.info.repaint();
+	}
+	
+	/**
+	 * Affiche les informations sur une competence
+	 * @param competence Information sur une competence
+	 */
+	public void afficheInfoCompetence(Competences competence)
+	{
+		GridLayout dispositionPanelInfo = new GridLayout(0, 1);
+		Container conteneurPanelInfo = new Container(); 
+		conteneurPanelInfo.setLayout(dispositionPanelInfo);
+		
+		conteneurPanelInfo.add(new JLabel("Nom : " + competence.getNom()));
+		conteneurPanelInfo.add(new JLabel("Bonus de puissance : " + competence.getBonusPuissance()));
+		conteneurPanelInfo.add(new JLabel("Portee : " + competence.getPortee()));
+		conteneurPanelInfo.add(new JLabel("Consommation : " + competence.getConsommation()));
+		
+		this.info = conteneurPanelInfo;
+		this.info.repaint();
+	}
+	
+	public void actualiseArene()
 	{
 		int x, y, largeurCarte, hauteurCarte, nbCase;
-		largeurCarte = carte.GetDimension().getX();
-		hauteurCarte = carte.GetDimension().getY();
+		largeurCarte = this.combat.carte.GetDimension().getX();
+		hauteurCarte = this.combat.carte.GetDimension().getY();
 		nbCase = 0;
 		
 		JPanel areneTemp = new JPanel(new GridLayout(largeurCarte,hauteurCarte));
@@ -310,7 +367,7 @@ public class Interface
 		{
 			for (x = hauteurCarte-1; x >= 0; x--)
 			{ 
-				switch (carte.getCarte()[x][y])
+				switch (this.combat.carte.getCarte()[x][y])
 				{
 					case 0:
 						this.cases[nbCase] = new JButton(new ImageIcon("img/herbe.gif"));
@@ -318,7 +375,6 @@ public class Interface
 						break;
 						
 					case 1:
-						
 						this.cases[nbCase] = new JButton(new ImageIcon("img/trou.gif"));
 						areneTemp.add(this.cases[nbCase]);// Trou
 						break;
@@ -332,8 +388,16 @@ public class Interface
 						areneTemp.add(this.cases[nbCase]); //Affiche "F" pour une erreur
 						
 					default:
-						this.cases[nbCase] = new JButton(new ImageIcon("img/monstre.gif"));
-						areneTemp.add(this.cases[nbCase]); // Ennemie
+						if(this.combat.monstres[(this.combat.carte.getCarte()[x][y])-3].getPointDeVieActuels() == 0)
+						{
+							this.cases[nbCase] = new JButton(new ImageIcon("img/mort.png"));
+							areneTemp.add(this.cases[nbCase]); // Ennemie Mort		
+						}
+						else
+						{
+							this.cases[nbCase] = new JButton(new ImageIcon("img/monstre.gif"));
+							areneTemp.add(this.cases[nbCase]); // Ennemie
+						}
 				}
 				nbCase+=1;
 			}

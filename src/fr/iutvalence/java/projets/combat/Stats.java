@@ -155,7 +155,7 @@ public class Stats
 	 */
 	public Stats(int idProfession)
 	{
-		// (FIXED)FIXME utiliser switch/case
+		//FIXME (FIXED) utiliser switch/case
 		switch (idProfession)
 		{
 

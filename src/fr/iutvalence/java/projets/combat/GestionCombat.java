@@ -351,16 +351,7 @@ public class GestionCombat implements ActionListener
 		return new Coordonnees(coord1.getX()+coord2.getX(),coord1.getY()+coord2.getY());
 	}
 	
-	/**
-	 * Cree un nouveau objet coordonnees a partie de la soustraction de 2 coordonnees
-	 * @param coord1 premier coordonnees
-	 * @param coord2 coordonnees a soustraire 
-	 * @return soustre 2 coordonnees
-	 */
-	private Coordonnees SoustractionCoordonnees(Coordonnees coord1,Coordonnees coord2)
-	{
-		return new Coordonnees(coord1.getX()-coord2.getX(),coord1.getY()-coord2.getY());
-	}
+
 	
 	
 	/**

@@ -187,18 +187,24 @@ public class Carte
 	 */
 	public Coordonnees[] ChercheCheminOptimal(int numMonstre)
 	{
-		int posRelative, nbElementMemoire;
+		int posRelative, nbElementMemoire, nbElementInvalides, nbElementUtilise, random, parcours;
+		boolean coorValide, coorDansTableauInvalide;
 		Coordonnees coorMonstre;
 		Coordonnees coorPerso;
 		Coordonnees coorTemp;
-		Coordonnees[] cheminUtilise;
+		Coordonnees coorTest;
+		Coordonnees[] cheminUtilise = new Coordonnees[50];
 		Coordonnees[] cheminMemoire = new Coordonnees[50];
-		Coordonnees[] coordonneesInvalides;
+		Coordonnees[] coordonneesInvalides = new Coordonnees[100];
 		
 		coorMonstre = CherchePositionActeur(numMonstre);
 		coorPerso = CherchePositionActeur(2);
 		coorTemp = coorMonstre;
 		nbElementMemoire = 0;
+		nbElementInvalides = 0;
+		nbElementUtilise = 1;
+		
+		cheminUtilise[0] = coorMonstre;
 		
 		
 		while (coorTemp != coorPerso)
@@ -208,11 +214,132 @@ public class Carte
 			switch (posRelative)
 			{
 				case 1:
-					if(this.carte[coorTemp.getX()][coorTemp.getY()+1] == 0)
+					
+					coorTest = coorTemp;
+					coorTest.changePosY(1);
+					parcours = 0;
+					coorDansTableauInvalide = false;
+					
+					while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
 					{
+						coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
+						parcours ++;
+					}
+					
+					coorValide = this.carte[coorTest.getX()][coorTest.getY()] == 0 && !coorDansTableauInvalide;
+					if (coorValide)
+					{
+						coorTemp = coorTest;
 						cheminMemoire[nbElementMemoire] = coorTemp;
 						nbElementMemoire++;
-						coorTemp.changePosY(1);
+					}
+					else
+					{
+						random = (int)Math.random()*100;
+						if (random < 50)
+						{
+							coorTest = coorTemp;
+							coorTest.changePosX(1);
+							parcours = 0;
+							coorDansTableauInvalide = false;
+							
+							while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+							{
+								coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
+								parcours ++;
+							}
+							
+							coorValide = this.carte[coorTest.getX()][coorTest.getY()] == 0 && !coorDansTableauInvalide;
+							if (coorValide)
+							{
+								coorTemp = coorTest;
+								cheminMemoire[nbElementMemoire] = coorTemp;
+								nbElementMemoire ++;
+							}
+							else
+							{
+								coorTest = coorTemp;
+								coorTest.changePosX(-1);
+								parcours = 0;
+								coorDansTableauInvalide = false;
+								
+								while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+								{
+									coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
+									parcours ++;
+								}
+								
+								coorValide = this.carte[coorTest.getX()][coorTest.getY()] == 0 && !coorDansTableauInvalide;
+								if (coorValide)
+								{
+									coorTemp = coorTest;
+									cheminMemoire[nbElementMemoire] = coorTemp;
+									nbElementMemoire ++;
+								}
+								else
+								{
+									coordonneesInvalides[nbElementInvalides] = coorTemp;
+									nbElementInvalides ++;
+									coorTemp = cheminMemoire[nbElementMemoire-1];
+									nbElementMemoire --;
+								}
+							}
+						}
+						else
+						{
+							coorTest = coorTemp;
+							coorTest.changePosX(-1);
+							parcours = 0;
+							coorDansTableauInvalide = false;
+							
+							while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+							{
+								coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
+								parcours ++;
+							}
+							
+							coorValide = this.carte[coorTest.getX()][coorTest.getY()] == 0 && !coorDansTableauInvalide;
+							if (coorValide)
+							{
+								coorTemp = coorTest;
+								cheminMemoire[nbElementMemoire] = coorTemp;
+								nbElementMemoire ++;
+							}
+							else
+							{
+								coorTest = coorTemp;
+								coorTest.changePosX(1);
+								parcours = 0;
+								coorDansTableauInvalide = false;
+								
+								while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+								{
+									coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
+									parcours ++;
+								}
+								
+								coorValide = this.carte[coorTest.getX()][coorTest.getY()] == 0 && !coorDansTableauInvalide;
+								if (coorValide)
+								{
+									coorTemp = coorTest;
+									cheminMemoire[nbElementMemoire] = coorTemp;
+									nbElementMemoire ++;
+								}
+								else
+								{
+									coordonneesInvalides[nbElementInvalides] = coorTemp;
+									nbElementInvalides ++;
+									coorTemp = cheminMemoire[nbElementMemoire-1];
+									nbElementMemoire --;
+									if (coorTemp.equals(cheminUtilise[nbElementUtilise-1]))
+									{
+										coorTemp.changePosY(-1);
+										cheminUtilise[nbElementUtilise] = coorTemp;
+										nbElementUtilise ++;
+									}
+								}
+							}
+						}
 					}
 					break;
 				case 2:
@@ -232,8 +359,7 @@ public class Carte
 			}
 		}
 		
-		
-		
 	}
-	
+		
 }
+	

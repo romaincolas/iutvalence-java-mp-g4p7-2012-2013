@@ -147,4 +147,93 @@ public class Carte
 		return carteAscii;
 	}
 	
+	
+	/**
+	 * Donne la position relative de deux coordonees
+	 * @param debut (premiere case)
+	 * @param fin (deuxieme case)
+	 * @return La position relative de deux coordonees (1 pour le nord, 2 pour nord-est, 3
+	 * pour l'est, 4 sud-est, 5 sud, 6 sud-ouest, 7 ouest, 8 nord-ouest), 0 pour la meme case;
+	 */
+	private int positionRelative(Coordonnees debut, Coordonnees fin)
+	{
+		Coordonnees coorTemp = debut.SoustractionCoordonnees(fin);
+		
+		if (coorTemp.getX() == 0 && coorTemp.getY() > 0)
+			return 1;
+		if (coorTemp.getX() > 0 && coorTemp.getY() > 0)
+			return 2;
+		if (coorTemp.getX() > 0 && coorTemp.getY() == 0)
+			return 3;
+		if (coorTemp.getX() > 0 && coorTemp.getY() < 0)
+			return 4;
+		if (coorTemp.getX() == 0 && coorTemp.getY() < 0)
+			return 5;
+		if (coorTemp.getX() < 0 && coorTemp.getY() < 0)
+			return 6;
+		if (coorTemp.getX() < 0 && coorTemp.getY() == 0)
+			return 7;
+		if (coorTemp.getX() < 0 && coorTemp.getY() > 0)
+			return 8;
+		return 0;
+		
+	}
+	
+	
+	/**
+	 * determine le chemin devant etre emprunté par le monstre pour atteindre le personnage
+	 * @param numMonstre (Le numero du monstre a bouger)
+	 * @return le chemin que le monstre doit parcourir pour atteindre le personnage
+	 */
+	public Coordonnees[] ChercheCheminOptimal(int numMonstre)
+	{
+		int posRelative, nbElementMemoire;
+		Coordonnees coorMonstre;
+		Coordonnees coorPerso;
+		Coordonnees coorTemp;
+		Coordonnees[] cheminUtilise;
+		Coordonnees[] cheminMemoire = new Coordonnees[50];
+		Coordonnees[] coordonneesInvalides;
+		
+		coorMonstre = CherchePositionActeur(numMonstre);
+		coorPerso = CherchePositionActeur(2);
+		coorTemp = coorMonstre;
+		nbElementMemoire = 0;
+		
+		
+		while (coorTemp != coorPerso)
+		{
+			posRelative = positionRelative(coorTemp, coorPerso);
+			
+			switch (posRelative)
+			{
+				case 1:
+					if(this.carte[coorTemp.getX()][coorTemp.getY()+1] == 0)
+					{
+						cheminMemoire[nbElementMemoire] = coorTemp;
+						nbElementMemoire++;
+						coorTemp.changePosY(1);
+					}
+					break;
+				case 2:
+					break;
+				case 3:
+					break;
+				case 4:
+					break;
+				case 5:
+					break;
+				case 6:
+					break;
+				case 7:
+					break;
+				case 8:
+					break;
+			}
+		}
+		
+		
+		
+	}
+	
 }

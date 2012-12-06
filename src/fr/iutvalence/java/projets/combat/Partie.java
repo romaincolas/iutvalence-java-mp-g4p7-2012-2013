@@ -17,7 +17,7 @@ public class Partie
 		int[][] map1={
 				 {1,1,1,1,1,1,1,1,1},
 				 {1,0,0,0,0,2,3,0,1},
-				 {1,0,0,0,0,4,0,0,1},
+				 {1,0,5,0,0,4,0,0,1},
 				 {1,0,1,1,0,0,0,0,1},
 				 {1,0,0,0,0,0,0,0,1},
 				 {1,0,0,0,1,1,1,1,1},
@@ -41,7 +41,8 @@ public class Partie
 		nom = "bobo";
 		profession = 1; //1 pour avoir la profession Gladiateur
 		Monstre[] monstres = {new Monstre("Monstro1",new Stats(1), carte.CherchePositionActeur(3),compMonstre,3),
-						 new Monstre("Monstro2",new Stats(1), carte.CherchePositionActeur(4),compMonstre,4)    
+						 new Monstre("Monstro2",new Stats(1), carte.CherchePositionActeur(4),compMonstre,4),
+						 new Monstre("Monstro3",new Stats(1), carte.CherchePositionActeur(5),compMonstre,5)
 						  };
 		PersonnageEnCombat joueur = new PersonnageEnCombat(nom,new Stats(profession), carte.CherchePositionActeur(2), profession, compPerso);
 

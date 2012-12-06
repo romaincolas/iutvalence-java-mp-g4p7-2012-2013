@@ -263,7 +263,7 @@ public class Interface
 		Container conteneurAction = new Container(); 
 		conteneurAction.setLayout(dispositionAction);
 		
-		if (monstreAPortee.length > 1)
+		if (monstreAPortee.length >= 1)
 		{
 			for(numMonstre=0;numMonstre<monstreAPortee.length;numMonstre++)
 			{

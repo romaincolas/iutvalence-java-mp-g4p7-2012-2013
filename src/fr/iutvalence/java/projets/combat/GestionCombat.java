@@ -302,7 +302,6 @@ public class GestionCombat implements ActionListener
 			lesMonstresARetourne[x] = lesMonstres[x];
 		}
 			
-		
 		return lesMonstresARetourne;
 	}
 	
@@ -460,6 +459,7 @@ public class GestionCombat implements ActionListener
 		  
 		  else if (e.getActionCommand().equals("Deplacement")) {
 		      this.fenetre.afficheActionMouvement();
+		      this.fenetre.afficheInfoJoueur(this.joueur);
 		      this.fenetre.actualiseFenetre();
 		    }
 		  

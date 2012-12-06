@@ -77,6 +77,16 @@ public class Coordonnees
 		this.y = this.y - y;
 	}
 
+	/**
+	 * Cree un nouveau objet coordonnees a partie de la soustraction de 2 coordonnees
+	 * @param coord coordonnees a soustraire 
+	 * @return soustre 2 coordonnees
+	 */
+	public Coordonnees SoustractionCoordonnees(Coordonnees coord)
+	{
+		return new Coordonnees(this.x-coord.getX(),this.y-coord.getY());
+	}
+	
 	public String toString()
 	{
 		String coordonnees = "";

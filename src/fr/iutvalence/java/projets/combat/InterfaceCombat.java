@@ -5,7 +5,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class Interface
+public class InterfaceCombat
 {
 	/**
 	 * Taille en largeur de la fenetre
@@ -68,7 +68,7 @@ public class Interface
 	private GestionCombat combat;
 
 
-	public Interface(Carte carte, GestionCombat combat)
+	public InterfaceCombat(Carte carte, GestionCombat combat)
 	{
 		super();
 		//******INIT VARIABLE*****//

@@ -24,7 +24,7 @@ public class GestionCombat implements ActionListener
 	 */
 	Monstre[] monstres;
 
-	Interface fenetre;
+	InterfaceCombat fenetre;
 	
 	boolean finDuTour;
 	
@@ -50,7 +50,7 @@ public class GestionCombat implements ActionListener
 		this.monstres = monstres;
 		this.numCombetenceUtilise = -1;
 		this.numMonstreAPortee = -1;
-		this.fenetre = new Interface(carte, this);
+		this.fenetre = new InterfaceCombat(carte, this);
 	}
 
 // ********** GESTION DES MOUVEMENTS *************** //	
@@ -360,8 +360,17 @@ public class GestionCombat implements ActionListener
 	private void tourMonstres()
 	{
 		int numMonstre = 0;
+		//Coordonnees[] cheminOptimal;
 		while(numMonstre < this.monstres.length)
 		{
+			/*
+			cheminOptimal = this.carte.ChercheCheminOptimal(numMonstre+3);//Calcule cheminOptimal vers le joueur
+			while (this.monstres[numMonstre].getPointDeMouvementActuels() != 0 && !(ZoneDePorteeMonstre(numMonstre)))
+			{
+				this.monstres[numMonstre].setPosition(cheminOptimal[0]);
+				this.monstres[numMonstre].setPointDeMouvementActuels(this.monstres[numMonstre].getPointDeMouvementActuels()-1);	
+			}
+			*/
 			if(ZoneDePorteeMonstre(numMonstre))
 			{
 				AttaqueMonstre(numMonstre);
@@ -374,12 +383,10 @@ public class GestionCombat implements ActionListener
 	 * Lanceletour du joueur
 	 */
 	private void tourJoueur()
-	{
-		int i = 0;
-		this.finDuTour = true;
-		
+	{		
 		//******DEBUT DU TOUR DU JOUEUR******//
-		while(this.finDuTour){
+		while(this.finDuTour)
+		{
 			
 			//*****DETECTION D'UNE ATTAQUE SUR UN MONSTRE*****//
 			if(this.numMonstreAPortee >= 0 && this.numCombetenceUtilise>=0)
@@ -429,6 +436,7 @@ public class GestionCombat implements ActionListener
 		{
 			tourJoueur();
 			tourMonstres();
+			this.finDuTour = true;
 			this.fenetre.afficheActionBase();
 			this.fenetre.afficheInfoJoueur(this.joueur);
 			this.fenetre.actualiseFenetre();

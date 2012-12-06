@@ -185,6 +185,7 @@ public class Carte
 	 * @param numMonstre (Le numero du monstre a bouger)
 	 * @return le chemin que le monstre doit parcourir pour atteindre le personnage
 	 */
+	/*
 	public Coordonnees[] ChercheCheminOptimal(int numMonstre)
 	{
 		int posRelative, nbElementMemoire, nbElementInvalides, nbElementUtilise, random, parcours;
@@ -359,7 +360,7 @@ public class Carte
 			}
 		}
 		
-	}
+	}*/
 		
 }
 	

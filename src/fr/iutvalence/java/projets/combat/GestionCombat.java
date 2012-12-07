@@ -350,14 +350,14 @@ public class GestionCombat
 		//Coordonnees[] cheminOptimal;
 		while(numMonstre < this.monstres.length)
 		{
-			/*
-			cheminOptimal = this.carte.ChercheCheminOptimal(numMonstre+3);//Calcule cheminOptimal vers le joueur
+			
+			Coordonnees[] cheminOptimal = this.carte.ChercheCheminOptimal(numMonstre+3);//Calcule cheminOptimal vers le joueur
 			while (this.monstres[numMonstre].getPointDeMouvementActuels() != 0 && !(ZoneDePorteeMonstre(numMonstre)))
 			{
 				this.monstres[numMonstre].setPosition(cheminOptimal[0]);
 				this.monstres[numMonstre].setPointDeMouvementActuels(this.monstres[numMonstre].getPointDeMouvementActuels()-1);	
 			}
-			*/
+			
 			if(ZoneDePorteeMonstre(numMonstre))
 			{
 				AttaqueMonstre(numMonstre);

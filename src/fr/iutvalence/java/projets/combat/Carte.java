@@ -194,9 +194,9 @@ public class Carte
 		Coordonnees coorPerso;
 		Coordonnees coorTemp;
 		Coordonnees coorTest;
-		Coordonnees[] cheminUtilise = new Coordonnees[50];
-		Coordonnees[] cheminMemoire = new Coordonnees[50];
-		Coordonnees[] coordonneesInvalides = new Coordonnees[100];
+		Coordonnees[] cheminUtilise = new Coordonnees[100];
+		Coordonnees[] cheminMemoire = new Coordonnees[100];
+		Coordonnees[] coordonneesInvalides = new Coordonnees[500];
 		
 		coorMonstre = CherchePositionActeur(numMonstre);
 		coorPerso = CherchePositionActeur(2);
@@ -221,7 +221,7 @@ public class Carte
 					parcours = 0;
 					coorDansTableauInvalide = false;
 					
-					while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+					while(parcours < coordonneesInvalides.length && !coorDansTableauInvalide)
 					{
 						coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
 						parcours ++;
@@ -244,7 +244,7 @@ public class Carte
 							parcours = 0;
 							coorDansTableauInvalide = false;
 							
-							while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+							while(parcours < coordonneesInvalides.length && !coorDansTableauInvalide)
 							{
 								coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
 								parcours ++;
@@ -264,7 +264,7 @@ public class Carte
 								parcours = 0;
 								coorDansTableauInvalide = false;
 								
-								while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+								while(parcours < coordonneesInvalides.length && !coorDansTableauInvalide)
 								{
 									coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
 									parcours ++;
@@ -293,7 +293,7 @@ public class Carte
 							parcours = 0;
 							coorDansTableauInvalide = false;
 							
-							while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+							while(parcours < coordonneesInvalides.length && !coorDansTableauInvalide)
 							{
 								coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
 								parcours ++;
@@ -313,7 +313,7 @@ public class Carte
 								parcours = 0;
 								coorDansTableauInvalide = false;
 								
-								while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+								while(parcours < coordonneesInvalides.length && !coorDansTableauInvalide)
 								{
 									coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
 									parcours ++;
@@ -352,7 +352,7 @@ public class Carte
 						parcours = 0;
 						coorDansTableauInvalide = false;
 						
-						while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+						while(parcours < coordonneesInvalides.length && !coorDansTableauInvalide)
 						{
 							coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
 							parcours ++;
@@ -372,7 +372,7 @@ public class Carte
 							parcours = 0;
 							coorDansTableauInvalide = false;
 							
-							while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+							while(parcours < coordonneesInvalides.length && !coorDansTableauInvalide)
 							{
 								coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
 								parcours ++;
@@ -401,7 +401,7 @@ public class Carte
 						parcours = 0;
 						coorDansTableauInvalide = false;
 						
-						while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+						while(parcours < coordonneesInvalides.length && !coorDansTableauInvalide)
 						{
 							coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
 							parcours ++;
@@ -421,7 +421,7 @@ public class Carte
 							parcours = 0;
 							coorDansTableauInvalide = false;
 							
-							while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+							while(parcours < coordonneesInvalides.length && !coorDansTableauInvalide)
 							{
 								coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
 								parcours ++;
@@ -457,7 +457,7 @@ public class Carte
 					parcours = 0;
 					coorDansTableauInvalide = false;
 					
-					while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+					while(parcours < coordonneesInvalides.length && !coorDansTableauInvalide)
 					{
 						coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
 						parcours ++;
@@ -480,7 +480,7 @@ public class Carte
 							parcours = 0;
 							coorDansTableauInvalide = false;
 							
-							while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+							while(parcours < coordonneesInvalides.length && !coorDansTableauInvalide)
 							{
 								coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
 								parcours ++;
@@ -500,7 +500,7 @@ public class Carte
 								parcours = 0;
 								coorDansTableauInvalide = false;
 								
-								while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+								while(parcours < coordonneesInvalides.length && !coorDansTableauInvalide)
 								{
 									coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
 									parcours ++;
@@ -529,7 +529,7 @@ public class Carte
 							parcours = 0;
 							coorDansTableauInvalide = false;
 							
-							while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+							while(parcours < coordonneesInvalides.length && !coorDansTableauInvalide)
 							{
 								coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
 								parcours ++;
@@ -549,7 +549,7 @@ public class Carte
 								parcours = 0;
 								coorDansTableauInvalide = false;
 								
-								while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+								while(parcours < coordonneesInvalides.length && !coorDansTableauInvalide)
 								{
 									coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
 									parcours ++;
@@ -588,7 +588,7 @@ public class Carte
 						parcours = 0;
 						coorDansTableauInvalide = false;
 						
-						while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+						while(parcours < coordonneesInvalides.length && !coorDansTableauInvalide)
 						{
 							coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
 							parcours ++;
@@ -608,7 +608,7 @@ public class Carte
 							parcours = 0;
 							coorDansTableauInvalide = false;
 							
-							while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+							while(parcours < coordonneesInvalides.length && !coorDansTableauInvalide)
 							{
 								coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
 								parcours ++;
@@ -637,7 +637,7 @@ public class Carte
 						parcours = 0;
 						coorDansTableauInvalide = false;
 						
-						while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+						while(parcours < coordonneesInvalides.length && !coorDansTableauInvalide)
 						{
 							coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
 							parcours ++;
@@ -657,7 +657,7 @@ public class Carte
 							parcours = 0;
 							coorDansTableauInvalide = false;
 							
-							while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+							while(parcours < coordonneesInvalides.length && !coorDansTableauInvalide)
 							{
 								coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
 								parcours ++;
@@ -693,7 +693,7 @@ public class Carte
 					parcours = 0;
 					coorDansTableauInvalide = false;
 					
-					while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+					while(parcours < coordonneesInvalides.length && !coorDansTableauInvalide)
 					{
 						coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
 						parcours ++;
@@ -716,7 +716,7 @@ public class Carte
 							parcours = 0;
 							coorDansTableauInvalide = false;
 							
-							while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+							while(parcours < coordonneesInvalides.length && !coorDansTableauInvalide)
 							{
 								coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
 								parcours ++;
@@ -736,7 +736,7 @@ public class Carte
 								parcours = 0;
 								coorDansTableauInvalide = false;
 								
-								while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+								while(parcours < coordonneesInvalides.length && !coorDansTableauInvalide)
 								{
 									coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
 									parcours ++;
@@ -765,7 +765,7 @@ public class Carte
 							parcours = 0;
 							coorDansTableauInvalide = false;
 							
-							while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+							while(parcours < coordonneesInvalides.length && !coorDansTableauInvalide)
 							{
 								coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
 								parcours ++;
@@ -785,7 +785,7 @@ public class Carte
 								parcours = 0;
 								coorDansTableauInvalide = false;
 								
-								while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+								while(parcours < coordonneesInvalides.length && !coorDansTableauInvalide)
 								{
 									coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
 									parcours ++;
@@ -824,7 +824,7 @@ public class Carte
 						parcours = 0;
 						coorDansTableauInvalide = false;
 						
-						while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+						while(parcours < coordonneesInvalides.length && !coorDansTableauInvalide)
 						{
 							coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
 							parcours ++;
@@ -844,7 +844,7 @@ public class Carte
 							parcours = 0;
 							coorDansTableauInvalide = false;
 							
-							while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+							while(parcours < coordonneesInvalides.length && !coorDansTableauInvalide)
 							{
 								coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
 								parcours ++;
@@ -873,7 +873,7 @@ public class Carte
 						parcours = 0;
 						coorDansTableauInvalide = false;
 						
-						while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+						while(parcours < coordonneesInvalides.length && !coorDansTableauInvalide)
 						{
 							coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
 							parcours ++;
@@ -893,7 +893,7 @@ public class Carte
 							parcours = 0;
 							coorDansTableauInvalide = false;
 							
-							while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+							while(parcours < coordonneesInvalides.length && !coorDansTableauInvalide)
 							{
 								coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
 								parcours ++;
@@ -929,7 +929,7 @@ public class Carte
 					parcours = 0;
 					coorDansTableauInvalide = false;
 					
-					while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+					while(parcours < coordonneesInvalides.length && !coorDansTableauInvalide)
 					{
 						coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
 						parcours ++;
@@ -952,7 +952,7 @@ public class Carte
 							parcours = 0;
 							coorDansTableauInvalide = false;
 							
-							while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+							while(parcours < coordonneesInvalides.length && !coorDansTableauInvalide)
 							{
 								coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
 								parcours ++;
@@ -972,7 +972,7 @@ public class Carte
 								parcours = 0;
 								coorDansTableauInvalide = false;
 								
-								while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+								while(parcours < coordonneesInvalides.length && !coorDansTableauInvalide)
 								{
 									coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
 									parcours ++;
@@ -1001,7 +1001,7 @@ public class Carte
 							parcours = 0;
 							coorDansTableauInvalide = false;
 							
-							while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+							while(parcours < coordonneesInvalides.length && !coorDansTableauInvalide)
 							{
 								coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
 								parcours ++;
@@ -1021,7 +1021,7 @@ public class Carte
 								parcours = 0;
 								coorDansTableauInvalide = false;
 								
-								while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+								while(parcours < coordonneesInvalides.length && !coorDansTableauInvalide)
 								{
 									coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
 									parcours ++;
@@ -1060,7 +1060,7 @@ public class Carte
 						parcours = 0;
 						coorDansTableauInvalide = false;
 						
-						while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+						while(parcours < coordonneesInvalides.length && !coorDansTableauInvalide)
 						{
 							coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
 							parcours ++;
@@ -1080,7 +1080,7 @@ public class Carte
 							parcours = 0;
 							coorDansTableauInvalide = false;
 							
-							while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+							while(parcours < coordonneesInvalides.length && !coorDansTableauInvalide)
 							{
 								coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
 								parcours ++;
@@ -1109,7 +1109,7 @@ public class Carte
 						parcours = 0;
 						coorDansTableauInvalide = false;
 						
-						while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+						while(parcours < coordonneesInvalides.length && !coorDansTableauInvalide)
 						{
 							coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
 							parcours ++;
@@ -1129,7 +1129,7 @@ public class Carte
 							parcours = 0;
 							coorDansTableauInvalide = false;
 							
-							while(parcours <= coordonneesInvalides.length && !coorDansTableauInvalide)
+							while(parcours < coordonneesInvalides.length && !coorDansTableauInvalide)
 							{
 								coorDansTableauInvalide = coorTest.equals(coordonneesInvalides[parcours]);
 								parcours ++;

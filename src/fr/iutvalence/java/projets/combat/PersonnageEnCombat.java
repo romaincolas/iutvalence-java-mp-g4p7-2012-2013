@@ -46,6 +46,18 @@ public class PersonnageEnCombat extends Acteur
 		return this.idProfession;
 	}
 
+	
+	
+	
+	/**
+	 * Obtenir les competences du joueur
+	 * @return Competences du joueur
+	 */
+	public Competences[] getCompetences()
+	{
+		return this.competences;
+	}
+
 	/***
 	 * Cherche une competences dans la liste de competence
 	 * @param numCompetences numero de la competence dans la liste

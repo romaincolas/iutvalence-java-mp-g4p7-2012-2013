@@ -3,6 +3,10 @@ package fr.iutvalence.java.projets.lancement;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+/**
+ * @author Florian
+ * objet qui regroupe les informations des boutons de l'interface Menu
+ */
 public class ChoixMenu implements ActionListener
 {
 	/**
@@ -39,11 +43,19 @@ public class ChoixMenu implements ActionListener
 	}
 	
 	
+	/**
+	 * Obtenir le menu choisi
+	 * @return le numero du menu choisi
+	 */
 	public int getChoixMenu()
 	{
 		return this.choixMenu;
 	}
 	
+	/**
+	 * permet d'obtenir la map choisi par le joueur
+	 * @return le numero de map valider par le joueur
+	 */
 	public int getChoixMap()
 	{
 		return this.choixMap;
@@ -51,6 +63,10 @@ public class ChoixMenu implements ActionListener
 
 
 
+	/**
+	 * permet d'obtenir la profession choisi par le joueur
+	 * @return le numero de la profession valider par le joueur
+	 */
 	public int getChoixProfession()
 	{
 		return this.choixProfession;
@@ -58,6 +74,10 @@ public class ChoixMenu implements ActionListener
 
 
 
+	/**
+	 * permet d'obtenir la map a afficher
+	 * @return le numero de la map choisi a afficher 
+	 */
 	public int getChoixMapAAfficher()
 	{
 		return this.choixMapAAfficher;

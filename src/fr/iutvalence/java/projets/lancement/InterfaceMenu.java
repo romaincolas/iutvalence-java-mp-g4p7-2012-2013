@@ -273,6 +273,12 @@ public class InterfaceMenu
 		this.arene.repaint();
 	}
 	
-	
+	/**
+	 * cacher la fenetre
+	 */
+	public void fermerFenetre()
+	{
+		this.fenetre.setVisible(false);
+	}
 	
 }

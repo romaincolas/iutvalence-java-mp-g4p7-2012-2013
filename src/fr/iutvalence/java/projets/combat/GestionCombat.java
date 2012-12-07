@@ -7,7 +7,7 @@ import java.awt.event.*;
  * @author colasr
  * Objet de gestion d'un combat
  */
-public class GestionCombat implements ActionListener
+public class GestionCombat
 {
 	/**
 	 * la carte sur lequel la partie se deroule
@@ -23,13 +23,6 @@ public class GestionCombat implements ActionListener
 	 * Liste des monstre present sur la carte
 	 */
 	Monstre[] monstres;
-
-	InterfaceCombat fenetre;
-	
-	boolean finDuTour;
-	
-	int numCombetenceUtilise;
-	int numMonstreAPortee;
 	
 	/**
 	 * Cree la partie
@@ -37,22 +30,16 @@ public class GestionCombat implements ActionListener
      * @param joueur (le joueur present sur la carte)
 	 * @param monstres (liste des monstres present sur la carte)
 	 */
-	public GestionCombat()
-	{
-		
-	}
-	
 	public GestionCombat(Carte carte,PersonnageEnCombat joueur, Monstre[] monstres)
 	{
 		super();
 		this.carte = carte;
 		this.joueur = joueur;
 		this.monstres = monstres;
-		this.numCombetenceUtilise = -1;
-		this.numMonstreAPortee = -1;
-		this.fenetre = new InterfaceCombat(carte, this);
 	}
 
+	
+	
 // ********** GESTION DES MOUVEMENTS *************** //	
 //JOUEUR
 	/**
@@ -357,7 +344,7 @@ public class GestionCombat implements ActionListener
 	/**
 	 * Joue tous les monstres
 	 */
-	private void tourMonstres()
+	private void tourMonstres(InterfaceCombat fenetre)
 	{
 		int numMonstre = 0;
 		//Coordonnees[] cheminOptimal;
@@ -382,41 +369,127 @@ public class GestionCombat implements ActionListener
 	/**
 	 * Lanceletour du joueur
 	 */
-	private void tourJoueur()
-	{		
+	private void tourJoueur(ChoixCombat choixCombat, InterfaceCombat fenetre)
+	{
+		int menuAffiche, monstreAffiche;
+		menuAffiche = 1;
+		monstreAffiche = -1;
 		//******DEBUT DU TOUR DU JOUEUR******//
-		while(this.finDuTour)
+		while(!choixCombat.isFinDuTour())
 		{
 			
+			//*****AFFICHE LE MENU****//
+			if(choixCombat.getChoixMenu() != menuAffiche)
+			{
+				switch(choixCombat.getChoixMenu())
+				{
+					case 1:
+						fenetre.afficheActionBase();
+						fenetre.actualiseFenetre();
+						break;
+						
+					case 2:
+						fenetre.afficheActionCompetence(this.joueur.getCompetences());
+						fenetre.actualiseFenetre();
+						break;
+						
+					case 3:
+						fenetre.afficheActionChoixMonstre(ZoneDePorteeJoueur(this.joueur.getCompetences(choixCombat.getChoixCompetence())));
+						fenetre.actualiseFenetre();
+						break;
+						
+					case 4:
+						fenetre.afficheActionMouvement();
+						fenetre.actualiseFenetre();
+						break;
+						
+					default:
+						fenetre.afficheActionBase();
+						fenetre.actualiseFenetre();
+				}
+				
+				menuAffiche = choixCombat.getChoixMenu();
+			}
+			
+			if(choixCombat.getChoixMonstreAAfficher() != monstreAffiche)
+			{
+				fenetre.afficheInfoMonstre(this.monstres[choixCombat.getChoixMonstreAAfficher()]);
+				fenetre.actualiseFenetre();
+				monstreAffiche = choixCombat.getChoixMonstreAAfficher();
+			}
+			
+			if(choixCombat.getChoixMouvement() != 0)
+			{
+				switch(choixCombat.getChoixMouvement())
+				{
+					case 1:
+						this.DeplacementJoueurHaut();
+				        this.carte.ActualiseCarte(this.monstres, this.joueur);
+				        fenetre.afficheInfoJoueur(this.joueur);
+				        fenetre.actualiseArene(this.carte,this.monstres);
+				        fenetre.actualiseFenetre();	
+				        break;
+					case 2:
+					    this.DeplacementJoueurGauche();
+					    this.carte.ActualiseCarte(this.monstres, this.joueur);
+					    fenetre.afficheInfoJoueur(this.joueur);
+					    fenetre.actualiseArene(this.carte,this.monstres);
+					    fenetre.actualiseFenetre();
+						break;						
+					case 3:
+					    this.DeplacementJoueurBas();
+					    this.carte.ActualiseCarte(this.monstres, this.joueur);
+					    fenetre.afficheInfoJoueur(this.joueur);
+					    fenetre.actualiseArene(this.carte,this.monstres);
+					    fenetre.actualiseFenetre();
+						break;
+					case 4:
+					    this.DeplacementJoueurDroit();
+					    this.carte.ActualiseCarte(this.monstres, this.joueur);
+					    fenetre.afficheInfoJoueur(this.joueur);
+					    fenetre.actualiseArene(this.carte,this.monstres);
+					    fenetre.actualiseFenetre();
+					    break;
+					default:					    
+						this.DeplacementJoueurHaut();
+				        this.carte.ActualiseCarte(this.monstres, this.joueur);
+				        fenetre.afficheInfoJoueur(this.joueur);
+				        fenetre.actualiseArene(this.carte,this.monstres);
+				        fenetre.actualiseFenetre();						
+				}
+				
+				choixCombat.setChoixMouvement(0);
+			}
+			
 			//*****DETECTION D'UNE ATTAQUE SUR UN MONSTRE*****//
-			if(this.numMonstreAPortee >= 0 && this.numCombetenceUtilise>=0)
+			if(choixCombat.getChoixMonstre() >= 0 && choixCombat.getChoixCompetence()>=0)
 			{
 				//test si le nombre de pa est suffisant
-				this.joueur.setPointDActionActuels(this.joueur.getPointDActionActuels()- this.joueur.getCompetences(this.numCombetenceUtilise).getConsommation());
+				this.joueur.setPointDActionActuels(this.joueur.getPointDActionActuels()- this.joueur.getCompetences(choixCombat.getChoixCompetence()).getConsommation());
 				if(this.joueur.getPointDActionActuels() >= 0)
 				{
 					//faire l'attque
-					this.AttaqueJoueur(this.numMonstreAPortee, this.joueur.getCompetences(this.numCombetenceUtilise));
+					this.AttaqueJoueur(choixCombat.getChoixMonstre(), this.joueur.getCompetences(choixCombat.getChoixCompetence()));
 					
-					if(this.monstres[this.numMonstreAPortee].getPointDeVieActuels() == 0)
+					if(this.monstres[choixCombat.getChoixMonstre()].getPointDeVieActuels() == 0)
 					{
-						this.fenetre.actualiseArene();
+						fenetre.actualiseArene(this.carte, this.monstres);
 					}
 				}
 				
 				else
 					//annuler l'attaque
-					this.joueur.setPointDActionActuels(this.joueur.getPointDActionActuels()+ this.joueur.getCompetences(this.numCombetenceUtilise).getConsommation());
+					this.joueur.setPointDActionActuels(this.joueur.getPointDActionActuels()+ this.joueur.getCompetences(choixCombat.getChoixCompetence()).getConsommation());
 				
 				
 				//retoure a la fenetre de base
-				this.fenetre.afficheActionBase();
-				this.fenetre.afficheInfoMonstre(this.monstres[this.numMonstreAPortee]);
-				this.fenetre.actualiseFenetre();
+				fenetre.afficheActionBase();
+				fenetre.afficheInfoMonstre(this.monstres[choixCombat.getChoixMonstre()]);
+				fenetre.actualiseFenetre();
 				
 				//on desactive les variables de detection
-				this.numMonstreAPortee = -1;
-				this.numCombetenceUtilise = -1;
+				choixCombat.setChoixCompetence(-1);
+				choixCombat.setChoixMonstre(-1);
 			}
 		}
 		
@@ -432,20 +505,26 @@ public class GestionCombat implements ActionListener
 	 */
 	public void lancement()
 	{
+		ChoixCombat choixCombat = new ChoixCombat(this.monstres, this.joueur.getCompetences());
+		InterfaceCombat fenetre = new InterfaceCombat(this.carte, choixCombat, this.joueur);
+		
+		
 		while(ResteMonstres() && this.joueur.getPointDeVieActuels() > 0)
 		{
-			tourJoueur();
-			tourMonstres();
-			this.finDuTour = true;
-			this.fenetre.afficheActionBase();
-			this.fenetre.afficheInfoJoueur(this.joueur);
-			this.fenetre.actualiseFenetre();
+			tourJoueur(choixCombat, fenetre);
+			tourMonstres(fenetre);
+			choixCombat.setFinDuTour(false);
+			fenetre.afficheActionBase();
+			fenetre.afficheInfoJoueur(this.joueur);
+			fenetre.actualiseFenetre();
 			
 		}
 		
 		 System.exit(0);
 	}
 	
+	
+	/*
 	public void actionPerformed(ActionEvent e)
 	{
 		  if (e.getActionCommand().equals("Attaque")) {
@@ -534,6 +613,6 @@ public class GestionCombat implements ActionListener
 				  }
 			  }
 		  }
-	}
+	}*/
 	
 }

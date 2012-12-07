@@ -1,8 +1,5 @@
 package fr.iutvalence.java.projets.lancement;
 
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-
 import fr.iutvalence.java.projets.combat.Carte;
 import fr.iutvalence.java.projets.combat.Competences;
 import fr.iutvalence.java.projets.combat.GestionCombat;
@@ -16,8 +13,10 @@ import fr.iutvalence.java.projets.combat.Stats;
 public class Partie
 {
 	/**
+	 * Main du jeu
 	 * @param args
 	 */
+	@SuppressWarnings("javadoc")
 	public static void main(String[] args)
 	{
 		InterfaceMenu fenetre;
@@ -29,10 +28,9 @@ public class Partie
 		GestionCombat combat;
 		
 		String nom;
-		Monstre[] touche;
 		
 		// La premiere competences de la liste de competences à un nombre d'utilisation infinie )
-		Competences[] compPerso={new Competences("Frappe", 1, 1, 5, 0, 1),new Competences("Coup puissant", 1, 2, 15, 0, 5),new Competences("Lance epee", 2, 5, 15, 0, 5)};
+		Competences[] compPerso={new Competences("Frappe", 1, 1, 5, 0, 1),new Competences("Coup puissant", 1, 2, 10, 0, 5),new Competences("Lance epee", 2, 5, 10, 0, 5)};
 		
 		int[][] map={
 				 {1,1,1,1,1,1,1,1,1},
@@ -90,8 +88,9 @@ public class Partie
 		Monstre[] monstresMap2 = {new Monstre("Fligbluk",new Stats(1), carte2.CherchePositionActeur(3),compMonstreTypeBase,3),
 				 new Monstre("Draugr",new Stats(2), carte2.CherchePositionActeur(4),compMonstreTypeArche,4),
 				 new Monstre("Moufle",new Stats(1), carte2.CherchePositionActeur(5),compMonstreTypeBase,5),
-				 new Monstre("Flarouge",new Stats(3), carte2.CherchePositionActeur(5),compMonstreTypeMage,6)
+				 new Monstre("Flarouge",new Stats(3), carte2.CherchePositionActeur(6),compMonstreTypeMage,6)
 				  };
+		
 		
 		while(choixMenu.getChoixMap() == 0 || choixMenu.getChoixProfession() == 0)
 		{
@@ -132,6 +131,8 @@ public class Partie
 				carteAffiche = choixMenu.getChoixMapAAfficher();
 			}	
 		}
+		
+		fenetre.fermerFenetre();
 		
 		switch(choixMenu.getChoixMapAAfficher())
 		{
